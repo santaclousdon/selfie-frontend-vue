@@ -1,0 +1,174 @@
+<template>
+  <rs-module-wrap id="rev_slider_3_1_wrapper" data-alias="sports-xamin" data-source="gallery" style="background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+    <rs-module id="rev_slider_3_1" class=" rs-ov-hidden" style="display:none;" data-version="6.1.0">
+      <rs-slides>
+        <rs-slide data-key="rs-3" data-title="Slide" data-anim="ei:d,d,d,d,d,d,d,Power3.easeInOut,d,d;eo:d,d,d,d,d,d,d,d,d,d;s:d,d,d,d,d,d,d,2000ms,d,1000ms;r:0,0,0,0,0,0,0,0,0,0;t:boxslide,grayscale,random,blurstrong,fade,crossfade,fadethroughlight,scaledownfromleft,fadethroughtransparent,random;sl:d,d,d,d,d,d,d,2,d,d;" data-firstanim="t:fade;sl:12;">
+          <img
+            alt="#"
+            :src="require('../../static/revslider/assets/dummy.png')"
+            title="xamin-sports-bg-.jpg"
+            width="1600"
+            height="909"
+            data-lazyload="revslider/assets/xamin-sports-bg-.jpg"
+            data-parallax="2"
+            data-panzoom="ss:100;se:100;"
+            class="rev-slidebg"
+            data-no-retina
+          >
+<!--
+                     --><h2
+                        id="slider-3-slide-3-layer-1"
+                        class="rs-layer"
+                        data-type="text"
+                        data-rsp_ch="on"
+                        data-xy="x:l,l,r,c;xo:213px,131px,-165px,-1px;yo:305px,198px,122px,64px;"
+                        data-text="s:100,60,50,30;l:110,74,56,42;fw:900;a:inherit,inherit,inherit,center;"
+                        data-dim="w:auto,681px,681px,681px;"
+                        data-layeronlimit="on"
+                        data-frame_1="e:Power4.easeInOut;st:600;sp:1200;sR:600;"
+                        data-frame_1_sfx="se:blocktoleft;"
+                        data-frame_999="o:0;tp:600;st:w;sR:7200;"
+                        style="z-index:9;font-family:Lato;text-transform:uppercase;"
+                     >
+Analytics
+          </h2><!--
+
+                     --><rs-layer
+                        id="slider-3-slide-3-layer-7"
+                        class="rs-pxl-4"
+                        data-type="image"
+                        data-rsp_ch="on"
+                        data-xy="x:c;xo:-108px,-69px,-131px,-101px;y:m;yo:53px,33px,89px,15px;"
+                        data-text="w:normal;s:20,12,8,4;l:0,16,11,6;"
+                        data-dim="w:108px,69px,60px,37px;h:115px,73px,64px,39px;"
+                        data-frame_0="sX:0.9;sY:0.9;"
+                        data-frame_1="st:3530;sp:1000;sR:3530;"
+                        data-frame_999="o:0;st:w;sR:4470;"
+                        style="z-index:15;font-family:Roboto;"
+                     >
+<img
+alt="#"
+:src="require('../../static/revslider/assets/dummy.png')"
+width="116"
+height="115"
+data-lazyload="revslider/assets/xamin-sports-ball.png"
+data-no-retina
+>
+          </rs-layer><!--
+
+                     --><rs-layer
+                        id="slider-3-slide-3-layer-13"
+                        class="button blue-btn rev-btn"
+                        data-type="button"
+                        data-rsp_ch="on"
+                        data-xy="x:l,l,c,c;xo:216px,132px,0,379px;yo:457px,292px,201px,162px;"
+                        data-text="w:normal;s:16,10,14,10;l:30,19,24,22;"
+                        data-dim="minh:0px,none,none,none;"
+                        data-padding="t:10,6,6,4;r:30,19,20,12;b:10,6,6,4;l:30,19,20,12;"
+                        data-border="bor:50px,50px,50px,50px;"
+                        data-frame_0="o:1;"
+                        data-frame_1="st:1280;sR:1280;"
+                        data-frame_999="o:0;st:w;sR:7420;"
+                        data-frame_hover="bgc:#313e5b;bor:50px,50px,50px,50px;sp:200;e:Power1.easeInOut;"
+                        style="z-index:11;background-color:#437eeb;font-family:Lato;"
+                     >
+Read More
+          </rs-layer><!--
+
+                     --><h2
+                        id="slider-3-slide-3-layer-15"
+                        class="rs-layer"
+                        data-type="text"
+                        data-rsp_ch="on"
+                        data-xy="x:l,l,c,c;xo:217px,133px,251px,-1px;yo:208px,125px,50px,19px;"
+                        data-text="s:80,60,50,30;l:80,60,56,42;fw:300;a:inherit,inherit,inherit,center;"
+                        data-dim="w:auto,681px,681px,681px;"
+                        data-layeronlimit="on"
+                        data-frame_1="e:Power4.easeInOut;st:600;sp:1200;sR:600;"
+                        data-frame_1_sfx="se:blocktoleft;"
+                        data-frame_999="o:0;tp:600;st:w;sR:7200;"
+                        style="z-index:8;font-family:Lato;text-transform:uppercase;"
+                     >
+Sports
+          </h2><!--
+
+                     --><rs-layer
+                        id="slider-3-slide-3-layer-16"
+                        class="rs-pxl-1"
+                        data-type="image"
+                        data-rsp_ch="on"
+                        data-xy="x:c;xo:260px,166px,86px,55px;y:b;yo:0,0,38px,62px;"
+                        data-text="w:normal;s:20,12,8,4;l:0,16,11,6;"
+                        data-dim="w:576px,368px,306px,208px;h:695px,444px,369px,251px;"
+                        data-frame_1="e:Power4.easeInOut;st:1760;sp:1500;sR:1760;"
+                        data-frame_999="o:0;st:w;sR:5740;"
+                        style="z-index:12;font-family:Roboto;"
+                     >
+<img
+alt="#"
+:src="require('../../static/revslider/assets/dummy.png')"
+width="576"
+height="695"
+data-lazyload="revslider/assets/xamin-sports-b1-1.png"
+data-no-retina
+>
+          </rs-layer><!--
+
+                     --><rs-layer
+                        id="slider-3-slide-3-layer-19"
+                        class="rs-pxl-1"
+                        data-type="shape"
+                        data-rsp_ch="on"
+                        data-xy="x:r;xo:239px,152px,139px,78px;y:m;yo:-149px,-95px,-10px,-60px;"
+                        data-text="w:normal;s:20,12,8,4;l:0,16,11,6;"
+                        data-dim="w:230px,147px,123px,76px;h:220px,140px,108px,67px;"
+                        data-sba="so:3ms"
+                        data-border="bos:solid;boc:#ffcc00;bow:8px,8px,8px,8px;"
+                        data-frame_0="x:-175%;o:1;"
+                        data-frame_0_mask="u:t;x:100%;"
+                        data-frame_1="e:Power3.easeOut;st:2080;sp:1500;sR:2080;"
+                        data-frame_1_mask="u:t;"
+                        data-frame_999="o:0;st:w;sR:5420;"
+                        data-loop_0="o:0;"
+                        data-loop_999="sp:1500;e:Sine.easeInOut;yyf:t;"
+                        style="z-index:13;font-family:Roboto;"
+          /><!--
+
+                     --><rs-layer
+                        id="slider-3-slide-3-layer-21"
+                        class="rs-pxl-1"
+                        data-type="image"
+                        data-rsp_ch="on"
+                        data-xy="x:c;xo:166px,106px,-2px,-13px;yo:282px,180px,329px,157px;"
+                        data-text="w:normal;s:20,12,8,4;l:0,16,11,6;"
+                        data-dim="w:84px,53px,56px,34px;h:58px,37px,39px,24px;"
+                        data-frame_0="y:200%;sX:2;sY:2;o:1;rX:-20deg;rY:-20deg;"
+                        data-frame_1="e:Power3.easeOut;st:2790;sp:1000;sR:2790;"
+                        data-frame_999="o:0;st:w;sR:5210;"
+                        style="z-index:14;font-family:Roboto;"
+                     >
+<img
+alt="#"
+:src="require('../../static/revslider/assets/dummy.png')"
+width="84"
+height="58"
+data-lazyload="revslider/assets/xamin-sports-b3.png"
+data-no-retina
+>
+          </rs-layer><!--
+-->
+        </rs-slide>
+      </rs-slides>
+      <rs-static-layers>
+        <!--
+               -->
+      </rs-static-layers>
+      <rs-progress class="rs-bottom" style="visibility: hidden !important;" />
+    </rs-module>
+  </rs-module-wrap>
+</template>
+<script>
+export default {
+  name: 'Home'
+}
+</script>

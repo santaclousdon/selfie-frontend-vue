@@ -1,0 +1,62 @@
+{
+  "name": "xamin-vue",
+  "version": "1.0.0",
+  "description": "Xamin - Data Science & Analytics HTML Template",
+  "author": "goldenmace",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.2",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "animate.css": "^3.7.2",
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0",
+    "chart.js": "^3.5.1",
+    "cross-env": "^5.2.0",
+    "eslint-plugin-vue": "^6.0.1",
+    "express": "^4.16.4",
+    "isotope-layout": "^3.0.6",
+    "jarallax": "^1.11.0",
+    "jquery": "^3.4.1",
+    "jquery.appear": "^1.0.1",
+    "lodash": "latest",
+    "magnific-popup": "^1.1.0",
+    "moment": "^2.29.1",
+    "nuxt": "^2.0.0",
+    "owl.carousel": "^2.3.4",
+    "postcss-loader": "^3.0.0",
+    "retinajs": "^2.1.3",
+    "skrollr": "^0.6.26",
+    "vue": "latest",
+    "vue-count-to": "^1.0.13",
+    "vue-server-renderer": "^2.6.10",
+    "wowjs": "^1.1.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.7.2",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "nodemon": "^1.18.9",
+    "vue-retina": "^0.1.11"
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Goldenmace/xamin-vue.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/Goldenmace/xamin-vue/issues"
+  },
+  "homepage": "https://gitlab.com/Goldenmace/xamin-vue#readme"
+}

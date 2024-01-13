@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Variable css */
+@import "../css/color/variable.css";
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Raleway:300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C800%2C800i&#038;subset=latin%2Clatin-ext');
+@import url('https://fonts.googleapis.com/css?family=Karla%3A400%2C700&#038;display=swap&#038;ver=1.0');
+@import url('https://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C900&#038;display=swap&#038;ver=1.0');
+/* Ionic icons import */
+@import "../css/ionicons.min.css";
+/*********************************************************
+ Uncomment this Code to enable latest version of Ionic icons
+ !!!! Warning : Old version of ionic font might not work !!!!
+
+ @import "~ionicons/dist/css/ionicons.min.css";
+ *********************************************************/
+/* Custom css file import */
+@import "../css/custom.css";
+
+/* Customize Style css*/
+@import "../css/style-customizer.css";
+
+/* Magnific popup css */
+@import "../css/magnific-popup.css";
+
+@import "../../static/revslider/css/rs6.css";
+
+/* Flaticon icon font: Flaticon */
+@import "../css/flaticon.css"
+
+
