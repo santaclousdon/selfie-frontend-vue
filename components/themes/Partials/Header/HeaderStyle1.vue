@@ -1,57 +1,15 @@
 <template>
   <!-- Header -->
   <header id="main-header" :class="className">
-    <div class="container-fluid sub-header">
-      <div class="row">
-        <div class="col-auto">
-          <div class="number-info">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="mailto:support@iqnonicthemes.com">
-                  <i class="fas fa-envelope" />support@iqnonicthemes.com
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="tel:+0123456789">
-                  <i class="fas fa-phone-alt" />+0123456789
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-auto col-auto ml-auto sub-main">
-          <div class="social-icone">
-            <ul class="list-inline">
-              <li class="d-inline">
-                <a href="#">
-                  <i class="fa fa-facebook-f" />
-                </a>
-              </li>
-              <li class="d-inline">
-                <a href="#">
-                  <i class="fa fa-twitter" />
-                </a>
-              </li>
-              <li class="d-inline">
-                <a href="#">
-                  <i class="fa fa-instagram" />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid main-header">
+    <div class="container-fluid main-header" style="border-bottom: dashed gray 1px">
       <div class="row">
         <div class="col-sm-12">
           <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">
               <img :id="styledLogo ? 'logo_img' : ''" class="img-fluid logo" :src="logoImg" alt="#">
             </a>
-            <button
+            <a
               class="navbar-toggler"
-              type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent"
@@ -59,9 +17,9 @@
               aria-label="Toggle navigation"
             >
               <span class="navbar-toggler-icon">
-                <i class="ion-navicon" />
+                <i class="fa fa-ellipsis-v" />
               </span>
-            </button>
+            </a>
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
               <div class="menu-main-menu-container">
                 <ul id="top-menu" class="navbar-nav ml-auto">
@@ -71,11 +29,6 @@
                       @click="jumpTo(option.href)"
                     >
                       {{ option.title }}
-                      <i
-                        v-if="option.children"
-                        class="fa fa-angle-down toggledrop"
-                        aria-hidden="true"
-                      />
                     </nuxt-link>
                     <ul v-if="option.children" :class="'sub-menu '+ option.classname" style="display: none;">
                       <li v-for="(child,chilIndex) in option.child" :key="chilIndex" class="menu-item" :class="{'current-menu-item': isRouteActive(child.href) }">
@@ -90,8 +43,16 @@
             </div>
             <div class="sub-main">
               <nav aria-label="breadcrumb">
+                <div class="light-btn button">
+                  <a href="#">Log in</a>
+                </div>
                 <div class="blue-btn button">
-                  <a href="#">Get Started</a>
+                  <a href="#">Get started</a>
+                </div>
+                <div class="lang-btn button">
+                  <a href="#">
+                    <img src="../../../../assets/images/image_8.png" alt="">
+                  </a>
                 </div>
               </nav>
             </div>

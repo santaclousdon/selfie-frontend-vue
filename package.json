@@ -1,7 +1,7 @@
 {
-  "name": "xamin-vue",
+  "name": "Selfie.cash",
   "version": "1.0.0",
-  "description": "Xamin - Data Science & Analytics HTML Template",
+  "description": "Selfie.cash - Snap, Sell, Earn: Cash in on Your Selfies.",
   "author": "goldenmace",
   "private": true,
   "scripts": {
@@ -52,11 +52,11 @@
   "main": ".eslintrc.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/Goldenmace/xamin-vue.git"
+    "url": "git+https://github.com/COCO-DEV03033/selfie.cash.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/Goldenmace/xamin-vue/issues"
+    "url": "https://github.com/COCO-DEV03033/selfie.cash.git"
   },
-  "homepage": "https://gitlab.com/Goldenmace/xamin-vue#readme"
+  "homepage": "https://selfie.cash"
 }

@@ -8,6 +8,30 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C800%2C800i&#038;subset=latin%2Clatin-ext');
 @import url('https://fonts.googleapis.com/css?family=Karla%3A400%2C700&#038;display=swap&#038;ver=1.0');
 @import url('https://fonts.googleapis.com/css?family=Lato%3A400%2C700%2C900&#038;display=swap&#038;ver=1.0');
+
+@font-face {
+    font-family: "Darker Grotesque";
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('../fonts/DarkerGrotesque-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Montserrat";
+    font-style: Italic;
+    font-display: swap;
+    src: url('../fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-display: swap;
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+
 /* Ionic icons import */
 @import "../css/ionicons.min.css";
 /*********************************************************
