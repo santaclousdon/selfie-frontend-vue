@@ -906,8 +906,8 @@ header .navbar ul li:hover .sub-menu {
   display: block;
   background: #ffffff;
   position: absolute;
-  top: 80px;
-  left: 0;
+  top: 30px;
+  right: 0;
   padding-left: 0;
   display: inline-block;
   width: 200px;
@@ -3694,7 +3694,6 @@ footer .menu-footer-menu-container .menu li:last-child {
 }
 
 footer .copyright-footer {
-  border-top: 1px solid rgba(82, 95, 129, 0.09);
   position: relative;
 }
 

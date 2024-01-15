@@ -1,16 +1,8 @@
 <template>
-   <div>
-    <h4 class="footer-title iq-rmt-30">{{ addressTitle }}</h4>
+  <div>
     <div class="row">
       <div class="col-sm-12">
-        <ul class="iq-contact">
-          <li v-for="(option,index) in addressContent" :key="index">
-            <a href="javascript:void(0)">
-              <i v-if="option.icon" :class="option.iconClass"></i>
-              <span>{{ option.text }}</span>
-            </a>
-          </li>
-        </ul>
+        <img src="../../../../assets/images/trustpilot.png" alt="">
       </div>
     </div>
   </div>
@@ -23,3 +15,9 @@ export default {
   props: ['addressTitle', 'addressContent']
 }
 </script>
+<style scoped>
+img {
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+</style>

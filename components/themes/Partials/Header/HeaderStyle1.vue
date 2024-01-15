@@ -8,14 +8,8 @@
             <a class="navbar-brand" href="#">
               <img :id="styledLogo ? 'logo_img' : ''" class="img-fluid logo" :src="logoImg" alt="#">
             </a>
-            <a
-              class="navbar-toggler"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
+            <a class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon">
                 <i class="fa fa-ellipsis-v" />
               </span>
@@ -23,15 +17,14 @@
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
               <div class="menu-main-menu-container">
                 <ul id="top-menu" class="navbar-nav ml-auto">
-                  <li v-for="(option,index) in navItemList" :key="index" class="nav-item menu-item" :class="isParentActiveRoute(option) ? ' current-menu-item ' : '' ">
-                    <nuxt-link
-                      :to="option.href"
-                      @click="jumpTo(option.href)"
-                    >
+                  <li v-for="(option, index) in navItemList" :key="index" class="nav-item menu-item"
+                    :class="isParentActiveRoute(option) ? ' current-menu-item ' : ''">
+                    <nuxt-link :to="option.href" @click="jumpTo(option.href)">
                       {{ option.title }}
                     </nuxt-link>
-                    <ul v-if="option.children" :class="'sub-menu '+ option.classname" style="display: none;">
-                      <li v-for="(child,chilIndex) in option.child" :key="chilIndex" class="menu-item" :class="{'current-menu-item': isRouteActive(child.href) }">
+                    <ul v-if="option.children" :class="'sub-menu ' + option.classname" style="display: none;">
+                      <li v-for="(child, chilIndex) in option.child" :key="chilIndex" class="menu-item"
+                        :class="{ 'current-menu-item': isRouteActive(child.href) }">
                         <nuxt-link :to="child.href">
                           <span>{{ child.title }}</span>
                         </nuxt-link>
@@ -50,9 +43,22 @@
                   <a href="#">Get started</a>
                 </div>
                 <div class="lang-btn button">
-                  <a href="#">
-                    <img src="../../../../assets/images/image_8.png" alt="">
-                  </a>
+                  <ul id="top-menu" class="navbar-nav ml-auto">
+                    <li class="nav-item menu-item" style="margin-right: 0;">
+                      <img src="../../../../assets/images/image_8.png" alt="">
+                      <ul :class="'sub-menu'" style="display: none;">
+                        <li class="menu-title"></li>
+                        <li class="menu-title">Choose language:</li>
+                        <hr>
+                        <li v-for="(child, chilIndex) in langItem" :key="chilIndex" class="menu-item"
+                          :class="{ 'current-menu-item': isRouteActive(child.href) }">
+                          <nuxt-link :to="child.href">
+                            <span>{{ child.title }}</span>
+                          </nuxt-link>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </nav>
             </div>
@@ -80,8 +86,17 @@ export default {
   // created() {
   //   this.$root.$on("bv::scrollspy::activate", this.onActivate);
   // },
+  data() {
+    return {
+      langItem: [
+        { href: '/', title: 'English', children: true, classname: ' ', active: true },
+        { href: '/', title: 'Nederlands', children: true, classname: ' ', active: false },
+        { href: '/', title: 'Россия', children: true, classname: ' ', active: false }
+      ]
+    }
+  },
   methods: {
-    isParentActiveRoute (option) {
+    isParentActiveRoute(option) {
       // eslint-disable-next-line no-unused-expressions
       const itemClass = option.child.find((item) => {
         if (item.href === this.$route.path) {
@@ -94,7 +109,7 @@ export default {
         return false
       }
     },
-    isRouteActive (id) {
+    isRouteActive(id) {
       if (this.$route.path === id) {
         return true
       } else {
@@ -107,7 +122,7 @@ export default {
     //     target
     //   );
     // },
-    jumpTo (href) {
+    jumpTo(href) {
       window
         .$('html, body')
         .stop()
@@ -121,3 +136,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.menu-title {
+  color: black!important;
+  padding: 5px 10px;
+}
+</style>

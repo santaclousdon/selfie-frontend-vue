@@ -3,11 +3,13 @@
     <div class="footer-logo text-left">
       <h4 class="footer-title">{{ title }}</h4>
       <div class="menu-footer-menu-container">
-        <ul class="menu">
-          <li v-for="(list,value) in content" :key="value" class="menu-item">
-            <a :href="list.href">{{ list.title }}</a>
-          </li>
-        </ul>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Enter your email" aria-label="Enter your email"
+            aria-describedby="basic-addon2">
+          <div class="blue-btn button">
+            <img src="../../../../assets/images/Arrow 3.png" width="20" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -18,3 +20,31 @@ export default {
   props: ['title', 'content']
 }
 </script>
+<style scoped>
+.footer-title {
+  color: #222222;
+  font-size: 30px;
+  font-family: Darker Grotesque;
+  font-weight: 800;
+  word-wrap: break-word;
+  margin-bottom: 50px;
+}
+
+.button {
+  padding: 15px 15px;
+}
+
+input {
+  border-radius: 8px;
+  border: #DFDFDF 1px solid;
+  margin-right: 5px;
+}
+input::placeholder {
+  color: #222222;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 30px;
+  word-wrap: break-word;
+}
+</style>
