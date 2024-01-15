@@ -1,15 +1,9 @@
 <template>
   <div class="main-content">
     <Home />
-    <About />
-    <HowWeWorks />
     <HowItWorks />
-    <Services />
     <Customer />
-    <Project />
-    <Client />
-    <Awards />
-    <Blog />
+    <WhyPay />
     <Footer />
   </div>
 </template>
@@ -21,6 +15,7 @@ import HowWeWorks from '../../components/LandingPage1/HowWeWorks'
 import HowItWorks from '../../components/LandingPage1/HowItWorks'
 import Services from '../../components/LandingPage1/Services'
 import Customer from '../../components/LandingPage1/Customer'
+import WhyPay from '../../components/LandingPage1/WhyPay'
 import Project from '../../components/LandingPage1/Project'
 import Client from '../../components/LandingPage1/Client'
 import Awards from '../../components/LandingPage1/Awards'
@@ -32,6 +27,7 @@ export default {
   components: {
     Home,
     About,
+    WhyPay,
     HowWeWorks,
     HowItWorks,
     Services,

@@ -18,6 +18,13 @@
 }
 
 @font-face {
+    font-family: "Darker Grotesque normal";
+    font-style: normal;
+    font-display: swap;
+    src: url('../fonts/DarkerGrotesque-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
     font-family: "Montserrat";
     font-style: Italic;
     font-display: swap;

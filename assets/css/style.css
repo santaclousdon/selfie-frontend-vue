@@ -4572,9 +4572,6 @@ About style home-2
   height: 100px;
   line-height: 110px;
   margin-bottom: 30px;
-  border-radius: 90px;
-  background: #eff1fe;
-  box-shadow: 0 0 0 14px rgb(239, 241, 254, 0.3);
 }
 
 .xamin-process.xamin-circle {
@@ -4611,11 +4608,9 @@ About style home-2
   width: 120px;
   height: 120px;
   line-height: 120px;
-  border-radius: 90px;
   background-image: -moz-linear-gradient(90deg, rgb(241, 243, 254) 0%, rgb(255, 255, 255) 100%);
   background-image: -webkit-linear-gradient(90deg, rgb(241, 243, 254) 0%, rgb(255, 255, 255) 100%);
   background-image: -ms-linear-gradient(90deg, rgb(241, 243, 254) 0%, rgb(255, 255, 255) 100%);
-  box-shadow: 0 0 0 14px rgb(239, 241, 254, 0.3);
 }
 
 .consult-services.xamin-square {
