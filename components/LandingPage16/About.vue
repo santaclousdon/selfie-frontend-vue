@@ -26,7 +26,7 @@
           </ul>
 
           <div class=" text-left  mt-4">
-            <a class="button blue-btn button-icon" href="/landing-page-16"><span class="btn-effect"> Read More</span></a>
+            <a class="button blue-btn button-icon" href="/home6"><span class="btn-effect"> Read More</span></a>
           </div>
         </div>
       </div>

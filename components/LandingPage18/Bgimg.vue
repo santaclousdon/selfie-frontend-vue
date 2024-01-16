@@ -11,7 +11,7 @@
             </p>
           </div>
           <div class=" text-left  ">
-            <a class="button blue-btn button-icon" href="/landing-page-18"><span class="btn-effect"> View Details</span></a>
+            <a class="button blue-btn button-icon" href="/home8"><span class="btn-effect"> View Details</span></a>
           </div>
         </div>
         <div class="col-lg-6 col-md-6   wow fadeInUp align-self-center">

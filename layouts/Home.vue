@@ -11,13 +11,13 @@ import { menu, services, pages, landing1About, ourCases, blog } from '../config/
 import logoImg from '../assets/images/logo.png'
 
 export default {
-  name: 'LandingPage1',
+  name: 'Home',
   data () {
     return {
       styleLogo: false,
       logo: logoImg,
       navItems: [
-        { href: '/landing-page-1',
+        { href: '/home',
           title: 'How does this works?',
           active: true,
           children: true,

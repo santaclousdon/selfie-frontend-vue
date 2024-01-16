@@ -9,7 +9,7 @@
                 Data Analytics Community
               </h2>
               <p>Many variations of passages fact that a reader will be distracted content of a page when looking at its layout.</p>
-              <a class="link-btn" href="/landing-page-16">
+              <a class="link-btn" href="/home6">
                 <span class="btn-effect"> Readmore <i class="ion-ios-arrow-right ml-2" /></span>
               </a>
             </div>
@@ -21,7 +21,7 @@
               <h2 class="data-title">
                 Reporting & Visualization
               </h2><p>Contrary to popular established fact that a reader will be distracted by the readable content of a page when looking.</p>
-              <a class="link-btn" href="/landing-page-16">
+              <a class="link-btn" href="/home6">
                 <span class="btn-effect"> Readmore<i class="ion-ios-arrow-right ml-2" /></span>
               </a>
             </div>
@@ -33,7 +33,7 @@
               <h2 class="data-title">
                 Technical Assistance
               </h2><p>Many variations of passages fact that a reader will be distracted content of a page when looking at its layout.</p>
-              <a class="link-btn" href="/landing-page-16">
+              <a class="link-btn" href="/home6">
                 <span class="btn-effect"> Readmore<i class="ion-ios-arrow-right ml-2" /></span>
               </a>
             </div>

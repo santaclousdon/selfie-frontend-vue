@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-4 col-lg-4 ">
           <div class=" text-right mt-4 ">
-            <a class="button white-btn button-icon" href="/landing-page-15"><span class="btn-effect"> Contact Us</span></a>
+            <a class="button white-btn button-icon" href="/home5"><span class="btn-effect"> Contact Us</span></a>
           </div>
         </div>
       </div>

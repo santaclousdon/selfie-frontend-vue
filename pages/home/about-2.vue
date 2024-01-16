@@ -18,7 +18,7 @@ import Footer from '../../components/AboutUs-1/Footer'
 import { themes } from '../../assets/app/app'
 
 export default {
-  layout: 'LandingPage1',
+  layout: 'Home',
   components: {
     AboutUs,
     History,

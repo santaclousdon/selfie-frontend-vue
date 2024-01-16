@@ -63,7 +63,7 @@ export default {
       ],
       footerHome1: [
         {
-          href: '/landing-page-1',
+          href: '/home',
           title: 'Home'
         },
         {
@@ -77,7 +77,7 @@ export default {
       ],
       footerHome2: [
         {
-          href: '/landing-page-1',
+          href: '/howItWork',
           title: 'How does it work?'
         },
         {
@@ -89,13 +89,13 @@ export default {
           title: 'Photo requirements'
         },
         {
-          href: '/login-page',
+          href: '/faqs',
           title: 'Frequently asked questions'
         }
       ],
       footerHome3: [
         {
-          href: '/landing-page-1',
+          href: '/home',
           title: 'Terms & conditions'
         },
         {

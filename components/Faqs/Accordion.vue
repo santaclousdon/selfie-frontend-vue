@@ -87,6 +87,23 @@ section {
   background-color: white;
 }
 
+.iq-accordion .iq-accordion-block {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 8px;
+  border: 1px #EDEFFD solid
+}
+
+div.active-faq .container .row {
+  background-color: white;
+}
+
+div.active-faq .container .row:hover {
+  background-color: #EDEFFD;
+  cursor: pointer;
+}
+
 p {
   color: #222222;
   font-size: 18px;

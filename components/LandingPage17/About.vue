@@ -29,7 +29,7 @@
           </ul>
 
           <div class=" text-left  mt-3">
-            <a class="button blue-btn button-icon" href="/landing-page-17"><span class="btn-effect"> Read More</span></a>
+            <a class="button blue-btn button-icon" href="/home7"><span class="btn-effect"> Read More</span></a>
           </div>
         </div>
         <div class="col-lg-6">

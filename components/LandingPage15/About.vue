@@ -18,7 +18,7 @@
           </ul>
 
           <div class=" text-left mt-4 ">
-            <a class="button blue-btn button-icon" href="/landing-page-15"><span class="btn-effect"> View Details</span></a>
+            <a class="button blue-btn button-icon" href="/home5"><span class="btn-effect"> View Details</span></a>
           </div>
         </div>
         <div class="col-lg-6">

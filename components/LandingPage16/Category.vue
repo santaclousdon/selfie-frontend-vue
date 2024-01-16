@@ -25,7 +25,7 @@
       <div class="row text-center">
         <div class="col-sm-12">
           <div class=" text-center mt-5 ">
-            <a class="button blue-btn button-icon" href="/landing-page-16"><span class="btn-effect"> View All Categories</span></a>
+            <a class="button blue-btn button-icon" href="/home6"><span class="btn-effect"> View All Categories</span></a>
           </div>
         </div>
       </div>

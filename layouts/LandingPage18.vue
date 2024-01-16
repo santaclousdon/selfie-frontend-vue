@@ -16,7 +16,7 @@ export default {
       styleLogo: false,
       logo: logoImg,
       navItems: [
-        { href: '/landing-page-18',
+        { href: '/home8',
           title: 'Home',
           active: true,
           children: true,

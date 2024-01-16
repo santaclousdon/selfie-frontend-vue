@@ -50,7 +50,7 @@
             </div>
           </div>
           <div class=" text-left mt-3 ml-lg-4 ">
-            <a class="button blue-btn button-icon" href="/landing-page-19"><span class="btn-effect"> Let's get started</span></a>
+            <a class="button blue-btn button-icon" href="/home9"><span class="btn-effect"> Let's get started</span></a>
           </div>
         </div>
         <div class="col-lg-5  wow fadeInUp  ">

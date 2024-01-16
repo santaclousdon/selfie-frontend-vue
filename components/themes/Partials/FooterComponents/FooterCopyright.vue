@@ -11,7 +11,7 @@
         <div class="pt-3 pb-3">
           <div class="row flex-row-reverse justify-content-between">
             <div class="col-lg-12 col-md-12 text-lg-left text-md-left text-left"> <span class="copyright">Copyright
-                <i class="fa fa-copyright"></i> 2024 <a href="/landing-page-1">Selfie.cash</a> All rights reserved.</span>
+                <i class="fa fa-copyright"></i> 2024 <a href="/home">Selfie.cash</a> All rights reserved.</span>
             </div>
           </div>
         </div>

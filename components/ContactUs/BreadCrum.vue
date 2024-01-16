@@ -6,7 +6,7 @@
               <nav aria-label="breadcrumb" class="text-left">
                   <h2 class="title">Contact Us</h2>
                   <ol class="breadcrumb main-bg">
-                      <li class="breadcrumb-item"><a href="/landing-page-1">Home</a></li>
+                      <li class="breadcrumb-item"><a href="/home">Home</a></li>
                       <li class="breadcrumb-item active">Contact Us</li>
                   </ol>
               </nav>

@@ -1,6 +1,6 @@
 export const menu = [
   {
-    href: '/landing-page-1',
+    href: '/home',
     title: 'Home One '
   },
   {
@@ -36,43 +36,43 @@ export const menu = [
     title: 'Data Scientist Profile'
   },
   {
-    href: '/landing-page-10',
+    href: '/home0',
     title: 'Data Visualization service'
   },
   {
-    href: '/landing-page-11',
+    href: '/home1',
     title: 'Analytics In Marketing'
   },
   {
-    href: '/landing-page-12',
+    href: '/home2',
     title: 'Analytics In Banking & Finance'
   },
   {
-    href: '/landing-page-13',
+    href: '/home3',
     title: 'Analytics In Manufacturing'
   },
   {
-    href: '/landing-page-14',
+    href: '/home4',
     title: 'Analytics In Security'
   },
   {
-    href: '/landing-page-15',
+    href: '/home5',
     title: 'Data Center Analytics'
   },
   {
-    href: '/landing-page-16',
+    href: '/home6',
     title: 'Analytics In Education'
   },
   {
-    href: '/landing-page-17',
+    href: '/home7',
     title: 'Analytics In Healthcare'
   },
   {
-    href: '/landing-page-18',
+    href: '/home8',
     title: 'Analytics In Sports'
   },
   {
-    href: '/landing-page-19',
+    href: '/home9',
     title: 'Data Science Online Course'
   },
   {
@@ -137,8 +137,8 @@ export const pages = [
     title: 'Clients'
   },
   {
-    href: '/careers',
-    title: 'Careers'
+    href: '/faqs',
+    title: 'FAQS'
   },
   {
     href: '/contact-us',

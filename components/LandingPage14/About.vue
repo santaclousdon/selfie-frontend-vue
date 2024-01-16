@@ -20,7 +20,7 @@
                 Trace Analysis
               </h4><p class="">
                 Many publishing packages and web page editors now use Lorem.
-              </p><a class="button btn-simple" href="/landing-page-14"><span class="btn-effect"> Read More</span></a>
+              </p><a class="button btn-simple" href="/home4"><span class="btn-effect"> Read More</span></a>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
                 Proprietary Research
               </h4><p class="">
                 It is a long established fact that a reader will be distracted.
-              </p><a class="button btn-simple" href="/landing-page-14"><span class="btn-effect"> Read More</span></a>
+              </p><a class="button btn-simple" href="/home4"><span class="btn-effect"> Read More</span></a>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
                 Data Analysis
               </h4><p class="">
                 Many publishing packages and web page editors now use Lorem.
-              </p><a class="button btn-simple" href="/landing-page-14"><span class="btn-effect"> Read More</span></a>
+              </p><a class="button btn-simple" href="/home4"><span class="btn-effect"> Read More</span></a>
             </div>
           </div>
         </div>
