@@ -1,21 +1,3 @@
-/*
-Template:  Xamin -Data Science & Analytics HTML5 Template
-Author: http://iqonic.design/
-Version: 1.0
-Design and Developed by: iqonic.design.in
-
-NOTE: This is main stylesheet of template, This file contains the styling for the actual Template. Please do not change anything here! write in a custom.css file if required!
-
-*/
-
-/*================================================
-[  Table of contents  ]
-================================================
-
-
-======================================
-[ End table content ]
-======================================*/
 
 /*---------------------------------------------------------------------
                              Google Font
@@ -23,6 +5,13 @@ NOTE: This is main stylesheet of template, This file contains the styling for th
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
 
+
+@font-face {
+  font-family: "Darker Grotesque normal";
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/DarkerGrotesque-VariableFont_wght.ttf') format('truetype');
+}
 /*---------------------------------------------------------------------
                               General
 -----------------------------------------------------------------------*/
@@ -4571,7 +4560,6 @@ About style home-2
   width: 100px;
   height: 100px;
   line-height: 110px;
-  margin-bottom: 30px;
 }
 
 .xamin-process.xamin-circle {
@@ -6346,10 +6334,12 @@ Careers
   border-radius: 4px;
 }
 
-.iq-accordion.career-style .active-faq a.accordion-title {
-  color: #313e5b;
-  padding-left: 75px;
-  text-decoration: none;
+.iq-accordion.career-style .active-faq a.accordion-title span{
+  color: #222222;
+  font-size: 29px;
+  font-family: 'Darker Grotesque normal';
+  font-weight: 700;
+  word-wrap: break-word
 }
 
 .iq-accordion.career-style .iq-accordion-block {
@@ -6369,35 +6359,6 @@ Careers
 
 .iq-accordion.career-style .iq-accordion-block:last-child {
   margin-bottom: 0px;
-}
-
-.iq-accordion.career-style .iq-accordion-block.accordion-active .accordion-title:before {
-  content: "\f209";
-}
-
-.iq-accordion.career-style .accordion-title:before {
-  -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.06);
-  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.06);
-  cursor: pointer;
-  content: "\f218";
-  font-family: "Ionicons";
-  position: absolute;
-  top: -6px;
-  left: 6px;
-  display: block;
-  padding: 14px 18px;
-  color: #ffffff;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: normal;
-  -webkit-transition: all 0.25s ease-in-out 0s;
-  -moz-transition: all 0.25s ease-in-out 0s;
-  transition: all 0.25s ease-in-out 0s;
-  background: #313e5b;
-  border-radius: 4px;
-  width: 45px;
-  height: 45px;
 }
 
 .iq-accordion.career-style .active-faq .button {
@@ -6458,7 +6419,7 @@ Frequently Asked Questions
 }
 
 .iq-accordion.faq-style .accordion-active .accordion-title:before {
-  content: "\f3d8";
+  content: "";
   font-family: "Ionicons";
   color: #ffffff;
 }

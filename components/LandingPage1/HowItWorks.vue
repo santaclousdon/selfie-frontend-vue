@@ -4,7 +4,7 @@
       <div class="row justify-content-between">
         <div class="col-sm-12 col-lg-3 col-md-3 right wow fadeInUp" style="background-color: #F5F6FD;">
           <div class="consult-services xamin-circle  text-left" data-wow-delay="0.6s">
-            <div class="circle-effect">
+            <div class="circle-effect mt-3">
               <img :src="require('../../assets/images/how/how1.png')" alt="create">
             </div>
             <h5 class="mb-2">1. Create a free account.</h5>
@@ -20,7 +20,7 @@
         <div class="col-sm-12 col-lg-3 right col-md-3 mt-4 mt-md-0 wow fadeInUp" style="background-color: #F5F6FD;">
           <div class="consult-services xamin-circle  text-left" style="background-color: #F5F6FD;"
             data-wow-delay="1s">
-            <div class="circle-effect">
+            <div class="circle-effect mt-3">
               <img :src="require('../../assets/images/how/how2.png')" alt="upload">
             </div>
             <h5 class="mb-2">2. Upload your selfies</h5>
@@ -29,14 +29,14 @@
           </div>
           <div class="row learn-more">
             <div class="col-lg-10 col-md-12 col-sm-12">
-              <a href="">Get started <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
+              <a href="">Photo requirements <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
                     alt="->"></span> </a>
             </div>
           </div>
         </div>
         <div class="col-sm-12 col-lg-3 col-md-3 mt-4 mt-md-0 wow fadeInUp" style="background-color: #F5F6FD;">
           <div class="consult-services xamin-circle text-left" style="background-color: #F5F6FD;" data-wow-delay="1.4s">
-            <div class="circle-effect">
+            <div class="circle-effect mt-3">
               <img :src="require('../../assets/images/how/how3.png')" alt="getPaid">
             </div>
             <h5 class="mb-2">3. Get paid</h5>
@@ -45,7 +45,7 @@
           </div>
           <div class="row learn-more">
             <div class="col-lg-10 col-md-12 col-sm-12">
-              <a href="">Get started <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
+              <a href="">Our rates <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
                     alt="->"></span> </a>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default {
   height: 200px;
 }
 .fadeInUp {
-  height: 450px;
+  height: 400px;
 }
 .consult-services h5 {
   color: #222222;
@@ -94,13 +94,16 @@ export default {
   word-wrap: break-word;
 }
 
-.second-line {
-  margin-top: 30px;
+p {
+  margin-bottom: 10px;
+}
+p.second-line {
+  margin-top: 15px;
 }
 
 .learn-more a {
   color: black;
-  font-size: 18px;
+  font-size: 16px;
   font-family: Montserrat;
   font-weight: 600;
   word-wrap: break-word
@@ -115,7 +118,11 @@ export default {
   background-color: #673CF6;
   border-radius: 100px;
   color: white;
-  padding: 2px 5px;
+  padding: 3px 5px;
   cursor: pointer;
+}
+
+section {
+  padding: 0px 0px 100px 0px;
 }
 </style>

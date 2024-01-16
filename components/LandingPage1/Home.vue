@@ -65,8 +65,8 @@
           </a>
 
           <rs-layer id="slider-4-slide-6-layer-11" data-type="image" data-rsp_ch="on"
-            data-xy="xo:740px,646px,230px,110px;yo:123px,47px,333px,333px;" data-text="w:normal;s:20,14,10,6;l:0,18,13,8;"
-            data-dim="w:800px,361px,338px,234px;h:480,361px,338px,234px;" data-frame_0="y:top;"
+            data-xy="xo:640px,646px,230px,110px;yo:103px,47px,333px,333px;" data-text="w:normal;s:20,14,10,6;l:0,18,13,8;"
+            data-dim="w:720px,361px,338px,234px;h:450,361px,338px,234px;" data-frame_0="y:top;"
             data-frame_1="st:1610;sp:1000;sR:1610;" data-frame_999="o:0;st:w;sR:6390;"
             style="z-index:24;font-family:Roboto;">
             <img src="revslider/assets/dummy.png" alt="images" width="445" height="445"

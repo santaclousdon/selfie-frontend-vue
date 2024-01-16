@@ -6337,7 +6337,6 @@ Careers
 
 .iq-accordion.career-style .active-faq a.accordion-title {
   color: #313e5b;
-  padding-left: 75px;
   text-decoration: none;
 }
 
@@ -6360,33 +6359,8 @@ Careers
   margin-bottom: 0px;
 }
 
-.iq-accordion.career-style .iq-accordion-block.accordion-active .accordion-title:before {
-  content: "\f209";
-}
 
 .iq-accordion.career-style .accordion-title:before {
-  -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.06);
-  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.06);
-  cursor: pointer;
-  content: "\f218";
-  font-family: "Ionicons";
-  position: absolute;
-  top: -6px;
-  left: 6px;
-  display: block;
-  padding: 14px 18px;
-  color: #ffffff;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: normal;
-  -webkit-transition: all 0.25s ease-in-out 0s;
-  -moz-transition: all 0.25s ease-in-out 0s;
-  transition: all 0.25s ease-in-out 0s;
-  background: #313e5b;
-  border-radius: 4px;
-  width: 45px;
-  height: 45px;
 }
 
 .iq-accordion.career-style .active-faq .button {

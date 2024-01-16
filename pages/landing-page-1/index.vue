@@ -38,7 +38,7 @@ export default {
     Blog,
     Footer
   },
-  mounted () {
+  mounted() {
     setTimeout(function () {
       themes.index()
       themes.initRevSlider1()

@@ -1,6 +1,5 @@
 <template>
   <div class="main-content">
-    <BreadCrum />
     <Accordion />
     <Footer />
   </div>
@@ -9,7 +8,7 @@
 <script>
 import BreadCrum from '../../components/Careers/BreadCrum'
 import Accordion from '../../components/Careers/Accordion'
-import Footer from '../../components/Careers/Footer'
+import Footer from '../../components/LandingPage1/Footer'
 import { themes } from '../../assets/app/app'
 export default {
   layout: 'Pages',
