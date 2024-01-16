@@ -12,7 +12,7 @@ import logoImg from '../assets/images/logo.png'
 
 export default {
   name: 'Home',
-  data() {
+  data () {
     return {
       styleLogo: false,
       logo: logoImg,
@@ -30,11 +30,11 @@ export default {
       ]
     }
   },
-  mounted() {
+  mounted () {
   }
 }
 </script>
 <style>
-@import url('../assets/css/style.css');
-@import url('../assets/css/responsive.css');
+  @import url('../assets/css/style.css');
+  @import url('../assets/css/responsive.css');
 </style>

@@ -11,7 +11,7 @@ import { menu, services, pages, landing1About, ourCases, blog } from '../config/
 import logoImg from '../assets/images/logo.png'
 
 export default {
-  name: 'Home',
+  name: 'Faqs',
   data() {
     return {
       styleLogo: false,
@@ -38,3 +38,4 @@ export default {
 @import url('../assets/css/style.css');
 @import url('../assets/css/responsive.css');
 </style>
+  

@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import Accordion from '../../components/Faqs/Accordion'
+import Accordion from '../../components/PhotoRequire/Accordion'
 import Footer from '../../components/Home/Footer'
 import { themes } from '../../assets/app/app'
 export default {
-  layout: 'Faqs',
+  layout: 'PhotoRequire',
   components: {
     Accordion,
     Footer
