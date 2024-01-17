@@ -77,15 +77,15 @@ export default {
       ],
       footerHome2: [
         {
-          href: '/howItWork',
+          href: '/home',
           title: 'How does it work?'
         },
         {
-          href: '/register-page',
+          href: '/our-rates',
           title: 'Our rates'
         },
         {
-          href: '/login-page',
+          href: '/photo-require',
           title: 'Photo requirements'
         },
         {
@@ -95,11 +95,11 @@ export default {
       ],
       footerHome3: [
         {
-          href: '/home',
+          href: '/terms',
           title: 'Terms & conditions'
         },
         {
-          href: '/register-page',
+          href: '/privacy',
           title: 'Privacy policy'
         }
       ]

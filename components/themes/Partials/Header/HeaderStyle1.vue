@@ -37,10 +37,10 @@
             <div class="sub-main">
               <nav aria-label="breadcrumb">
                 <div class="light-btn button">
-                  <a href="#">Log in</a>
+                  <a href="/login-page">Log in</a>
                 </div>
                 <div class="blue-btn button">
-                  <a href="#">Get started</a>
+                  <a href="/register-page">Get started</a>
                 </div>
                 <div class="lang-btn button">
                   <ul id="top-menu" class="navbar-nav ml-auto">
