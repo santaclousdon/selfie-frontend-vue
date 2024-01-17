@@ -51,11 +51,11 @@
               </div>
               <div>
                 <label for="password">Password</label>
-                <input type="password" name="your-password" class="form-control text " placeholder="password here">
+                <input type="password" name="password" class="form-control text " placeholder="password here">
               </div>
               <div>
-                <label for="password">Repeat password</label>
-                <input type="password" name="your-email" class="form-control text " placeholder="repeat password">
+                <label for="password-repeat">Repeat password</label>
+                <input type="password" name="password-repeat" class="form-control text " placeholder="repeat password">
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">

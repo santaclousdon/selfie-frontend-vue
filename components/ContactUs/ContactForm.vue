@@ -1,10 +1,10 @@
 <template>
-  <section class="pt-0">
-    <div class="container">
+  <section class="pt-5">
+    <div class="container contact-section">
       <div class="row align-items-center ">
         <div class="col-sm-6">
           <h2 class="text-left mb-4">
-            Let's talk about for your<br> business.
+            Contact us.
           </h2>
           <div class="response-output" />
           <form action="#" method="post">
@@ -20,7 +20,7 @@
                   name="submit"
                   type="submit"
                   value="Send"
-                  class="button d-block w-100"
+                  class="button blue-btn d-block w-100"
                 >
                   Send Message
                 </button>
@@ -49,8 +49,8 @@
                   Email us
                 </h4>
                 <ul class="list-inline mb-0">
-                  <li><a href="mailto:support@iqnonicthemes.com"> support@iqnonicthemes.com</a></li>
-                  <li><a href="mailto:support@iqnonicthemes.com"> support@iqnonicthemes.com</a></li>
+                  <li><a href="mailto:support@iqnonicthemes.com"> support@brainwavehq.org</a></li>
+                  <li><a href="mailto:support@iqnonicthemes.com"> support@brainwavehq.org</a></li>
                 </ul>
               </div>
             </div>
@@ -84,3 +84,9 @@ export default {
   name: 'ContactForm'
 }
 </script>
+
+<style scoped>
+.contact-section {
+  margin-top: 100px;
+}
+</style>
