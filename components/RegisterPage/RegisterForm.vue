@@ -32,17 +32,44 @@
           <div class="response-output" />
           <form action="#" method="post" class=" p-3">
             <div class="contact-form">
-              <div> <input type="text" name="your-name" class="form-control text " placeholder="Your Name"> </div>
-              <div> <input type="text" name="your-email" class="form-control text " placeholder="Your Email"> </div>
               <div>
-                <div class="row align-items-center justify-content-center ">
-                  <div class="col-lg-6 col-md-6 col-sm-12 forgot-pass">
-                    <a href="/forgot-pass">Forgot password?</a>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-12 text-right">
+                <label for="email">Enter your email address</label>
+                <input type="text" name="your-email" class="form-control text " placeholder="your@email.com">
+              </div>
+              <div>
+                <label for="gender">Choose your gender</label>
+                <ul class="row nav nav-pills mb-3 justify-content-between" id="pills-tab" role="tablist">
+                  <li class="nav-item col-lg-6 col-md-6 text-center">
+                    <a class="nav-link active pill" id="pills-female-tab" data-toggle="pill" href="#pills-female"
+                      role="tab" aria-controls="pills-female" aria-selected="false">Female</a>
+                  </li>
+                  <li class="nav-item col-lg-6 col-md-6 text-center">
+                    <a class="nav-link pill" id="pills-male-tab" data-toggle="pill" href="#pills-male" role="tab"
+                      aria-controls="pills-male" aria-selected="false">Male</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <label for="password">Password</label>
+                <input type="password" name="your-password" class="form-control text " placeholder="password here">
+              </div>
+              <div>
+                <label for="password">Repeat password</label>
+                <input type="password" name="your-email" class="form-control text " placeholder="repeat password">
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-labelcol-lg-11 col-md-11 " for="flexCheckIndeterminate">
+                  I hereby confirm I have fully read and agree
+                  with the <a href="">terms & conditions</a> .
+                </label>
+              </div>
+              <div>
+                <div class="row align-items-center justify-content-center mr-0 create-btn">
+                  <div class="col-lg-12 col-md-12 col-sm-12 text-right">
                     <button id="submitLogin" click="/contact-us" name="submit" type="submit" value="Send"
-                      class="button blue-btn d-block w-55">
-                      Login <span> <img src="../../assets/images/Arrow 3.png" alt=""> </span>
+                      class="button blue-btn btn-sm d-block w-55">
+                      Create an account <span> <img src="../../assets/images/Arrow 3.png" alt=""> </span>
                     </button>
                   </div>
                 </div>
@@ -92,7 +119,7 @@ input.text {
 }
 
 .login-section {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .detail-form {
@@ -124,6 +151,7 @@ input.text {
   line-height: 30px;
   word-wrap: break-word
 }
+
 .accordion-details p {
   padding-bottom: 0;
   margin-bottom: 0;
@@ -145,8 +173,46 @@ input.text {
   font-weight: 500;
   word-wrap: break-word
 }
+
 .iq-accordion-block {
   padding: 3em 1em 0em 1em;
+}
+
+label {
+  color: #222222;
+  font-size: 14px;
+  font-family: Montserrat;
+  font-weight: 500;
+  word-wrap: break-word
+}
+
+.btn-check {
+  display: none;
+}
+
+a.pill {
+  background-color: white;
+  color: #222222;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 30px;
+  word-wrap: break-word;
+  border: 1px #DFDFDF solid;
+  border-radius: 8px;
+}
+
+a.active {
+  background-color: #673CF6 !important;
+}
+
+input.form-check-input {
+  width: 15px;
+  margin-right: 15px;
+  margin-top: -10px;
+}
+.create-btn {
+  margin: 3em 0 3em 3em;
 }
 </style>
 
