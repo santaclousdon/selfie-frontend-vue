@@ -23,8 +23,8 @@ export default {
           child: [],
           classname: 'menu'
         },
-        { href: '/about-1', title: 'Our rates', children: true, child: [], classname: ' ' },
-        { href: '/services', title: 'Photo requirements', children: true, child: [], classname: ' ' }
+        { href: '/our-rates', title: 'Our rates', children: true, child: [], classname: ' ' },
+        { href: '/photo-require', title: 'Photo requirements', children: true, child: [], classname: ' ' }
       ]
     }
   },
