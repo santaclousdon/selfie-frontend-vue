@@ -9,14 +9,8 @@
           </div>
           <div class="col-lg-9 col-md-6 col-sm-6">
             <div class="row">
-              <div class="col-lg-5 col-md-4 col-sm-6 mt-4 mt-lg-0 mt-md-0">
-                <FooterLinks :content="footerHome1" title="Sign up for updates" />
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-6 mt-4 mt-lg-0 mt-md-0">
-                <FooterFollowUs :content="footerHome2" title="Follow us" />
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-0 mt-4">
-                <FooterAddress :address-content="footerText" address-title="Contact us" class="iq-contact" />
+              <div class="col-lg-12 col-md-12 col-sm-12 mt-4 mt-lg-0 mt-md-0">
+                <FooterFollowUsAuth :content="footerHome2" title="Follow Us on Social Media" />
               </div>
             </div>
             <div class="row mt-5" >
@@ -33,13 +27,13 @@
   import FooterAddress from '../../themes/Partials/FooterComponents/FooterAddress'
   import FooterLinks from '../../themes/Partials/FooterComponents/FooterLinks'
   import FooterCopyright from '../../themes/Partials/FooterComponents/FooterCopyright'
-  import FooterFollowUs from '../../themes/Partials/FooterComponents/FooterFollowUs'
+  import FooterFollowUsAuth from '../../themes/Partials/FooterComponents/FooterFollowUsAuth'
   import logoImg from '../../../assets/images/logo.png'
   import line from '../../../assets/images/Line 1.png'
   
   export default {
     name: 'Footer',
-    components: { FooterLogo, FooterLinks, FooterAddress, FooterMain, FooterCopyright, FooterFollowUs },
+    components: { FooterLogo, FooterLinks, FooterAddress, FooterMain, FooterCopyright, FooterFollowUsAuth },
     data() {
       return {
         navLogo: logoImg,
@@ -63,16 +57,12 @@
         ],
         footerHome1: [
           {
-            href: '/home',
+            href: '/auth/dashboard',
             title: 'Home'
           },
           {
-            href: '/register-page',
-            title: 'Create an account'
-          },
-          {
             href: '/login-page',
-            title: 'Login'
+            title: 'Log out'
           }
         ],
         footerHome2: [
