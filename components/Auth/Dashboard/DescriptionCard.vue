@@ -63,7 +63,9 @@ export default {
     border-radius: 8px;
     padding: 25px 35px;
 }
-
+section .container {
+    float: left;
+}
 .refer-form {
     background-color: #673CF6;
     border-radius: 8px;

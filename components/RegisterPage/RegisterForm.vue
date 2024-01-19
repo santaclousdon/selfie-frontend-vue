@@ -67,10 +67,10 @@
               <div>
                 <div class="row align-items-center justify-content-center mr-0 create-btn">
                   <div class="col-lg-12 col-md-12 col-sm-12 text-right">
-                    <button id="submitLogin" click="/contact-us" name="submit" type="submit" value="Send"
+                    <a id="submitLogin" href="/auth" name="submit" type="submit" value="Send"
                       class="button blue-btn btn-sm d-block w-55">
                       Create an account <span> <img src="../../assets/images/Arrow 3.png" alt=""> </span>
-                    </button>
+                  </a>
                   </div>
                 </div>
               </div>

@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="iq-accordion career-style mt-2">
-                        <div class="iq-accordion-block">
+                        <div class="iq-accordion-block step-content">
                             <div class="active-faq clearfix">
                                 <div class="container">
                                     <div class="row align-items-center">
@@ -104,7 +104,6 @@ section {
     width: 100%;
     height: 100%;
     background: white;
-    border: 1px #EDEFFD solid
 }
 
 .active-faq {
@@ -205,11 +204,13 @@ span.title {
     font-size: 16px;
     font-family: Montserrat;
     font-weight: 500;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
 
 .step-box {
     padding: 30px 30px 0px 30px;
+    border: 1px #EDEFFD solid;
+    border-radius: 8px;
 }
 
 .pendingImage {
@@ -233,7 +234,15 @@ span.title {
     word-wrap: break-word
 }
 
+section .container {
+    float: left;
+}
+
 .step-status {
     padding: 5px;
+}
+
+.step-content {
+    border: 1px #EDEFFD solid
 }
 </style>

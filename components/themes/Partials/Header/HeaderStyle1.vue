@@ -137,9 +137,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .menu-title {
-  color: black!important;
+  color: black !important;
   padding: 5px 10px;
+}
+
+.menu-item {
+  color: #222222;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  word-wrap: break-word
 }
 </style>

@@ -35,16 +35,13 @@
               </div>
             </div>
             <div class="sub-main">
-              <nav aria-label="breadcrumb" style="display: flex; align-items: center;" >
-                <div class="lang-btn user-avatar button">
+              <nav aria-label="breadcrumb" style="display: flex; align-items: center;">
+                <div class="user-avatar button">
                   <a href="">
                     <img src="../../../../assets/images/avatar.png" alt=""></a>
                 </div>
                 <div class="user-detail align-items-center p-3">
                   <p>Emily Jackson <br> <span class="text-funds">€12.50</span> </p>
-                </div>
-                <div class="blue-btn button">
-                  <a href="/register-page">Get started</a>
                 </div>
                 <div class="lang-btn button">
                   <ul id="top-menu" class="navbar-nav ml-auto">
@@ -63,6 +60,10 @@
                       </ul>
                     </li>
                   </ul>
+                </div>
+                <div class="user-avatar button mr-3 ml-3">
+                  <a href="">
+                    <img src="../../../../assets/images/logout.png" alt=""></a>
                 </div>
               </nav>
             </div>
@@ -158,7 +159,7 @@ export default {
 .user-avatar.button {
   background: white;
   border-radius: 50%;
-  padding: 10px 10px;
+  padding: 8px 12px;
   border: 1px #D9D9D9 solid;
 }
 
@@ -185,6 +186,13 @@ export default {
   font-size: 18px;
   font-family: Montserrat;
   font-weight: 600;
+  word-wrap: break-word
+}
+.menu-item {
+  color: #222222;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
   word-wrap: break-word
 }
 </style>

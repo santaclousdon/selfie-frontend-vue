@@ -13,18 +13,18 @@
           <div class="response-output" />
           <form action="#" method="post">
             <div class="contact-form">
-              <div> <input type="text" name="your-name" class="form-control text " placeholder="Your Name"> </div>
               <div> <input type="text" name="your-email" class="form-control text " placeholder="Your Email"> </div>
+              <div> <input type="password" name="your-password" class="form-control text " placeholder="Your {asswprd}"> </div>
               <div>
                 <div class="row align-items-center justify-content-center ">
                   <div class="col-lg-6 col-md-6 col-sm-12 forgot-pass">
                     <a href="/forgot-pass">Forgot password?</a>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 text-right">
-                    <button id="submitLogin" click="/contact-us" name="submit" type="submit" value="Send"
+                    <a id="submitLogin" href="/auth" name="submit" type="submit" value="Send"
                       class="button blue-btn d-block w-55">
                       Login <span> <img src="../../assets/images/Arrow 3.png" alt=""> </span>
-                    </button>
+                  </a>
                   </div>
                 </div>
               </div>
