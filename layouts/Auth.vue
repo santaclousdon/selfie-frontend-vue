@@ -10,15 +10,15 @@
             <button class="button blue-btn mt-3 w-100" > Pay me now</button></p>
           </div>
           <div class="row">
-            <ul id="pills-tab" class="nav nav-pills mt-3" role="tablist">
+            <ul class="nav nav-pills mt-3" role="tablist">
               <li v-for="(tab, index) in tabs" :key="index" class="nav-item col-lg-12">
                 <span class="line" />
-                <a class="nav-link" :class="tab.active ? ' active ' : ''" data-toggle="pill" :href="tab.href"
+                <nuxt-link class="nav-link" :class="tab.active ? ' active ' : ''" :to="tab.href"
                   aria-selected="false">
                   <img :src="tab.image" alt="tab-image" class="img">
                   <span class="tab-title ml-3">{{ tab.title }}</span>
                   <span v-if="tab.bage > 0" class="bage ml-5">{{ tab.bage }}</span>
-                </a>
+                </nuxt-link>
                 <img v-if="index < 4" src="../assets/images/Line 1.png" height="1" alt="">
               </li>
             </ul>
@@ -110,9 +110,9 @@ export default {
 @import url('../assets/css/responsive.css');
 </style>
 <style scoped>
-.nav-pills {
+/* .nav-pills {
   position: inherit;
-}
+} */
 
 .tab-title {
   color: #222222;
@@ -135,8 +135,11 @@ export default {
   padding: 2px 6px;
 }
 
-a.nav-link.active {
+.nav-link.active {
   background-color: #673CF6;
+}
+.nav-link:hover {
+  background-color: #EDEFFD;
 }
 
 .text-aside-detail {

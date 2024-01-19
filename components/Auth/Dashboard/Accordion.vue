@@ -127,6 +127,14 @@ div.active-faq .container .row {
     word-wrap: break-word
 }
 
+.content-title p {
+    color: #222222;
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 500;
+    word-wrap: break-word
+}
+
 .step-title {
     color: #222222;
     font-size: 18px;
