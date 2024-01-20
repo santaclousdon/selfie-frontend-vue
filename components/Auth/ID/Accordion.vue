@@ -1,17 +1,21 @@
 <template>
-  <section class="container">
-    <div class="container">
+  <section>
+    <div class="container mt-5">
       <div class="row">
         <div class="col-sm-12">
+          <div class="row align-items-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 content-title">
+              <h2> <img src="../../../assets/images/IDverify.png" class="ml-5 mr-5" alt=""> ID verification</h2>
+            </div>
+          </div>
           <div class="iq-accordion career-style mt-5">
             <div class="iq-accordion-block p-3">
               <div class="active-faq clearfix">
                 <div class="container">
                   <div class="row align-items-center">
                     <div class="faq-title">
-                      <div class="col-sm-12 alert alert-danger" role="alert">
-                        <span class="mr-3"><img src="../../../assets/images/warningIcon.png" alt=""></span>
-                        You have entered an incorrect email address.
+                      <div class="accordion-title"><span> Submit your ID
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -19,23 +23,16 @@
               </div>
               <div class="accordion-details">
                 <div class="container">
-                  <div class="row">
-                    <div class="sign-content">
-                      <label for="FullName">Your full name (Contributor)</label>
-                      <input type="text" name="FullName" class="form-control text " placeholder="">
+                  <div class="row mt-4">
+                    <div class="legal-warn">
+                      <img src="../../../assets/images/legal-warn.png" width="20" height="20" alt="">
                     </div>
-                    <div class="sign-content">
-                      <label for="currentDate">Date</label>
-                      <span name="currentDate" class="form-control text currentDate"> {{ currentDate }} </span>
+                    <div class="col-lg-11 mb-4 mb-lg-0">
+                      <p>To receive payment, you must submit a clear copy of your government-issued ID, ensuring that all
+                        details are visible. Please be assured that we will never disclose your personal information or
+                        identification publicly.
+                      </p>
                     </div>
-                  </div>
-                  <div class="">
-                    <a href="" class="blue-btn button btn-sm mt-3">
-                      <div class="row justify-content-center align-items-center">
-                        <span class="label-text mr-3">Sign this agreement</span>
-                        <img src="../../../assets/images/legal-sign.png" class="sign-image" alt="">
-                      </div>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -49,7 +46,7 @@
 <script>
 
 export default {
-  name: 'SignAggrement',
+  name: 'Accordion',
   data() {
     return {
       items: [
@@ -69,8 +66,7 @@ export default {
           title: 'Agreement to Terms',
           description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
         }
-      ],
-      currentDate: this.$moment().format('MMM DD, YYYY')
+      ]
     }
   },
   mounted() { }
@@ -78,7 +74,7 @@ export default {
 </script>
 <style scoped >
 section {
-  padding: 0%;
+  padding-bottom: 0%;
   float: left;
 }
 
@@ -116,18 +112,26 @@ p {
 }
 
 .faq-title {
-  width: 100%;
+  width: 80%;
   display: inline-block;
   padding-left: 0;
 }
 
-/* .blue-btn {
+.accordion-title span{
+  color: #222222;
+  font-size: 29px!important;
+  font-family: Darker Grotesque normal!important;
+  font-weight: 700!important;
+  word-wrap: break-word
+}
+
+.blue-btn {
   background-color: #673CF6;
-  border-radius: 8px;
+  border-radius: 100px;
   color: white;
   padding: 2px 5px;
   cursor: pointer;
-} */
+}
 
 .text-right {
   width: 20%;
@@ -183,59 +187,5 @@ ul li:before {
   font-weight: 600;
   line-height: 30px;
   word-wrap: break-word;
-}
-
-.label-text {
-  color: white;
-  font-size: 24px;
-  font-family: Darker Grotesque normal;
-  font-weight: 600;
-  word-wrap: break-word;
-}
-
-.alert {
-  width: 100%;
-  background-color: #E35D5D;
-  color: white;
-  font-size: 16px;
-  font-family: Montserrat;
-  font-weight: 500;
-  word-wrap: break-word;
-  display: block;
-}
-
-.sign-content {
-  padding: 0px 15px 0px 15px;
-}
-
-.sign-content input {
-  border-radius: 8px;
-  border: 1px #DFDFDF solid;
-  margin-top: 15px;
-}
-
-.sign-content span.currentDate {
-  margin-top: 15px;
-  color: #222222;
-  font-size: 18px;
-  font-family: Montserrat;
-  font-weight: 600;
-  line-height: 30px;
-  word-wrap: break-word;
-  border: none;
-}
-
-label {
-  color: #222222;
-  font-size: 18px;
-  font-family: Montserrat;
-  font-weight: 500;
-  line-height: 30px;
-  word-wrap: break-word
-}
-.sign-image {
-  width: 18px;
-  height: 18px;
-  margin-top: 5px;
 }
 </style>
