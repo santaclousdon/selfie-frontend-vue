@@ -5,7 +5,7 @@
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/legal-title.png" class="ml-5 mr-5" alt=""> Legal</h2>
+              <h2> <img src="../../../assets/images/myphoto.png" class="ml-5 mr-5" alt=""> My photos</h2>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">
@@ -14,8 +14,7 @@
                 <div class="container">
                   <div class="row align-items-center">
                     <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"><span> Please read and sign our legal
-                          agreement.
+                      <a href="javascript:void(0)" class="accordion-title"><span> Upload your first two selfies
                         </span>
                       </a>
                     </div>
@@ -29,10 +28,34 @@
                       <img src="../../../assets/images/legal-warn.png" width="20" height="20" alt="">
                     </div>
                     <div class="col-lg-11 mb-4 mb-lg-0">
-                      <p>To receive payment, you need to read and sign our legal agreement. Please ensure you fully
-                        understand it before signing. Rest assured, your personal details will never be shared publicly.
+                      <p>To get paid, you need to upload at least two clothed half-body (face and upper body).
                       </p>
                     </div>
+                  </div> 
+                  <div class="row">
+                    <div v-for="(firstimage, index1) in images_first" :key="index1" class="col-lg-4 col-md-4 col-sm-12">
+                      <div class="col upload-content"
+                        :style="{ 'background-image': 'url(_nuxt/' + firstimage.url + ')' }">
+                        <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
+                        <div :style="{ 'visibility': firstimage.status == '' ? 'visible' : 'hidden' }"
+                          class="row align-items-center justify-content-center">
+                          <div class="align-items-center justify-content-center">
+                            <img src="../../../assets/images/upload.png" alt="">
+                          </div>
+                          <span class="image-num">{{ index1 + 1 }}</span>
+                        </div> 
+                        <!-- <img src="../../../assets/images/avatar/test/4.jpg" width="100%" alt=""> -->
+                      </div>
+                    </div>
+                    <!-- <div class="col-lg-3 col-md-3 col-sm-12 ml-3 upload-content">
+                      <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
+                      <div class="row align-items-center justify-content-center">
+                        <div class="align-items-center justify-content-center">
+                          <img src="../../../assets/images/upload.png" alt="">
+                        </div>
+                        <span class="image-num">2</span>
+                      </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -40,26 +63,48 @@
           </div>
           <div class="iq-accordion career-style mt-5">
             <div class="iq-accordion-block p-3">
-              <!-- <div class="active-faq clearfix">
+              <div class="active-faq clearfix">
                 <div class="container">
                   <div class="row align-items-center">
                     <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"><span> Rules and requirements </span>
+                      <a href="javascript:void(0)" class="accordion-title"><span> Upload more photos
+                        </span>
                       </a>
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
               <div class="accordion-details">
                 <div class="container">
                   <div class="row mt-4">
-                    <div class="col-lg-12 mb-4 mb-lg-0">
-                      <p>This Agreement is made between the undersigned ("Contributor") and Brainwave HQ LLC ("Company").
+                    <div class="legal-warn">
+                      <img src="../../../assets/images/legal-warn.png" width="20" height="20" alt="">
+                    </div>
+                    <div class="col-lg-11 mb-4 mb-lg-0">
+                      <p>Upload up to six more selfies. Check our rates to see your potential earnings.
                       </p>
-                      <ul>
-                        <li v-for="(item, index) in items" :key="index"><span class="legal-item-title">{{ item.title }}:
-                          </span> <span class="legal-item-description">{{ item.description }} </span> </li>
-                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div v-for="(image, index2) in images_all" :key="index2" style="width: 30%;"
+                      class="col-lg-4 col-md-4 col-sm-12">
+                      <div class="col-lg-12 upload-content mt-5"
+                        :style="{ 'background-image': 'url(/_nuxt/' + image.url + ')' }">
+                        <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
+                        <div :style="{ 'visibility': image.status == '' ? 'visible' : 'hidden' }"
+                          class="row align-items-center justify-content-center">
+                          <div class="align-items-center justify-content-center">
+                            <img src="../../../assets/images/upload.png" alt="">
+                          </div>
+                          <span class="image-num">{{ index2 + 3 }}</span>
+                        </div>
+                      </div>
+                      <div class="row align-items-center justify-content-between p-3">
+                        <span v-if="image.status == 'Pending'" class="pending image-status">Pending</span>
+                        <span v-if="image.status == 'Approved'" class="approved image-status">Approved</span>
+                        <span v-if="image.status == 'Pending'" class="pending image-action"><img
+                            src="../../../assets/images/recycle.png" alt=""></span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -77,22 +122,32 @@ export default {
   name: 'Accordion',
   data() {
     return {
-      items: [
+      images_first: [
         {
-          title: 'Grant of Rights',
-          description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
+          url: '',
+          status: ''
         },
         {
-          title: 'Confidentiality of Personal Details',
-          description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
+          url: '',
+          status: ''
+        }
+      ],
+      images_all: [
+        {
+          url: 'assets/images/avatar/test/4.jpg',
+          status: 'Approved'
         },
         {
-          title: 'Licensing to Third Parties',
-          description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
+          url: 'assets/images/avatar/test/4.jpg',
+          status: 'Pending'
         },
         {
-          title: 'Agreement to Terms',
-          description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
+          url: '',
+          status: ''
+        },
+        {
+          url: '',
+          status: ''
         }
       ]
     }
@@ -104,10 +159,6 @@ export default {
 section {
   padding-bottom: 0%;
   float: left;
-}
-
-.accordion-active div.active-faq .container .row {
-  background-color: white;
 }
 
 .iq-accordion .iq-accordion-block {
@@ -145,26 +196,6 @@ p {
   padding-left: 0;
 }
 
-.blue-btn {
-  background-color: #673CF6;
-  border-radius: 100px;
-  color: white;
-  padding: 2px 5px;
-  cursor: pointer;
-}
-
-.text-right {
-  width: 20%;
-}
-
-.contact-nav a {
-  color: black;
-  font-size: 18px;
-  font-family: Montserrat;
-  font-weight: 600;
-  word-wrap: break-word;
-}
-
 .legal-warn {
   padding-left: 15px;
 }
@@ -187,25 +218,57 @@ p {
   word-wrap: break-word
 }
 
-ul {
-  list-style: none;
-  counter-reset: legal;
-  padding: 0px;
+.upload-content {
+  padding: 100px;
+  background: #F7F7F7;
+  /* background: url('../../../assets/images/avatar/test/4.jpg'); */
+  background-size: cover;
+  border-radius: 8px;
+  border: 1px #DFDFDF solid;
+  cursor: pointer;
+  float: left;
 }
 
-ul li {
-  margin-bottom: 20px;
+.file-input {
+  display: none;
 }
 
-ul li:before {
-  margin-right: 10px;
-  content: counters(legal, ' ')".";
-  counter-increment: legal;
+.upload-content:hover {
+  background-color: #e9e9e9;
+  opacity: .5;
+}
+
+.image-num {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: rgba(34, 34, 34, 0.20);
+  font-size: 55px;
+  font-family: Darker Grotesque normal;
+  font-weight: 700;
+  line-height: 24px;
+  word-wrap: break-word
+}
+
+.image-status {
   color: #222222;
-  font-size: 18px;
+  font-size: 16px;
   font-family: Montserrat;
-  font-weight: 600;
-  line-height: 30px;
-  word-wrap: break-word;
+  font-weight: 500;
+  word-wrap: break-word
+}
+
+.pending {
+  background: #F5F5F5;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.approved {
+  background: #D3EDB1;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 </style>
