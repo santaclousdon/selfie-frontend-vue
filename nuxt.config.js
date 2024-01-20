@@ -52,6 +52,11 @@ module.exports = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     /* '@nuxtjs/eslint-module' */
+    // Simple usage
+    '@nuxtjs/moment',
+
+    // With options
+    ['@nuxtjs/moment', { /* module options */ }]
   ],
   /*
   ** Nuxt.js modules
@@ -61,7 +66,8 @@ module.exports = {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'nuxt-moment'
   ],
   /*
   ** Axios module configuration

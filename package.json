@@ -30,6 +30,7 @@
     "magnific-popup": "^1.1.0",
     "moment": "^2.29.1",
     "nuxt": "^2.0.0",
+    "nuxt-moment": "^1.0.5",
     "owl.carousel": "^2.3.4",
     "postcss-loader": "^3.0.0",
     "retinajs": "^2.1.3",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/moment": "^1.6.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.7.2",
     "eslint-loader": "^3.0.3",

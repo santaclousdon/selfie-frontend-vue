@@ -102,6 +102,19 @@ export default {
     }
   },
   mounted() {
+    const jquery = window.$
+    const path = window.location.pathname
+    
+    this.tabs.map(tab => {
+      if (tab.href == path) tab.active = true
+    })
+
+    jQuery('.nav-link').click( (event ) => {
+      this.tabs.map( tab => {
+        tab.active = false
+      })
+      event.target.classList.add('active')      
+    })
   }
 } 
 </script>
@@ -134,12 +147,12 @@ export default {
   border: 1px #EDEFFD solid;
   padding: 2px 6px;
 }
+.nav-link:hover {
+  background-color: #EDEFFD;
+}
 
 .nav-link.active {
   background-color: #673CF6;
-}
-.nav-link:hover {
-  background-color: #EDEFFD;
 }
 
 .text-aside-detail {
