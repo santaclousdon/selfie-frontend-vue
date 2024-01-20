@@ -79,7 +79,7 @@
 <script>
 
 export default {
-  name: 'SignAggrement',
+  name: 'PaymentInfo',
   data() {
     return {
       items: [

@@ -1,16 +1,16 @@
 <template>
   <div class="main-content">
-    <SignAggrement />
+    <PaymentInfo />
   </div>
 </template>
 
 <script>
-import SignAggrement from '../../../components/Auth/PaymentInfo/PaymentInfo'
+import PaymentInfo from '../../../components/Auth/PaymentInfo/PaymentInfo'
 import { themes } from '../../../assets/app/app'
 export default {
   layout: 'Auth',
   components: {
-    SignAggrement
+    PaymentInfo
   },
   mounted () {
     setTimeout(function () {

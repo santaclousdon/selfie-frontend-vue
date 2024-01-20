@@ -1,66 +1,50 @@
 <template>
-  <section>
-    <div class="container mt-5">
+  <section class="container payment-section">
+    <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/legal-title.png" class="ml-5 mr-5" alt=""> Legal</h2>
+              <h2> <img src="../../../assets/images/paymentinfo.png" class="ml-5 mr-5" alt=""> Payment information</h2>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">
             <div class="iq-accordion-block p-3">
-              <div class="active-faq clearfix">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"><span> Please read and sign our legal
-                          agreement.
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="accordion-details">
                 <div class="container">
-                  <div class="row mt-4">
-                    <div class="legal-warn">
-                      <img src="../../../assets/images/legal-warn.png" width="20" height="20" alt="">
+                  <div class="row mt-3">
+                    <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                      <label for="EmailAddress">Email Address</label>
+                      <input type="text" class="iban-input" name="EmailAddress">
                     </div>
-                    <div class="col-lg-11 mb-4 mb-lg-0">
-                      <p>To receive payment, you need to read and sign our legal agreement. Please ensure you fully
-                        understand it before signing. Rest assured, your personal details will never be shared publicly.
-                      </p>
+                    <!-- <div class="sign-content">
+                      <label for="currency">Currency</label>
+                      <span name="currency" class="form-control text currencyData"> EUR € </span>
+                    </div> -->
+                  </div>
+                  <div class="row mt-3">
+                    <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                      <label for="CurrentPassword">Current password</label>
+                      <input type="password" class="iban-input" name="CurrentPassword">
+                    </div>
+                    <!-- <div class="sign-content">
+                      <label for="currency">Currency</label>
+                      <span name="currency" class="form-control text currencyData"> EUR € </span>
+                    </div> -->
+                  </div>
+                  <div class="row mt-3">
+                    <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                      <label for="NewPassword">New password</label>
+                      <input type="password" class="iban-input" name="NewPassword">
+                    </div>
+                    <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                      <label for="RepeatPassword">Repeat new password</label>
+                      <input type="password" class="iban-input" name="RepeatPassword">
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="iq-accordion career-style mt-5">
-            <div class="iq-accordion-block p-3">
-              <!-- <div class="active-faq clearfix">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"><span> Rules and requirements </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <div class="accordion-details">
-                <div class="container">
-                  <div class="row mt-4">
-                    <div class="col-lg-12 mb-4 mb-lg-0">
-                      <p>This Agreement is made between the undersigned ("Contributor") and Brainwave HQ LLC ("Company").
-                      </p>
-                      <ul>
-                        <li v-for="(item, index) in items" :key="index"><span class="legal-item-title">{{ item.title }}:
-                          </span> <span class="legal-item-description">{{ item.description }} </span> </li>
-                      </ul>
-                    </div>
+                  <div class="mt-3">
+                    <a href="" class="blue-btn button btn-sm">Save
+                    </a>
                   </div>
                 </div>
               </div>
@@ -74,7 +58,7 @@
 <script>
 
 export default {
-  name: 'Accordion',
+  name: 'Settings',
   data() {
     return {
       items: [
@@ -94,7 +78,8 @@ export default {
           title: 'Agreement to Terms',
           description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
         }
-      ]
+      ],
+      currentDate: this.$moment().format('MMM DD, YYYY')
     }
   },
   mounted() { }
@@ -102,7 +87,7 @@ export default {
 </script>
 <style scoped >
 section {
-  padding-bottom: 0%;
+  padding: 0%;
   float: left;
 }
 
@@ -140,18 +125,18 @@ p {
 }
 
 .faq-title {
-  width: 80%;
+  width: 100%;
   display: inline-block;
   padding-left: 0;
 }
 
-.blue-btn {
+/* .blue-btn {
   background-color: #673CF6;
-  border-radius: 100px;
+  border-radius: 8px;
   color: white;
   padding: 2px 5px;
   cursor: pointer;
-}
+} */
 
 .text-right {
   width: 20%;
@@ -207,5 +192,92 @@ ul li:before {
   font-weight: 600;
   line-height: 30px;
   word-wrap: break-word;
+}
+
+.label-text {
+  color: white;
+  font-size: 24px;
+  font-family: Darker Grotesque normal;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.alert {
+  width: 100%;
+  background-color: #E35D5D;
+  color: white;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  word-wrap: break-word;
+  display: block;
+}
+
+.sign-content {
+  padding: 0px 15px 0px 15px;
+}
+
+.sign-content input {
+  border-radius: 8px;
+  border: 1px #DFDFDF solid;
+  margin-top: 15px;
+}
+
+.sign-content span.currencyData {
+  margin-top: 15px;
+  color: #222222;
+  font-size: 18px;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 30px;
+  word-wrap: break-word;
+  border: none;
+}
+
+label {
+  color: #222222;
+  font-size: 29px;
+  font-family: Darker Grotesque normal;
+  font-weight: 700;
+  word-wrap: break-word
+}
+
+.sign-image {
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+}
+
+.payment-section {
+  margin-top: 150px;
+}
+
+select {
+  color: #222222;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 30px;
+  word-wrap: break-word
+}
+
+input.iban-input {
+  height: 40px;
+}
+
+.form-check-label {
+  color: #222222;
+  font-size: 18px;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 30px;
+  word-wrap: break-word;
+  margin-top: 15px;
+  cursor: pointer;
+}
+input[type='checkbox'].form-check-input {
+  border: #DFDFDF solid 1px!important;
+  border-radius: 8px!important;
+  width: 20px;
 }
 </style>

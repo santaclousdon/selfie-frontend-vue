@@ -1,16 +1,16 @@
 <template>
   <div class="main-content">
-    <Accordion />
+    <Settings />
   </div>
 </template>
 
 <script>
-import Accordion from '../../../components/Auth/Settings/Accordion'
+import Settings from '../../../components/Auth/Settings/Settings'
 import { themes } from '../../../assets/app/app'
 export default {
   layout: 'Auth',
   components: {
-    Accordion,
+    Settings
   },
   mounted () {
     setTimeout(function () {
