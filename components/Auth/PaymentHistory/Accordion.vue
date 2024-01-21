@@ -5,62 +5,33 @@
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/legal-title.png" class="ml-5 mr-5" alt=""> Legal</h2>
+              <h2> <img src="../../../assets/images/payment_history.png" class="mr-5" alt=""> Payment history</h2>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">
             <div class="iq-accordion-block p-3">
-              <div class="active-faq clearfix">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"><span> Please read and sign our legal
-                          agreement.
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="accordion-details">
                 <div class="container">
-                  <div class="row mt-4">
-                    <div class="legal-warn">
-                      <img src="../../../assets/images/legal-warn.png" width="20" height="20" alt="">
-                    </div>
-                    <div class="col-lg-11 mb-4 mb-lg-0">
-                      <p>To receive payment, you need to read and sign our legal agreement. Please ensure you fully
-                        understand it before signing. Rest assured, your personal details will never be shared publicly.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="iq-accordion career-style mt-5">
-            <div class="iq-accordion-block p-3">
-              <!-- <div class="active-faq clearfix">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"><span> Rules and requirements </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <div class="accordion-details">
-                <div class="container">
-                  <div class="row mt-4">
-                    <div class="col-lg-12 mb-4 mb-lg-0">
-                      <p>This Agreement is made between the undersigned ("Contributor") and Brainwave HQ LLC ("Company").
-                      </p>
-                      <ul>
-                        <li v-for="(item, index) in items" :key="index"><span class="legal-item-title">{{ item.title }}:
-                          </span> <span class="legal-item-description">{{ item.description }} </span> </li>
-                      </ul>
-                    </div>
+                  <div class="row mt-4 pl-3 pr-3">
+                    <table class="table table-borderless">
+                      <thead>
+                        <tr>
+                          <th scope="col-3" class="text-left">Status</th>
+                          <th scope="col-3" class="text-left">Amount</th>
+                          <th scope="col-3" class="text-left">Date</th>
+                          <th scope="col-3" class="text-left">Method</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item, index) in items" :key="index">
+                          <td class="text-left"> <img :src="item.status == 'Paid' ? paidImage : pendingImage"  alt="">
+                            {{ "&nbsp;&nbsp;&nbsp;&nbsp;" + item.status }}</td>
+                          <td class="text-left">€{{ item.amount }}</td>
+                          <td class="text-left">{{ item.date }}</td>
+                          <td class="text-left">{{ item.method }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -71,28 +42,28 @@
     </div>
   </section>
 </template>
+
+
 <script>
 
 export default {
   name: 'Accordion',
   data() {
     return {
+      paidImage: require('../../../assets/images/paidStatus.png'),
+      pendingImage: require('../../../assets/images/pendingStatus.png'),
       items: [
         {
-          title: 'Grant of Rights',
-          description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
+          status: "Processing",
+          amount: "12.50",
+          date: "March 1, 2024",
+          method: "SEPA Bank Transfer"
         },
         {
-          title: 'Confidentiality of Personal Details',
-          description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
-        },
-        {
-          title: 'Licensing to Third Parties',
-          description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
-        },
-        {
-          title: 'Agreement to Terms',
-          description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
+          status: "Paid",
+          amount: "4.50",
+          date: "February 14, 2024",
+          method: "SEPA Bank Transfer"
         }
       ]
     }
@@ -100,14 +71,11 @@ export default {
   mounted() { }
 }
 </script>
+
 <style scoped >
 section {
   padding-bottom: 0%;
   float: left;
-}
-
-.accordion-active div.active-faq .container .row {
-  background-color: white;
 }
 
 .iq-accordion .iq-accordion-block {
@@ -116,10 +84,6 @@ section {
   background: white;
   border-radius: 8px;
   border: 1px #EDEFFD solid
-}
-
-div.active-faq .container .row {
-  background-color: white;
 }
 
 .content-title h2 {
@@ -139,73 +103,30 @@ p {
   word-wrap: break-word
 }
 
-.faq-title {
-  width: 80%;
-  display: inline-block;
-  padding-left: 0;
+.table {
+  width: 100vw;
+  border: none;
 }
 
-.blue-btn {
-  background-color: #673CF6;
-  border-radius: 100px;
-  color: white;
-  padding: 2px 5px;
-  cursor: pointer;
-}
-
-.text-right {
-  width: 20%;
-}
-
-.contact-nav a {
-  color: black;
-  font-size: 18px;
-  font-family: Montserrat;
-  font-weight: 600;
-  word-wrap: break-word;
-}
-
-.legal-warn {
-  padding-left: 15px;
-}
-
-.legal-item-title {
+th {
   color: #222222;
-  font-size: 18px;
-  font-family: Montserrat;
-  font-weight: 600;
-  line-height: 30px;
+  font-size: 29px;
+  font-family: Darker Grotesque normal;
+  font-weight: 700;
   word-wrap: break-word
 }
 
-.legal-item-description {
+td {
   color: #222222;
-  font-size: 16px;
+  font-size: 18px;
   font-family: Montserrat;
   font-weight: 500;
   line-height: 30px;
   word-wrap: break-word
 }
 
-ul {
-  list-style: none;
-  counter-reset: legal;
-  padding: 0px;
-}
-
-ul li {
-  margin-bottom: 20px;
-}
-
-ul li:before {
-  margin-right: 10px;
-  content: counters(legal, ' ')".";
-  counter-increment: legal;
-  color: #222222;
-  font-size: 18px;
-  font-family: Montserrat;
-  font-weight: 600;
-  line-height: 30px;
-  word-wrap: break-word;
+thead {
+  background: #F7F7F7;
+  border-radius: 8px;
 }
 </style>

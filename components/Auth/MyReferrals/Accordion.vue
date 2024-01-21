@@ -5,63 +5,38 @@
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/legal-title.png" class="ml-5 mr-5" alt=""> Legal</h2>
+              <h2> <img src="../../../assets/images/aside/myreferrals.png" class="mr-5" alt=""> My referrals</h2>
             </div>
           </div>
-          <div class="iq-accordion career-style mt-5">
-            <div class="iq-accordion-block p-3">
-              <div class="active-faq clearfix">
+          <div class="row justify-content-between p-3">
+            <div class="col-lg-6 col-md-6 col-sm-12 pr-3">
+              <div class="row activity-form">
                 <div class="container">
-                  <div class="row align-items-center">
-                    <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"><span> Please read and sign our legal
-                          agreement.
-                        </span>
-                      </a>
-                    </div>
+                  <div class="row">
+                    <h2 class="text-left mb-4 sub-title">
+                      My referrals
+                    </h2>
                   </div>
-                </div>
-              </div>
-              <div class="accordion-details">
-                <div class="container">
-                  <div class="row mt-4">
-                    <div class="legal-warn">
-                      <img src="../../../assets/images/legal-warn.png" width="20" height="20" alt="">
-                    </div>
-                    <div class="col-lg-11 mb-4 mb-lg-0">
-                      <p>To receive payment, you need to read and sign our legal agreement. Please ensure you fully
-                        understand it before signing. Rest assured, your personal details will never be shared publicly.
-                      </p>
-                    </div>
+                  <div class="row mt-3" v-for="(item, index) in items" :key="index">
+                    <div class="col-lg-4 col-md-4 col-sm-4 text-left active-table-text">User # {{ item.user }}</div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 text-left active-table-text">{{ item.date }}</div>
+                    <div class="col-lg-4 mb-3 col-md-4 col-sm-4 text-left active-table-text"> <img
+                        :src="item.status == 'Pending' ? pendingImage : paidImage" alt=""> {{ item.status }} </div>
+                    <img v-if="index < items.length-1" src="../../../assets/images/Line 1.png" width="100%" alt="">
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="iq-accordion career-style mt-5">
-            <div class="iq-accordion-block p-3">
-              <!-- <div class="active-faq clearfix">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"><span> Rules and requirements </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <div class="accordion-details">
-                <div class="container">
-                  <div class="row mt-4">
-                    <div class="col-lg-12 mb-4 mb-lg-0">
-                      <p>This Agreement is made between the undersigned ("Contributor") and Brainwave HQ LLC ("Company").
-                      </p>
-                      <ul>
-                        <li v-for="(item, index) in items" :key="index"><span class="legal-item-title">{{ item.title }}:
-                          </span> <span class="legal-item-description">{{ item.description }} </span> </li>
-                      </ul>
-                    </div>
-                  </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 pl-5">
+              <div class="row refer-form">
+                <h2 class="text-left mb-4 sub-title">
+                  Refer and earn
+                </h2>
+                <p>Want to earn more? Start referring friends using your personal link and earn €5.00 for every
+                  friend who successfully uploads 4 photos or more. Use the link provided below.</p>
+                <div class="copy-group col-lg-12 col-md-12 col-sm-12 p-0">
+                  <input type="text" value="https://selfie.cash/emily1" placeholder="Your path" class="copy-link">
+                  <span class="fa fa-clipboard text-dark" title="Copy to Clipboard"></span>
                 </div>
               </div>
             </div>
@@ -77,22 +52,18 @@ export default {
   name: 'Accordion',
   data() {
     return {
+      pendingImage: require('../../../assets/images/pendingStatus.png'),
+      paidImage: require('../../../assets/images/paidStatus.png'),
       items: [
         {
-          title: 'Grant of Rights',
-          description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
+          user: '454',
+          date: '1 March, 2024',
+          status: 'Pending'
         },
         {
-          title: 'Confidentiality of Personal Details',
-          description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
-        },
-        {
-          title: 'Licensing to Third Parties',
-          description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
-        },
-        {
-          title: 'Agreement to Terms',
-          description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
+          user: '398',
+          date: '14 February, 2024',
+          status: 'Approved'
         }
       ]
     }
@@ -206,6 +177,72 @@ ul li:before {
   font-family: Montserrat;
   font-weight: 600;
   line-height: 30px;
+  word-wrap: break-word;
+}
+
+.refer-form {
+  background-color: #673CF6;
+  border-radius: 8px;
+  padding: 25px 35px;
+}
+
+.refer-form .sub-title {
+  color: white;
+  font-size: 29px;
+  font-family: Darker Grotesque normal;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.refer-form p {
+  color: white;
+  font-size: 18px;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 30px;
+  word-wrap: break-word
+}
+
+.copy-link {
+  border-radius: 8px;
+}
+
+.copy-group .fa-clipboard {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 8px;
+  color: #222222;
+}
+
+.copy-group .fa-clipboard:hover {
+  background-color: #c8c9cc;
+}
+
+
+.activity-form {
+  background-color: #F5F6FD;
+  border-radius: 8px;
+  padding: 25px 35px;
+}
+
+.active-table-text {
+  padding: 0px;
+  color: #222222;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 30px;
+  word-wrap: break-word
+}
+
+h2.sub-title {
+  color: #222222;
+  font-size: 29px;
+  font-family: Darker Grotesque normal;
+  font-weight: 700;
   word-wrap: break-word;
 }
 </style>

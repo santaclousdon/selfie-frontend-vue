@@ -5,7 +5,7 @@
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/paymentinfo.png" class="ml-5 mr-5" alt=""> Payment information</h2>
+              <h2> <img src="../../../assets/images/paymentinfo.png" class="mr-5" alt=""> Payment information</h2>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">
