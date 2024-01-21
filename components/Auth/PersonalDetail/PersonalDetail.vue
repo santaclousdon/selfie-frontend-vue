@@ -6,7 +6,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-12 col-md-12 col-sm-12 content-title">
                             <h2> <img src="../../../assets/images/personaldetail.png" width="20" class="mr-5" alt="">
-                                Fill in your personal information.</h2>
+                                Personal details.</h2>
                             <p class="mt-3">Prior using this platform, we require some personal information from you. Rest
                                 assured, this
                                 information will not be shared publicly. Please ensure you complete this form truthfully, as
