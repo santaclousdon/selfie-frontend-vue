@@ -5,67 +5,60 @@
       <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="row align-items-center">
-                    <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-                      <h2>
-                        Submit a photo for approval.</h2>
-                      <p class="mt-3">Use the tool below to upload a selfie. Once uploaded, it can take up to 48 hours for
-                        approval. Ensure your photo is a minimum of 800 by 800 pixels. Only PNG, JPG, and JPEG formats are
-                        accepted.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="iq-accordion career-style">
-                    <div class="iq-accordion-block">
-                      <div class="accordion-details">
-                        <div class="container">
-                          <div class="row justify-content-between">
-                            <div class="col-lg-5 col-md-5 col-sm-12">
-                              <p class="sub-title"><span class="title-num"> 1</span> Upload your photo</p>
-                              <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
-                              <div class="row align-items-center justify-content-center upload-content">
-                                <div class="align-items-center justify-content-center">
-                                  <img src="../../../assets/images/upload.png" alt="">
-                                </div>
-                                <br>
-                                <p class="mt-5 text-center" style="display: block; width: 100%; margin-bottom: 15px;">Drag
-                                  and Drop File or</p>
-                                <a class="blue-btn button btn-sm browser-btn">Browse</a>
-                                <p class="mt-3 image-limit">Minimum 800 by 800 pixels</p>
-                              </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12">
-                              <p class="sub-title"><span class="title-num"> 2</span> Choose the category of this photo</p>
-                              <input type="file" name="fileUpload" class="form-control file-input file-input-form"
-                                placeholder="">
-                              <select type="select" @change="onChange($event)" name="birth" class="form-control text mt-3"
-                                placeholder="">
-                                <option v-for="(item, index) in items" :key="index" :value="index">{{
-                                  item.title }}</option>
-                              </select>
-                              <p class="text mt-5">Potential earning</p>
-                              <p class="text-funds">€{{ selectedRate }}</p>
-                            </div>
-                          </div>
-                          <div class="form-check mt-5">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-                            <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
-                              I hereby declare that I have read and agree with the <span>terms & conditions.</span>
-                            </label>
-                          </div>
-                          <div class="">
-                            <a  class="blue-btn button btn-sm mt-3 " data-dismiss="modal">
-                              <div class="row justify-content-center align-items-center">
-                                <span class="label-text mr-3">Submit for verification</span>
-                              </div>
-                            </a>
-                          </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
+                class="fa fa-times fa-1x"></i></button>
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-md-12 col-sm-12 content-title">
+                <h2>
+                  Submit a photo for approval.</h2>
+                <p class="mt-3">Use the tool below to upload a selfie. Once uploaded, it can take up to 48 hours for
+                  approval. Ensure your photo is a minimum of 800 by 800 pixels. Only PNG, JPG, and JPEG formats are
+                  accepted.
+                </p>
+              </div>
+            </div>
+            <div class="iq-accordion career-style">
+              <div class="iq-accordion-block">
+                <div class="accordion-details">
+                  <div class="row justify-content-between">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                      <p class="sub-title"><span class="title-num"> 1</span> Upload your photo</p>
+                      <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
+                      <div class="row align-items-center justify-content-center upload-content">
+                        <div class="align-items-center justify-content-center">
+                          <img src="../../../assets/images/upload.png" alt="">
                         </div>
+                        <br>
+                        <p class="mt-5 text-center" style="display: block; width: 100%; margin-bottom: 15px;">Drag
+                          and Drop File or</p>
+                        <a class="blue-btn button btn-sm browser-btn">Browse</a>
+                        <p class="mt-3 image-limit">Minimum 800 by 800 pixels</p>
                       </div>
                     </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                      <p class="sub-title"><span class="title-num"> 2</span> Choose the category of this photo</p>
+                      <input type="file" name="fileUpload" class="form-control file-input file-input-form" placeholder="">
+                      <select type="select" @change="onChange($event)" name="birth" class="form-control text mt-3"
+                        placeholder="">
+                        <option v-for="(item, index) in items" :key="index" :value="index">{{
+                          item.title }}</option>
+                      </select>
+                      <p class="text mt-5">Potential earning</p>
+                      <p class="text-funds">€{{ selectedRate }}</p>
+                    </div>
+                  </div>
+                  <div class="form-check mt-5">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                    <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
+                      I hereby declare that I have read and agree with the <span>terms & conditions.</span>
+                    </label>
+                  </div>
+                  <div class="">
+                    <a class="blue-btn button btn-sm mt-3 mb-3 " data-dismiss="modal">
+                      <div class="row justify-content-center align-items-center">
+                        <span class="label-text mr-3">Submit this photo</span>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -187,10 +180,21 @@ section {
   padding-bottom: 0%;
 }
 
+.iq-accordion {
+  background-color: #00000005;
+  padding: 40px;
+  border-top: 1px dashed #8a8989;
+}
+
 .iq-accordion .iq-accordion-block {
   width: 100%;
   height: 100%;
-  background: white;
+}
+
+.close {
+  z-index: 9999999;
+  position: relative;
+  margin-right: 10px;
 }
 
 label {
@@ -206,12 +210,16 @@ label {
   visibility: hidden;
 }
 
+.content-title {
+  padding: 40px 40px 0px 40px;
+}
+
 .content-title h2 {
   color: #222222;
   font-size: 50px;
   font-family: Darker Grotesque;
   font-weight: 800;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 .content-title p {
@@ -269,7 +277,7 @@ select {
   font-weight: 500;
   line-height: 30px;
   word-wrap: break-word;
-  margin-top: 5px;
+  margin-top: 8px;
   cursor: pointer;
 }
 
@@ -349,5 +357,8 @@ section .container {
   line-height: 30px;
   word-wrap: break-word;
   margin-bottom: 10px;
+}
+.modal-body {
+  padding: 10px 0px 0px 0px
 }
 </style>

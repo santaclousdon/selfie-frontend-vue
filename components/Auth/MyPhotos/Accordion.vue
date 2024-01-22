@@ -35,6 +35,7 @@
                   <div class="row">
                     <div v-for="(firstimage, index1) in images_first" :key="index1" class="col-lg-4 col-md-4 col-sm-12">
                       <div class="col upload-content" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
+                        data-backdrop="static" data-keyboard="false"
                         :style="{ 'background-image': 'url(_nuxt/' + firstimage.url + ')' }">
                         <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
                         <div :style="{ 'visibility': firstimage.status == '' ? 'visible' : 'hidden' }"
@@ -89,7 +90,8 @@
                     <div v-for="(image, index2) in images_all" :key="index2" style="width: 30%;"
                       class="col-lg-4 col-md-4 col-sm-12">
                       <div class="col-lg-12 upload-content mt-5" data-toggle="modal" data-target="#exampleModal"
-                        data-whatever="@mdo" :style="{ 'background-image': 'url(/_nuxt/' + image.url + ')' }">
+                        data-whatever="@mdo" data-backdrop="static" data-keyboard="false"
+                        :style="{ 'background-image': 'url(/_nuxt/' + image.url + ')' }">
                         <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
                         <div :style="{ 'visibility': image.status == '' ? 'visible' : 'hidden' }"
                           class="row align-items-center justify-content-center">
@@ -161,6 +163,7 @@ export default {
   }
 }
 </script>
+
 <style scoped >
 section {
   padding-bottom: 0%;
