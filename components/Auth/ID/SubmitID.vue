@@ -25,7 +25,8 @@
               <div class="accordion-details">
                 <div class="container">
                   <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12 ml-3 upload-content">
+                    <div class="col-lg-4 col-md-4 col-sm-12 ml-3 upload-content" data-toggle="modal"
+                      data-target="#exampleModal" data-whatever="@mdo">
                       <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
                       <div class="row align-items-center justify-content-center">
                         <div class="align-items-center justify-content-center">

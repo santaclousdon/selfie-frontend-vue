@@ -1,16 +1,19 @@
 <template>
   <div class="main-content">
     <Accordion />
+    <UploadForm />
   </div>
 </template>
 
 <script>
 import Accordion from '../../../components/Auth/MyPhotos/Accordion'
+import UploadForm from '../../../components/Auth/uploadForm/UploadForm'
 import { themes } from '../../../assets/app/app'
 export default {
   layout: 'Auth',
   components: {
-    Accordion
+    Accordion,
+    UploadForm
   },
   mounted () {
     setTimeout(function () {

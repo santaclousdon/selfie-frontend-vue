@@ -31,10 +31,10 @@
                       <p>To get paid, you need to upload at least two clothed half-body (face and upper body).
                       </p>
                     </div>
-                  </div> 
+                  </div>
                   <div class="row">
                     <div v-for="(firstimage, index1) in images_first" :key="index1" class="col-lg-4 col-md-4 col-sm-12">
-                      <div class="col upload-content"
+                      <div class="col upload-content" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
                         :style="{ 'background-image': 'url(_nuxt/' + firstimage.url + ')' }">
                         <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
                         <div :style="{ 'visibility': firstimage.status == '' ? 'visible' : 'hidden' }"
@@ -43,7 +43,7 @@
                             <img src="../../../assets/images/upload.png" alt="">
                           </div>
                           <span class="image-num">{{ index1 + 1 }}</span>
-                        </div> 
+                        </div>
                         <!-- <img src="../../../assets/images/avatar/test/4.jpg" width="100%" alt=""> -->
                       </div>
                     </div>
@@ -88,8 +88,8 @@
                   <div class="row">
                     <div v-for="(image, index2) in images_all" :key="index2" style="width: 30%;"
                       class="col-lg-4 col-md-4 col-sm-12">
-                      <div class="col-lg-12 upload-content mt-5"
-                        :style="{ 'background-image': 'url(/_nuxt/' + image.url + ')' }">
+                      <div class="col-lg-12 upload-content mt-5" data-toggle="modal" data-target="#exampleModal"
+                        data-whatever="@mdo" :style="{ 'background-image': 'url(/_nuxt/' + image.url + ')' }">
                         <input type="file" name="fileUpload" class="form-control file-input" placeholder="">
                         <div :style="{ 'visibility': image.status == '' ? 'visible' : 'hidden' }"
                           class="row align-items-center justify-content-center">
@@ -117,6 +117,8 @@
   </section>
 </template>
 <script>
+import jquery from 'jquery';
+
 
 export default {
   name: 'Accordion',
@@ -152,7 +154,11 @@ export default {
       ]
     }
   },
-  mounted() { }
+  mounted() {
+    jQuery('.upload-content').click((event) => {
+      console.log(event.target.classList)
+    })
+  }
 }
 </script>
 <style scoped >
