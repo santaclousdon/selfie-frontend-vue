@@ -46,6 +46,122 @@
                     </div>
                 </div>
             </div>
+        </div><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@mdo">Open modal for @mdo</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@fat">Open modal for @fat</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 content-title">
+                                            <h2> <img src="../../../assets/images/personaldetail.png" width="20"
+                                                    class="mr-5" alt="">
+                                                    Fill in your personal information.</h2>
+                                            <p class="mt-3">Prior using this platform, we require some personal information
+                                                from you. Rest
+                                                assured, this
+                                                information will not be shared publicly. Please ensure you complete this
+                                                form truthfully, as
+                                                any errors or falsehoods may result in a permanent ban from the platform.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="iq-accordion career-style mt-5">
+                                        <div class="iq-accordion-block p-3">
+                                            <div class="accordion-details">
+                                                <div class="container">
+                                                    <div class="row mt-5">
+                                                        <div class="sign-content col-lg-6 col-md-6 col-sm-12">
+                                                            <label for="FirstName">First name(s)</label>
+                                                            <input type="text" class="iban-input" name="FirstName">
+                                                        </div>
+                                                        <div class="sign-content col-lg-6 col-md-6 col-sm-12">
+                                                            <label for="LastName">Last name</label>
+                                                            <input type="text" class="iban-input" name="LastName">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-5">
+                                                        <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="birth">Date of birth</label>
+                                                            <select type="select" name="birth"
+                                                                class="form-control text mt-3" placeholder="">
+                                                                <option value="0">Select Day</option>
+                                                                <option v-for="day in days" :value="day">{{ day }}</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="birth" style="visibility: hidden;">Date of
+                                                                birth</label>
+                                                            <select type="select" name="month"
+                                                                class="form-control text mt-3" placeholder="">
+                                                                <option value="0">Select Month</option>
+                                                                <option v-for="month in months" :value="month">{{ month }}
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="birth" style="visibility: hidden;">Date of
+                                                                birth</label>
+                                                            <select type="select" name="month"
+                                                                class="form-control text mt-3" placeholder="">
+                                                                <option value="0">Select Year</option>
+                                                                <option v-for="year in years" :value="year">{{ year }}
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-5">
+                                                        <div class="sign-content col-lg-12 col-md-12 col-sm-12">
+                                                            <label for="country">Country of residence</label>
+                                                            <select name="country" class="form-control text mt-3">
+                                                                <option value="0">Select your country of residence</option>
+                                                                <option value="1">Netherlands</option>
+                                                                <option value="2">United States</option>
+                                                                <option value="3">Ukraine</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-5">
+                                                        <div class="sign-content col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="flexCheckIndeterminate">
+                                                                <label class="form-check-label col-lg-12 col-md-12 "
+                                                                    for="flexCheckIndeterminate">
+                                                                    I hereby declare that I have filled in my personal
+                                                                    information
+                                                                    truthfully.
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-5">
+                                                        <a href="" class="blue-btn button btn-sm mt-3">
+                                                            <div class="row justify-content-center align-items-center">
+                                                                <span class="label-text mr-3">Sign this agreement</span>
+                                                                <img src="../../../assets/images/Arrow 3.png"
+                                                                    class="sign-image mt-1" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>
