@@ -46,12 +46,9 @@
                     </div>
                 </div>
             </div>
-        </div><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        </div>
+        <button type="button" class="btn btn-primary" id="modal" data-toggle="modal" data-target="#exampleModal"
             data-whatever="@mdo">Open modal for @mdo</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-            data-whatever="@fat">Open modal for @fat</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-            data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog  modal-dialog-centered" role="document">
@@ -64,7 +61,7 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 content-title">
                                             <h2> <img src="../../../assets/images/personaldetail.png" width="20"
                                                     class="mr-5" alt="">
-                                                    Fill in your personal information.</h2>
+                                                Fill in your personal information.</h2>
                                             <p class="mt-3">Prior using this platform, we require some personal information
                                                 from you. Rest
                                                 assured, this
@@ -74,8 +71,8 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="iq-accordion career-style mt-5">
-                                        <div class="iq-accordion-block p-3">
+                                    <div class="iq-accordion career-style">
+                                        <div class="iq-accordion-block">
                                             <div class="accordion-details">
                                                 <div class="container">
                                                     <div class="row mt-5">
@@ -204,7 +201,9 @@ export default {
             ]
         }
     },
-    mounted() { }
+    mounted() {
+        document.getElementById('modal').click();
+    }
 }
 </script>
 <style scoped >
@@ -222,8 +221,42 @@ section {
     background: white;
 }
 
+.sign-content {
+    padding: 0px 15px 0px 15px;
+}
+
+.sign-content input {
+    border-radius: 8px;
+    border: 1px #DFDFDF solid;
+    margin-top: 15px;
+}
+
+.sign-content span.currencyData {
+    margin-top: 15px;
+    color: #222222;
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 30px;
+    word-wrap: break-word;
+    border: none;
+}
+
+label {
+    color: #222222;
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 500;
+    line-height: 30px;
+    word-wrap: break-word
+}
+
 .active-faq {
     border-radius: 8px 8px 0px 0px;
+}
+
+#modal {
+    visibility: hidden;
 }
 
 div.active-faq .container .row {
@@ -277,9 +310,9 @@ div.active-faq .container .row {
 
 .blue-btn {
     background-color: #673CF6;
-    border-radius: 100px;
+    border-radius: 8px;
     color: white;
-    padding: 2px 5px;
+    padding: 10px 40px;
     cursor: pointer;
 }
 
@@ -293,6 +326,34 @@ div.active-faq .container .row {
     font-family: Montserrat;
     font-weight: 600;
     word-wrap: break-word;
+}
+
+select {
+    color: #222222;
+    font-size: 16px;
+    font-family: Montserrat;
+    font-weight: 500;
+    line-height: 30px;
+    word-wrap: break-word
+}
+
+.label-text {
+    color: white;
+    font-size: 24px;
+    font-family: Darker Grotesque normal;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.form-check-label {
+    color: #222222;
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 500;
+    line-height: 30px;
+    word-wrap: break-word;
+    margin-top: 15px;
+    cursor: pointer;
 }
 
 span.title {
@@ -362,8 +423,16 @@ section .container {
     float: left;
 }
 
+.modal-dialog {
+    max-width: 60%;
+}
+
 .step-status {
     padding: 5px;
+}
+
+input.iban-input {
+    height: 40px;
 }
 
 .step-content {
