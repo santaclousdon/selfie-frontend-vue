@@ -39,13 +39,15 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                               <p class="sub-title"><span class="title-num"> 2</span> Choose the category of this photo</p>
-                              <input type="file" name="fileUpload" class="form-control file-input file-input-form" placeholder="">
-                              <select type="select" name="birth" class="form-control text mt-3" placeholder="">
-                                <option value="0">Face, full body. Fully nude</option>
-                                <option v-for="day in items" :value="day.title">{{ day.title }}</option>
+                              <input type="file" name="fileUpload" class="form-control file-input file-input-form"
+                                placeholder="">
+                              <select type="select" @change="onChange($event)" name="birth" class="form-control text mt-3"
+                                placeholder="">
+                                <option v-for="(item, index) in items" :key="index" :value="index">{{
+                                  item.title }}</option>
                               </select>
                               <p class="text mt-5">Potential earning</p>
-                              <p class="text-funds">€3.50</p>
+                              <p class="text-funds">€{{ selectedRate }}</p>
                             </div>
                           </div>
                           <div class="form-check mt-5">
@@ -55,7 +57,7 @@
                             </label>
                           </div>
                           <div class="">
-                            <a href="" class="blue-btn button btn-sm mt-3">
+                            <a  class="blue-btn button btn-sm mt-3 " data-dismiss="modal">
                               <div class="row justify-content-center align-items-center">
                                 <span class="label-text mr-3">Submit for verification</span>
                               </div>
@@ -84,6 +86,7 @@ export default {
   data() {
     return {
       name: 'Emily',
+      selectedRate: 0.00,
       pendingImage: require('../../../assets/images/pending.png'),
       rejectedImage: require('../../../assets/images/rejected.png'),
       days: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
@@ -124,43 +127,43 @@ export default {
           title: 'Face, full body',
           description: 'Lingerie or bikini.',
           type: '',
-          cost: 1.75
+          cost: 2.00
         },
         {
           title: 'No face, breasts',
           description: 'Fully nude',
           type: 'Maximum 1',
-          cost: 1.75
+          cost: 2.50
         },
         {
           title: 'Face, half body',
           description: 'Fully nude',
           type: '',
-          cost: 1.75
+          cost: 3.00
         },
         {
           title: 'No face, full body',
           description: 'Fully nude',
           type: 'Maximum 1',
-          cost: 1.75
+          cost: 3.00
         },
         {
           title: 'Face, full body',
           description: 'Fully nude',
           type: '',
-          cost: 1.75
+          cost: 3.50
         },
         {
           title: 'No face, full body',
           description: 'Fully nude, masturbating.',
           type: 'Maximum 1',
-          cost: 1.75
+          cost: 4.00
         },
         {
           title: 'Face, full body',
           description: 'Fully nude, masturbating.',
           type: '',
-          cost: 1.75
+          cost: 5.50
         }
       ]
     }
@@ -170,6 +173,12 @@ export default {
       console.log(event.target)
       jQuery('.file-input-form').click()
     })
+  },
+  methods: {
+    onChange(event) {
+      console.log(this.items[event.target.value].cost.toFixed(2))
+      this.selectedRate = this.items[event.target.value].cost.toFixed(2)
+    }
   }
 }
 </script>
