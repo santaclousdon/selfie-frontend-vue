@@ -21,7 +21,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-4 text-left active-table-text">User # {{ item.user }}</div>
                     <div class="col-lg-4 col-md-4 col-sm-4 text-left active-table-text">{{ item.date }}</div>
                     <div class="col-lg-4 mb-3 col-md-4 col-sm-4 text-left active-table-text"> <img
-                        :src="item.status == 'Pending' ? pendingImage : paidImage" alt=""> {{ item.status }} </div>
+                        :src="item.status == 'Pending' ? pendingImage : paidImage" alt="" class="mr-3"> {{ item.status }} </div>
                     <img v-if="index < items.length-1" src="../../../assets/images/Line 1.png" width="100%" alt="">
                   </div>
                 </div>

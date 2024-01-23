@@ -138,7 +138,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-3">
-                                        <a href="" class="blue-btn button btn-sm mt-3">
+                                        <a href="" class="blue-btn button btn-sm">
                                             <div class="row justify-content-center align-items-center">
                                                 <span class="label-text mr-3">Sign this agreement</span>
                                                 <img src="../../../assets/images/Arrow 3.png" class="sign-image mt-1"

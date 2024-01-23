@@ -44,7 +44,7 @@
                           item.title }}</option>
                       </select>
                       <p class="text mt-5">Potential earning</p>
-                      <p class="text-funds">€{{ selectedRate }}</p>
+                      <p class="text-funds">€{{ selectedRate.toFixed(2) }}</p>
                     </div>
                   </div>
                   <div class="form-check mt-5">
@@ -79,7 +79,7 @@ export default {
   data() {
     return {
       name: 'Emily',
-      selectedRate: 0.00,
+      selectedRate: 1.00,
       pendingImage: require('../../../assets/images/pending.png'),
       rejectedImage: require('../../../assets/images/rejected.png'),
       days: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
@@ -170,7 +170,7 @@ export default {
   methods: {
     onChange(event) {
       console.log(this.items[event.target.value].cost.toFixed(2))
-      this.selectedRate = this.items[event.target.value].cost.toFixed(2)
+      this.selectedRate = this.items[event.target.value].cost
     }
   }
 }
@@ -358,6 +358,7 @@ section .container {
   word-wrap: break-word;
   margin-bottom: 10px;
 }
+
 .modal-body {
   padding: 10px 0px 0px 0px
 }
