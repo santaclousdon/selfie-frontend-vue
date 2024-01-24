@@ -214,21 +214,26 @@ section {
 .accordion-active div.active-faq .container .row {
     background-color: #673CF6;
 }
+
 .modal-body {
     padding: 15px 0px 0px 0px;
 }
+
 .modal-body {
     margin-right: 15px;
 }
+
 .iq-accordion-modal {
     background-color: #00000005;
     border-top: 1px dashed gray;
     padding: 40px;
 }
+
 .iq-accordion-modal .iq-accordion-block {
     width: 100%;
     height: 100%;
 }
+
 .iq-accordion .iq-accordion-block {
     width: 100%;
     height: 100%;
@@ -291,6 +296,18 @@ div.active-faq .container .row {
     font-family: Darker Grotesque;
     font-weight: 800;
     word-wrap: break-word
+}
+
+.pendingImage {
+    background: #673CF6;
+    border-radius: 9999px;
+    padding: 3px 6px 6px 6px;
+}
+
+.rejectedImage {
+    background: #E35D5D;
+    border-radius: 9999px;
+    padding: 3px 6px 6px 6px;
 }
 
 .content-title p {
