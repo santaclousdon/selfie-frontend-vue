@@ -21,7 +21,7 @@
                     <a href="/forgot-pass">Forgot password?</a>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 text-right">
-                    <a id="submitLogin" href="/auth" name="submit" type="submit" value="Send"
+                    <a id="submitLogin" href="/auth/dashboard" name="submit" type="submit" value="Send"
                       class="button blue-btn d-block w-55">
                       Login <span> <img src="../../assets/images/Arrow 3.png" alt=""> </span>
                   </a>
