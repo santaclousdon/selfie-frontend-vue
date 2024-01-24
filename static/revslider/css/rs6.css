@@ -1287,23 +1287,6 @@ rs-dotted {
 	display: block;
 }
 
-rs-dotted.twoxtwo {
-	background: url(../assets/gridtile.png)
-}
-
-rs-dotted.twoxtwowhite {
-	background: url(../assets/gridtile_white.png)
-}
-
-rs-dotted.threexthree {
-	background: url(../assets/gridtile_3x3.png)
-}
-
-rs-dotted.threexthreewhite {
-	background: url(../assets/gridtile_3x3_white.png)
-}
-
-
 /******************************
 	-	SHADOWS		-
 ******************************/
@@ -1715,11 +1698,11 @@ rs-progress.rs-bottom {
 .rs-layer.slidelink a div {
 	width: 3000px;
 	height: 1500px;
-	background: url(../assets/coloredbg.png) repeat
+	/* background: url(../assets/coloredbg.png) repeat */
 }
 
 .rs-layer.slidelink a span {
-	background: url(../assets/coloredbg.png) repeat;
+	/* background: url(../assets/coloredbg.png) repeat; */
 	width: 100%;
 	height: 100%;
 	display: block

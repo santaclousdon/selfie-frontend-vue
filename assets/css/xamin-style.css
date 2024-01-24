@@ -3095,7 +3095,6 @@ Leader team
   font-size: 84px;
   color: #525f81;
   font-family: "Font Awesome 5 Free";
-  background: url('../images/quotes.png')no-repeat;
   width: 143px;
   height: 102px;
   opacity: 0.1;
@@ -4845,7 +4844,6 @@ About style home-2
   font-size: 84px;
   color: #ffffff1f;
   font-family: "Font Awesome 5 Free";
-  background: url(../images/quotes-black.png)no-repeat;
   width: 143px;
   height: 102px;
   opacity: 0.04;
@@ -5543,7 +5541,6 @@ overview page
 .overview-bg:before {
   display: inline-block;
   width: 387px;
-  background: url(../images/testimonial-bg-2.png)no-repeat;
   position: absolute;
   right: 0;
   height: 810px;
@@ -7363,11 +7360,6 @@ header footer and breadcrumb hide in maintenance page
   display: none;
 }
 
-.page-id-2329 {
-  padding: 250px 0;
-  background: url("../images/maintenance.jpg");
-}
-
 .page-id-414 .content-area .site-main {
   padding: 0;
 }
@@ -7379,11 +7371,6 @@ header footer and breadcrumb hide in commingsoon page
 .page-id-2324 footer,
 .page-id-2324 .bg-none {
   display: none;
-}
-
-.page-id-2324 {
-  padding: 90px 0;
-  background: url("../images/maintenance.jpg");
 }
 
 /*---------------------------------------------------------------------
@@ -8153,17 +8140,6 @@ section {
   background: #eff1fe !important;
 }
 
-.iq-over-image-bg {
-  background: url(../images/footerbg-1.png);
-}
-
-.iq-feture-bg {
-  background-image: url(../images/feature.png);
-  background-position: 0 0;
-  background-repeat: no-repeat !important;
-  padding-top: 200px;
-}
-
 .iq-pt-100 {
   padding-top: 100px;
 }
@@ -8472,7 +8448,6 @@ our-services
 
 .vc_custom_1576062736855 {
   padding-top: 160px !important;
-  background-image: url('../images/bg/xamin-d10-06.png') !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -8923,7 +8898,6 @@ Extra class
 /*Manufacturing*/
 .iq-manufac-work {
   padding-bottom: 70px;
-  background-image: url(../images/bg/01-d13.jpg) !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -8931,7 +8905,7 @@ Extra class
 
 .xamin-background {
   padding-bottom: 70px;
-  background-image: url(../images/bg/bg-2.png) !important;
+  /* background-image: url(../images/bg/bg-2.png) !important; */
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -9442,7 +9416,7 @@ Extra class
 }
 
 .bg-img-two {
-  background-image: url(../images/bg/02.jpg) !important;
+  /* background-image: url(../images/bg/02.jpg) !important; */
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -9460,7 +9434,7 @@ Extra class
 }
 
 .iq-minimal-showcase {
-  background-image: url(../images/bg/bg-2.png) !important;
+  /* background-image: url(../images/bg/bg-2.png) !important; */
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
