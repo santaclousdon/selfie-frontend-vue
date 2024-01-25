@@ -57,7 +57,7 @@
         ],
         footerHome1: [
           {
-            href: '/auth/dashboard',
+            href: '/home',
             title: 'Home'
           },
           {
@@ -67,7 +67,7 @@
         ],
         footerHome2: [
           {
-            href: '/home',
+            href: '/home#howitworks',
             title: 'How does it work?'
           },
           {

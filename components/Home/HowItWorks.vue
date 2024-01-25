@@ -12,8 +12,8 @@
           </div>
           <div class="row learn-more">
             <div class="col-lg-10 col-md-12 col-sm-12">
-              <a href="">Get started <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
-                    alt="->"></span> </a>
+              <nuxt-link to="/register-page">Get started <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
+                    alt="->"></span> </nuxt-link>
             </div>
           </div>
         </div>
@@ -29,8 +29,8 @@
           </div>
           <div class="row learn-more">
             <div class="col-lg-10 col-md-12 col-sm-12">
-              <a href="">Photo requirements <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
-                    alt="->"></span> </a>
+              <nuxt-link to="photo-require">Photo requirements <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
+                    alt="->"></span> </nuxt-link>
             </div>
           </div>
         </div>
@@ -45,8 +45,8 @@
           </div>
           <div class="row learn-more">
             <div class="col-lg-10 col-md-12 col-sm-12">
-              <a href="">Our rates <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
-                    alt="->"></span> </a>
+              <nuxt-link to="/our-rates">Our rates <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
+                    alt="->"></span> </nuxt-link>
             </div>
           </div>
         </div>

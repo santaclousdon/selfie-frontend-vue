@@ -8,6 +8,7 @@
 import PersonalDetail from '../../../components/Auth/PersonalDetail/PersonalDetail'
 import { themes } from '../../../assets/app/app'
 export default {
+  middleware: 'auth',
   layout: 'Auth',
   components: {
     PersonalDetail

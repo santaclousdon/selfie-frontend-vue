@@ -156,7 +156,9 @@ export default {
   color: black !important;
   padding: 5px 10px;
 }
-
+.current-menu-item {
+  color: #673CF6;
+}
 #top-menu {
   float: left;
 }

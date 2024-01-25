@@ -8,6 +8,7 @@
 import PaymentInfo from '../../../components/Auth/PaymentInfo/PaymentInfo'
 import { themes } from '../../../assets/app/app'
 export default {
+  middleware: 'auth',
   layout: 'Auth',
   components: {
     PaymentInfo

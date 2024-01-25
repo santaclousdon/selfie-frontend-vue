@@ -8,8 +8,8 @@
               <h2>Frequently Asked Questions</h2>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 contact-nav text-right">
-              <a href="/contact-us">Contact us<span class="blue-btn ml-3"><img src="../../assets/images/Arrow 3.png"
-                    width="15" alt="->"></span> </a>
+              <nuxt-link to="/contact-us">Contact us<span class="blue-btn ml-3"><img src="../../assets/images/Arrow 3.png"
+                    width="15" alt="->"></span> </nuxt-link>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">

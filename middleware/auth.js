@@ -1,4 +1,4 @@
 export default function ({ store, redirect }) {
-    return redirect('/auth/dashboard')
-  }
-  
+  if (!store.$auth.$state.loggedIn) return redirect('/no-auth')
+  else return redirect('/auth/dashboard')
+}

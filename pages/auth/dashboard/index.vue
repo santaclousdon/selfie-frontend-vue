@@ -10,6 +10,7 @@ import Accordion from '../../../components/Auth/Dashboard/Accordion'
 import DescriptionCard from '../../../components/Auth/Dashboard/DescriptionCard'
 import { themes } from '../../../assets/app/app'
 export default {
+  middleware: 'auth',
   layout: 'Auth',
   components: {
     Accordion,

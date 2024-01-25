@@ -8,6 +8,7 @@
 import Accordion from '../../../components/Auth/PaymentHistory/Accordion'
 import { themes } from '../../../assets/app/app'
 export default {
+  middleware: 'auth',
   layout: 'Auth',
   components: {
     Accordion

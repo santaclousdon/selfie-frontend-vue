@@ -8,6 +8,7 @@
 import Settings from '../../../components/Auth/Settings/Settings'
 import { themes } from '../../../assets/app/app'
 export default {
+  middleware: 'auth',
   layout: 'Auth',
   components: {
     Settings

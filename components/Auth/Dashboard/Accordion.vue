@@ -88,7 +88,8 @@
                                             <select type="select" name="birth" class="form-control text mt-3"
                                                 placeholder="">
                                                 <option value="0">Select Day</option>
-                                                <option v-for="day in days" :value="day">{{ day }}</option>
+                                                <option v-for="(day, index) in days" :key="index" :value="day">{{ day }}
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
@@ -97,7 +98,8 @@
                                             <select type="select" name="month" class="form-control text mt-3"
                                                 placeholder="">
                                                 <option value="0">Select Month</option>
-                                                <option v-for="month in months" :value="month">{{ month }}
+                                                <option v-for="(month, index) in months" :key="index" :value="month">{{
+                                                    month }}
                                                 </option>
                                             </select>
                                         </div>
@@ -107,7 +109,7 @@
                                             <select type="select" name="month" class="form-control text mt-3"
                                                 placeholder="">
                                                 <option value="0">Select Year</option>
-                                                <option v-for="year in years" :value="year">{{ year }}
+                                                <option v-for="(year, index) in years" :key="index" :value="year">{{ year }}
                                                 </option>
                                             </select>
                                         </div>
@@ -213,6 +215,26 @@ section {
 
 .accordion-active div.active-faq .container .row {
     background-color: #673CF6;
+}
+
+.Pending-item {
+    background: #F5F5F5;
+    border-radius: 8px;
+    color: #222222;
+    font-size: 16px;
+    font-family: Montserrat;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.Rejected-item {
+    background: #E35D5D;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-family: Montserrat;
+    font-weight: 500;
+    word-wrap: break-word
 }
 
 .modal-body {

@@ -8,6 +8,7 @@
 import Accordion from '../../../components/Auth/MyReferrals/Accordion'
 import { themes } from '../../../assets/app/app'
 export default {
+  middleware: 'auth',
   layout: 'Auth',
   components: {
     Accordion

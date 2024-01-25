@@ -10,6 +10,7 @@ import Accordion from '../../../components/Auth/Legal/Accordion'
 import SignAggrement from '../../../components/Auth/Legal/SignAggrement'
 import { themes } from '../../../assets/app/app'
 export default {
+  middleware: 'auth',
   layout: 'Auth',
   components: {
     Accordion,

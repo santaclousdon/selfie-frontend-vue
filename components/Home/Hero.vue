@@ -24,7 +24,7 @@
             <br>Snap, upload, and get paid instantly!
           </p>
 
-          <a id="slider-4-slide-6-layer-4" class="rs-layer button rev-btn" href="/about-1" target="_self" rel="nofollow"
+          <a id="slider-4-slide-6-layer-4" class="rs-layer button rev-btn" href="/register-page" target="_self" rel="nofollow"
             data-type="button" data-xy="xo:95px,15px,40px,60px;y:m;yo:184px,95px,-90px,0;"
             data-text="s:16,18,20,22;l:24;a:inherit,inherit,inherit,center;" data-wrpcls="blue-btn"
             data-padding="t:10;r:30;b:10;l:30;" data-border="bor:8,8,8,8;" data-frame_0="y:-50;"
@@ -34,7 +34,7 @@
             started now
           </a>
 
-          <a id="slider-4-slide-6-layer-5" class="rs-layer button rev-btn" href="/about-1" target="_self" rel="nofollow"
+          <a id="slider-4-slide-6-layer-5" class="rs-layer button rev-btn" to="/#" target="_self" rel="nofollow"
             data-type="button" data-xy="xo:295px,215px,240px,260px;y:m;yo:184px,95px,-90px,0;"
             data-text="s:16,18,20,22;l:24;a:inherit,inherit,inherit,center;" data-padding="t:15;r:30;b:10;l:30;"
             data-border="bor:8,8,8,8;" data-frame_0="y:-50;" data-frame_1="st:1350;sp:500;sR:1350;"
@@ -44,7 +44,7 @@
             <img src="revslider/assets/payment/payment1.png" width="60" alt="">
           </a>
 
-          <a id="slider-4-slide-6-layer-6" class="rs-layer button rev-btn" href="/about-1" target="_self" rel="nofollow"
+          <a id="slider-4-slide-6-layer-6" class="rs-layer button rev-btn" to="/#" target="_self" rel="nofollow"
             data-type="button" data-xy="xo:365px,285px,310px,330px;y:m;yo:184px,95px,-90px,0;"
             data-text="s:16,18,20,22;l:24;a:inherit,inherit,inherit,center;" data-padding="t:15;r:30;b:10;l:30;"
             data-border="bor:8,8,8,8;" data-frame_0="y:-50;" data-frame_1="st:1350;sp:500;sR:1350;"
@@ -54,7 +54,7 @@
             <img src="revslider/assets/payment/payment2.png" width="70" alt="">
           </a>
 
-          <a id="slider-4-slide-6-layer-6" class="rs-layer button rev-btn" href="/about-1" target="_self" rel="nofollow"
+          <a id="slider-4-slide-6-layer-6" class="rs-layer button rev-btn" to="/#" target="_self" rel="nofollow"
             data-type="button" data-xy="xo:445px,355px,380px,400px;y:m;yo:182px,95px,-90px,0;"
             data-text="s:16,18,20,22;l:24;a:inherit,inherit,inherit,center;" data-padding="t:15;r:30;b:10;l:30;"
             data-border="bor:8,8,8,8;" data-frame_0="y:-50;" data-frame_1="st:1350;sp:500;sR:1350;"
