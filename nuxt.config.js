@@ -104,6 +104,10 @@ module.exports = {
   axios: {
     baseURL: "http://localhost:8000"
   },
+  // Server Middleware
+  serverMiddleware: {
+    '/api': '~/server'
+  },
   /*
   ** Build configuration
   */
