@@ -16,12 +16,11 @@ export default {
       styleLogo: false,
       logo: logoImg,
       navItems: [
-        { href: '/home',
+        { href: '/home#howitworks',
           title: 'How does this works?',
-          active: true,
           children: true,
           child: [],
-          classname: 'menu'
+          classname: ''
         },
         { href: '/our-rates', title: 'Our rates', children: true, child: [], classname: ' ' },
         { href: '/photo-require', title: 'Photo requirements', children: true, child: [], classname: ' ' }

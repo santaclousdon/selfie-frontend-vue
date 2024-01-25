@@ -19,7 +19,7 @@
                 <ul id="top-menu" class="navbar-nav ml-auto">
                   <li v-for="(option, index) in navItemList" :key="index" class="nav-item menu-item"
                     :class="isParentActiveRoute(option) ? ' current-menu-item ' : ''">
-                    <nuxt-link :to="option.href" @click="jumpTo(option.href)">
+                    <nuxt-link :to="option.href" >
                       {{ option.title }}
                     </nuxt-link>
                     <ul v-if="option.children" :class="'sub-menu ' + option.classname" style="display: none;">
@@ -37,10 +37,10 @@
             <div class="sub-main">
               <nav aria-label="breadcrumb">
                 <div class="light-btn button">
-                  <a href="/login-page">Log in</a>
+                  <nuxt-link to="/login-page">Log in</nuxt-link>
                 </div>
                 <div class="blue-btn button">
-                  <a href="/register-page">Get started</a>
+                  <nuxt-link to="/register-page">Get started</nuxt-link>
                 </div>
                 <div class="lang-btn button">
                   <ul id="top-menu" class="navbar-nav ml-auto">

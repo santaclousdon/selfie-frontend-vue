@@ -16,7 +16,6 @@ import WhyPay from '../../components/Home/WhyPay'
 import Footer from '../../components/Home/Footer'
 import { themes } from '../../assets/app/app'
 export default {
-  middleware: 'redirect',
   layout: 'Pages',
   components: {
     Hero,

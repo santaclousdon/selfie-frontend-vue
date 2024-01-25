@@ -4,7 +4,7 @@
     <div class="menu-footer-menu-container">
       <ul class="menu">
         <li v-for="(list, value) in content1" :key="value" class="menu-item">
-          <a :href="list.href">{{ list.title }}</a>
+          <nuxt-link :to="list.href">{{ list.title }}</nuxt-link>
         </li>
       </ul>
     </div>
@@ -12,7 +12,7 @@
     <div class="menu-footer-menu-container">
       <ul class="menu">
         <li v-for="(list, value) in content2" :key="value" class="menu-item">
-          <a :href="list.href">{{ list.title }}</a>
+          <nuxt-link :to="list.href">{{ list.title }}</nuxt-link>
         </li>
       </ul>
     </div>
@@ -20,7 +20,7 @@
     <div class="menu-footer-menu-container">
       <ul class="menu">
         <li v-for="(list, value) in content3" :key="value" class="menu-item">
-          <a :href="list.href">{{ list.title }}</a>
+          <nuxt-link :to="list.href">{{ list.title }}</nuxt-link>
         </li>
       </ul>
     </div>

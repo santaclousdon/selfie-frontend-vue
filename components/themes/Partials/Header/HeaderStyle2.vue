@@ -19,7 +19,7 @@
                 <ul id="top-menu" class="navbar-nav ml-3 text-left">
                   <li v-for="(option, index) in navItemList" :key="index" class="nav-item menu-item"
                     :class="isParentActiveRoute(option) ? ' current-menu-item ' : ''">
-                    <nuxt-link :to="option.href" @click="jumpTo(option.href)">
+                    <nuxt-link :to="option.href">
                       {{ option.title }}
                     </nuxt-link>
                     <ul v-if="option.children" :class="'sub-menu ' + option.classname" style="display: none;">
@@ -62,7 +62,7 @@
                   </ul>
                 </div>
                 <div class="user-avatar button mr-3 ml-3" @click="logout">
-                  <a href="#">
+                  <a>
                     <img src="../../../../assets/images/logout.png" alt="">
                   </a>
                 </div>

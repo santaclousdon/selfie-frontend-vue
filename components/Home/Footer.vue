@@ -77,7 +77,7 @@ export default {
       ],
       footerHome2: [
         {
-          href: '/home',
+          href: '/home#howitworks',
           title: 'How does it work?'
         },
         {
