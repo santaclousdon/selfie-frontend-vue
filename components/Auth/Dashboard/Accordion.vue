@@ -227,7 +227,7 @@ section {
     word-wrap: break-word;
 }
 
-.Rejected-item {
+.Rejected-item { 
     background: #E35D5D;
     border-radius: 8px;
     color: white;
