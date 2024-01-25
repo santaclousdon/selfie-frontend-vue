@@ -10,7 +10,7 @@ import Accordion from '../../components/Faqs/Accordion'
 import Footer from '../../components/Home/Footer'
 import { themes } from '../../assets/app/app'
 export default {
-  layout: 'Faqs',
+  layout: 'Pages',
   components: {
     Accordion,
     Footer

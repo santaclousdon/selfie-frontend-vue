@@ -61,9 +61,10 @@
                     </li>
                   </ul>
                 </div>
-                <div class="user-avatar button mr-3 ml-3">
-                  <a href="">
-                    <img src="../../../../assets/images/logout.png" alt=""></a>
+                <div class="user-avatar button mr-3 ml-3" @click="logout">
+                  <a href="#">
+                    <img src="../../../../assets/images/logout.png" alt="">
+                  </a>
                 </div>
               </nav>
             </div>
@@ -100,7 +101,15 @@ export default {
       ]
     }
   },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated;
+    }
+  },
   methods: {
+    async logout() {
+      await this.$auth.logout();
+    },
     isParentActiveRoute(option) {
       // eslint-disable-next-line no-unused-expressions
       const itemClass = option.child.find((item) => {

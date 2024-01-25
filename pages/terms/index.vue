@@ -10,7 +10,7 @@
   import Footer from '../../components/Home/Footer'
   import { themes } from '../../assets/app/app'
   export default {
-    layout: 'Terms',
+    layout: 'Pages',
     components: {
       Accordion,
       Footer

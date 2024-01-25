@@ -1,30 +1,33 @@
 <template>
   <section class="">
     <div class="container login-section justify-content-center">
-      <div class="col-sm-6 alert alert-danger" role="alert">
+      <div class="col-sm-7 alert alert-danger" v-if="alert" role="alert">
         <span class="mr-3"><img src="../../assets/images/warningIcon.png" alt=""></span>
-        You have entered an incorrect email address.
+        You have entered an incorrect email address or password.
+        <span class="text-right alert-close" @click="closeAlert" > <i class="fa fa-times" ></i> </span>
       </div>
       <div class="row align-items-center justify-content-center">
-        <div class="col-sm-6 login-form p-5">
+        <div class="col-sm-7 login-form p-5">
           <h2 class="text-left mb-4 sub-title">
             Login
           </h2>
           <div class="response-output" />
-          <form action="#" method="post">
+          <form @submit.prevent="login">
             <div class="contact-form">
-              <div> <input type="text" name="your-email" class="form-control text " placeholder="Your Email"> </div>
-              <div> <input type="password" name="your-password" class="form-control text " placeholder="Your {asswprd}"> </div>
+              <div> <input type="text" name="your-email" class="form-control text " placeholder="Your Email"
+                  v-model="loginData.email"> </div>
+              <div> <input type="password" name="your-password" class="form-control text " placeholder="Your password"
+                  v-model="loginData.password"> </div>
               <div>
                 <div class="row align-items-center justify-content-center ">
                   <div class="col-lg-6 col-md-6 col-sm-12 forgot-pass">
                     <a href="/forgot-pass">Forgot password?</a>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 text-right">
-                    <a id="submitLogin" href="/auth/dashboard" name="submit" type="submit" value="Send"
+                    <button id="submitLogin" name="submit" type="submit" value="Send"
                       class="button blue-btn d-block w-55">
                       Login <span> <img src="../../assets/images/Arrow 3.png" alt=""> </span>
-                  </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -33,7 +36,7 @@
         </div>
       </div>
       <div class="row align-items-center justify-content-center">
-        <div class="col-sm-6 p-5 mt-3 detail-form">
+        <div class="col-sm-7 p-5 mt-3 detail-form">
           <div class="iq-accordion-block">
             <div class="active-faq clearfix">
               <div class="container">
@@ -65,10 +68,38 @@
   </section>
 </template>
 <script>
+import jquery from 'jquery';
+
 export default {
-  name: 'LoginForm'
+  name: 'LoginForm',
+  data() {
+    return {
+      loginData: {
+        email: "",
+        password: ""
+      },
+      alert: false
+    };
+  },
+  methods: {
+    async login() {
+      try {
+        let response = await this.$auth.loginWith("local", {
+          data: this.loginData
+        });
+        this.$router.push("/auth/dashboard");
+      } catch (err) {
+        console.log(err);
+        this.alert = true
+      }
+    },
+    closeAlert() {
+      this.alert = false
+    }
+  }
 }
 </script>
+
 <style scoped >
 .sub-title {
   color: #222222;
@@ -149,7 +180,11 @@ input.text {
   font-size: 16px;
   font-family: Montserrat;
   font-weight: 500;
-  word-wrap: break-word
+  word-wrap: break-word;
+}
+.alert-close {
+  float: right;
+  cursor: pointer;
 }
 </style>
 

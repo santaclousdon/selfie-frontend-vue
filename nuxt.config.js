@@ -66,10 +66,11 @@ module.exports = {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    "@nuxtjs/auth-next",
     '@nuxtjs/pwa',
-    'nuxt-moment'
+    'nuxt-moment',
+    "@nuxtjs/auth-next"
   ],
+
   auth: {
     strategies: {
       local: {
@@ -102,11 +103,7 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: "http://localhost:8000"
-  },
-  // Server Middleware
-  serverMiddleware: {
-    '/api': '~/server'
+    baseURL: "http://localhost:8080"
   },
   /*
   ** Build configuration
@@ -128,8 +125,5 @@ module.exports = {
         ['@babel/plugin-proposal-private-property-in-object', { loose: true }]
       ]
     }
-  },
-  server: {
-    port: 8000 // default: 3000
   }
 }

@@ -1,12 +1,19 @@
 <template>
   <section class="">
     <div class="container login-section justify-content-center">
-      <div class="col-sm-5 alert alert-danger" role="alert">
+      <div class="col-sm-6 alert alert-danger" role="alert" v-if="alert">
         <span class="mr-3"><img src="../../assets/images/warningIcon.png" alt=""></span>
-        You have entered an incorrect email address.
+        {{ message }}
+        <span class="text-right alert-close" @click="closeAlert"> <i class="fa fa-times"></i> </span>
+      </div>
+      <div class="col-sm-6 alert alert-success" role="alert" v-if="successalert">
+        <span class="mr-3"><img src="../../assets/images/pending.png" alt=""></span>
+        {{ message }}
+        <a href="/login-page" class="text-dark" >login now</a>
+        <span class="text-right alert-close" @click="closeAlert"> <i class="fa fa-times"></i> </span>
       </div>
       <div class="row align-items-center justify-content-center">
-        <div class="col-sm-5 login-form">
+        <div class="col-sm-6 login-form">
           <div class="iq-accordion-block">
             <div class="active-faq clearfix">
               <div class="container">
@@ -30,11 +37,17 @@
           </div>
           <img src="../../assets/images/Line 1.png" width="100%" alt="">
           <div class="response-output" />
-          <form action="#" method="post" class=" p-3">
+          <form @submit.prevent="register" class=" p-3">
             <div class="contact-form">
+              <!-- <div>
+                <label for="name">Enter your full name</label>
+                <input type="text" name="your-name" class="form-control text " placeholder="your name"
+                  v-model="registerData.fullname">
+              </div> -->
               <div>
                 <label for="email">Enter your email address</label>
-                <input type="text" name="your-email" class="form-control text " placeholder="your@email.com">
+                <input type="text" name="your-email" class="form-control text " placeholder="your@email.com"
+                  v-model="registerData.email">
               </div>
               <div>
                 <label for="gender">Choose your gender</label>
@@ -51,7 +64,8 @@
               </div>
               <div>
                 <label for="password">Password</label>
-                <input type="password" name="password" class="form-control text " placeholder="password here">
+                <input type="password" name="password" class="form-control text " placeholder="password here"
+                  v-model="registerData.password">
               </div>
               <div>
                 <label for="password-repeat">Repeat password</label>
@@ -67,10 +81,10 @@
               <div>
                 <div class="row align-items-center justify-content-center mr-0 create-btn">
                   <div class="col-lg-12 col-md-12 col-sm-12 text-right">
-                    <a id="submitLogin" href="/auth" name="submit" type="submit" value="Send"
+                    <button id="submitLogin" name="submit" type="submit" value="Send"
                       class="button blue-btn btn-sm d-block w-55">
                       Create an account <span> <img src="../../assets/images/Arrow 3.png" alt=""> </span>
-                  </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -83,26 +97,46 @@
 </template>
 <script>
 export default {
-  name: 'RegisterForm'
+  name: 'RegisterForm',
+  data() {
+    return {
+      registerData: {
+        fullname: "",
+        email: "",
+        password: ""
+      },
+      message: "You have entered an incorrect email address or password.",
+      alert: false,
+      successalert: false
+    };
+  },
+  methods: {
+    async register() {
+      try {
+        console.log('register')
+        const res = await this.$axios.$post("/api/auth/signin", {
+          fullname: this.registerData.fullname,
+          email: this.registerData.email,
+          password: this.registerData.password
+        });
+
+        console.log(res)
+        this.message = "Successfully registered new user."
+        this.successalert = true
+      } catch (err) {
+        console.log(err);
+        this.message = "Error occupied during register. Please try again."
+        this.alert = true
+      }
+    },
+    closeAlert() {
+      this.alert = false
+      this.successalert = false
+    }
+  }
 }
 </script>
 <style scoped >
-.sub-title {
-  color: #222222;
-  font-size: 29px;
-  font-family: Darker Grotesque;
-  font-weight: 700;
-  word-wrap: break-word
-}
-
-.forgot-pass a {
-  color: #222222;
-  font-size: 18px;
-  font-family: Montserrat;
-  font-weight: 500;
-  word-wrap: break-word
-}
-
 .login-form {
   background-color: #F5F6FD;
   border-radius: 8px;
@@ -122,24 +156,11 @@ input.text {
   margin-top: 10px;
 }
 
-.detail-form {
-  border: #EDEFFD 1px solid;
-  border-radius: 8px;
-}
-
 .accordion-title span {
   color: #222222;
   font-size: 29px;
   font-family: Darker Grotesque normal;
   font-weight: 700;
-  word-wrap: break-word
-}
-
-.get-started {
-  color: black;
-  font-size: 18px;
-  font-family: Montserrat;
-  font-weight: 600;
   word-wrap: break-word
 }
 
@@ -157,12 +178,6 @@ input.text {
   margin-bottom: 0;
 }
 
-.blue-btn-arrow {
-  background: #673CF6;
-  border-radius: 9999px;
-  padding: 2px 5px;
-}
-
 .alert {
   margin-left: auto;
   margin-right: auto;
@@ -172,6 +187,10 @@ input.text {
   font-family: Montserrat;
   font-weight: 500;
   word-wrap: break-word
+}
+
+.alert-success {
+  background: rgb(0, 172, 92);
 }
 
 .iq-accordion-block {
@@ -184,10 +203,6 @@ label {
   font-family: Montserrat;
   font-weight: 500;
   word-wrap: break-word
-}
-
-.btn-check {
-  display: none;
 }
 
 a.pill {
@@ -211,8 +226,13 @@ input.form-check-input {
   margin-right: 15px;
   margin-top: -10px;
 }
+
 .create-btn {
   margin: 3em 0 3em 3em;
+}
+.alert-close {
+  float: right;
+  cursor: pointer;
 }
 </style>
 
