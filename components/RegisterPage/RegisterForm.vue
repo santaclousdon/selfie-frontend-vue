@@ -9,7 +9,7 @@
       <div class="col-sm-6 alert alert-success" role="alert" v-if="successalert">
         <span class="mr-3"><img src="../../assets/images/pending.png" alt=""></span>
         {{ message }}
-        <a href="/login-page" class="text-dark" >login now</a>
+        <a href="/login-page" class="text-dark">login now</a>
         <span class="text-right alert-close" @click="closeAlert"> <i class="fa fa-times"></i> </span>
       </div>
       <div class="row align-items-center justify-content-center">
@@ -53,26 +53,27 @@
                 <label for="gender">Choose your gender</label>
                 <ul class="row nav nav-pills mb-3 justify-content-between" id="pills-tab" role="tablist">
                   <li class="nav-item col-lg-6 col-md-6 text-center">
-                    <a class="nav-link active pill" id="pills-female-tab" data-toggle="pill" href="#pills-female"
+                    <a class="nav-link active pill" id="pills-female-tab" data-toggle="pill" @click="HandleGender(1)"
                       role="tab" aria-controls="pills-female" aria-selected="false">Female</a>
                   </li>
                   <li class="nav-item col-lg-6 col-md-6 text-center">
-                    <a class="nav-link pill" id="pills-male-tab" data-toggle="pill" href="#pills-male" role="tab"
+                    <a class="nav-link pill" id="pills-male-tab" data-toggle="pill" @click="HandleGender(0)" role="tab"
                       aria-controls="pills-male" aria-selected="false">Male</a>
                   </li>
                 </ul>
               </div>
               <div>
                 <label for="password">Password</label>
-                <input type="password" name="password" class="form-control text " placeholder="password here"
+                <input type="password" name="password" class="form-control text" placeholder="password here"
                   v-model="registerData.password">
               </div>
               <div>
                 <label for="password-repeat">Repeat password</label>
-                <input type="password" name="password-repeat" class="form-control text " placeholder="repeat password">
+                <input type="password" name="password-repeat" class="form-control text"
+                  :value="registerData.repeatpassword" @input="HandleRepeatPass" placeholder="repeat password">
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <div class="form-check" >
+                <input class="form-check-input" type="checkbox" @click="HandleCheck" id="flexCheckIndeterminate">
                 <label class="form-check-labelcol-lg-11 col-md-11 " for="flexCheckIndeterminate">
                   I hereby confirm I have fully read and agree
                   with the <a href="">terms & conditions</a> .
@@ -101,37 +102,92 @@ export default {
   data() {
     return {
       registerData: {
-        fullname: "",
+        gender: "",
         email: "",
-        password: ""
+        password: "",
+        repeatpassword: ""
       },
       message: "You have entered an incorrect email address or password.",
       alert: false,
-      successalert: false
+      successalert: false,
+      valid: false,
+      check: false
     };
   },
   methods: {
     async register() {
       try {
-        console.log('register')
+
+        if (this.registerData.email == "") {
+          this.message = "Please input your valid email."
+          this.valid = false
+          this.alert = true
+        }
+
+        else if (this.registerData.password == "") {
+          this.message = "Please input your password"
+          this.alert = true
+          this.valid = false
+        }
+
+        else if (this.registerData.password != this.registerData.repeatpassword) {
+          this.messge = "Please input the same password with password field and repeatPassword field"
+          this.alert = true
+          this.valid = false
+        }
+
+        else if (this.registerData.gender == "male") {
+          this.message = "Only female can register on this platform."
+          this.alert = true
+          this.valid = false
+        }
+
+        else if (!this.check) {
+          this.message = "You need to agree with our term and conditions"
+          this.alert = true
+          this.valid = false
+        }
+
+        else this.valid = true
+
+        if (!this.valid) return
+
         const res = await this.$axios.$post("/api/auth/signin", {
           fullname: this.registerData.fullname,
           email: this.registerData.email,
           password: this.registerData.password
         });
 
-        console.log(res)
         this.message = "Successfully registered new user."
+        this.alert = false
         this.successalert = true
       } catch (err) {
         console.log(err);
         this.message = "Error occupied during register. Please try again."
         this.alert = true
+        this.successalert = false
       }
     },
     closeAlert() {
       this.alert = false
       this.successalert = false
+    },
+    HandleCheck(e) {
+      this.check = e.target.checked
+    },
+    HandleRepeatPass(e) {
+      if (e.target.value != this.registerData.password) {
+        this.message = "Please input the same password with password field"
+        this.alert = true
+      }
+      else {
+        this.alert = false
+        this.registerData.repeatpassword = e.target.value
+      }
+    },
+    HandleGender(g) {
+      if (g) this.registerData.gender = "female"
+      else this.registerData.gender = "male"
     }
   }
 }
@@ -154,6 +210,10 @@ input.text {
 
 .login-section {
   margin-top: 10px;
+}
+
+a {
+  cursor: pointer;
 }
 
 .accordion-title span {
@@ -230,6 +290,7 @@ input.form-check-input {
 .create-btn {
   margin: 3em 0 3em 3em;
 }
+
 .alert-close {
   float: right;
   cursor: pointer;
