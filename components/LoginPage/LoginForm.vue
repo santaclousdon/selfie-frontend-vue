@@ -88,11 +88,11 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.loginData
         });
-        if (response.data.emailStatus) this.$router.push("/auth/dashboard");
-        else {
-          this.$auth.logout()
-          window.location.replace('/confirm-mail')
-        }
+        // if (response.data.emailStatus) this.$router.push("/auth/dashboard");
+        // else {
+        //   this.$auth.logout()
+        //   window.location.replace('/confirm-mail')
+        // }
       } catch (err) {
         console.log(err);
         this.alert = true

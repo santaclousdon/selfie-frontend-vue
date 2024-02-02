@@ -118,6 +118,8 @@ export default {
     async register() {
       try {
 
+        
+        console.log(this.registerData.password, this.registerData.repeatpassword)
         if (this.registerData.email == "") {
           this.message = "Please input your valid email."
           this.valid = false
@@ -131,7 +133,7 @@ export default {
         }
 
         else if (this.registerData.password != this.registerData.repeatpassword) {
-          this.messge = "Please input the same password with password field and repeatPassword field"
+          this.messge = "Please input the same password "
           this.alert = true
           this.valid = false
         }
