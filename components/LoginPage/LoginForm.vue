@@ -4,7 +4,7 @@
       <div class="col-sm-7 alert alert-danger" v-if="alert" role="alert">
         <span class="mr-3"><img src="../../assets/images/warningIcon.png" alt=""></span>
         You have entered an incorrect email address or password.
-        <span class="text-right alert-close" @click="closeAlert" > <i class="fa fa-times" ></i> </span>
+        <span class="text-right alert-close" @click="closeAlert"> <i class="fa fa-times"></i> </span>
       </div>
       <div class="row align-items-center justify-content-center">
         <div class="col-sm-7 login-form p-5">
@@ -69,6 +69,7 @@
 </template>
 <script>
 import jquery from 'jquery';
+// import * as jwtDecode from 'jwt-decode';
 
 export default {
   name: 'LoginForm',
@@ -87,7 +88,11 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.loginData
         });
-        this.$router.push("/auth/dashboard");
+        if (response.data.emailStatus) this.$router.push("/auth/dashboard");
+        else {
+          this.$auth.logout()
+          window.location.replace('/confirm-mail')
+        }
       } catch (err) {
         console.log(err);
         this.alert = true
@@ -182,6 +187,7 @@ input.text {
   font-weight: 500;
   word-wrap: break-word;
 }
+
 .alert-close {
   float: right;
   cursor: pointer;

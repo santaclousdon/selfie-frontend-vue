@@ -161,6 +161,8 @@ export default {
         this.message = "Successfully registered new user."
         this.alert = false
         this.successalert = true
+        window.location.replace('/confirm-mail')
+        // this.router.push('/confirm-mail')
       } catch (err) {
         console.log(err);
         this.message = "Error occupied during register. Please try again."
