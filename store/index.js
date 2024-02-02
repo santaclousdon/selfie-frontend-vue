@@ -1,7 +1,16 @@
 export const state = () => ({
+    userInfo: {
+        emailStatue: false,
+        filledStatue: false
+    }
 })
 
-export const mutations = {}
+export const mutations = {
+    setUserInfo(state, data) {
+        state.auth.user = data
+        console.log("dddddddddddddddd",state, data)
+    }
+}
 
 export const actions = {}
 

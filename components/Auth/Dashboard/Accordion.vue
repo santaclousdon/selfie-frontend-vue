@@ -54,7 +54,7 @@
             <div class="modal-dialog  modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
+                        <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close"><i
                                 class="fa fa-times fa-1x"></i></button>
                         <div class="row align-items-center">
                             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
@@ -75,28 +75,30 @@
                                     <div class="row mt-3">
                                         <div class="sign-content col-lg-6 col-md-6 col-sm-12">
                                             <label for="FirstName">First name(s)</label>
-                                            <input type="text" class="iban-input" name="FirstName">
+                                            <input type="text" class="iban-input" name="FirstName" @input="HandleValidate"
+                                                v-model="personalInfo.firstName">
                                         </div>
                                         <div class="sign-content col-lg-6 col-md-6 col-sm-12">
                                             <label for="LastName">Last name</label>
-                                            <input type="text" class="iban-input" name="LastName">
+                                            <input type="text" class="iban-input" name="LastName" @input="HandleValidate"
+                                                v-model="personalInfo.lastName">
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
-                                            <label for="birth">Date of birth</label>
-                                            <select type="select" name="birth" class="form-control text mt-3"
-                                                placeholder="">
+                                            <label for="birthDate">Date of birth</label>
+                                            <select type="select" name="birthDate" class="form-control text mt-3"
+                                                @change="HandleValidate" placeholder="" v-model="date.day">
                                                 <option value="0">Select Day</option>
                                                 <option v-for="(day, index) in days" :key="index" :value="day">{{ day }}
                                                 </option>
                                             </select>
                                         </div>
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
-                                            <label for="birth" style="visibility: hidden;">Date of
+                                            <label for="month" style="visibility: hidden;">Date of
                                                 birth</label>
                                             <select type="select" name="month" class="form-control text mt-3"
-                                                placeholder="">
+                                                @change="HandleValidate" placeholder="" v-model="date.month">
                                                 <option value="0">Select Month</option>
                                                 <option v-for="(month, index) in months" :key="index" :value="month">{{
                                                     month }}
@@ -104,10 +106,10 @@
                                             </select>
                                         </div>
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
-                                            <label for="birth" style="visibility: hidden;">Date of
+                                            <label for="birthYear" style="visibility: hidden;">Date of
                                                 birth</label>
-                                            <select type="select" name="month" class="form-control text mt-3"
-                                                placeholder="">
+                                            <select type="select" name="birthYear" class="form-control text mt-3"
+                                                @change="HandleValidate" placeholder="" v-model="date.year">
                                                 <option value="0">Select Year</option>
                                                 <option v-for="(year, index) in years" :key="index" :value="year">{{ year }}
                                                 </option>
@@ -117,7 +119,8 @@
                                     <div class="row mt-3">
                                         <div class="sign-content col-lg-12 col-md-12 col-sm-12">
                                             <label for="country">Country of residence</label>
-                                            <select name="country" class="form-control text mt-3">
+                                            <select name="country" class="form-control text mt-3" @change="HandleValidate"
+                                                v-model="personalInfo.country">
                                                 <option value="0">Select your country of residence</option>
                                                 <option value="1">Netherlands</option>
                                                 <option value="2">United States</option>
@@ -128,19 +131,23 @@
                                     <div class="row mt-3">
                                         <div class="sign-content col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckIndeterminate">
-                                                <label class="form-check-label col-lg-12 col-md-12 "
+                                                <input class="form-check-input" type="checkbox"
+                                                     id="flexCheckIndeterminate"
+                                                    v-model="personalInfo.check">
+                                                <label class="form-check-label col-lg-12 col-md-12" @click="HandleValidate"
                                                     for="flexCheckIndeterminate">
                                                     I hereby declare that I have filled in my personal
                                                     information
                                                     truthfully.
                                                 </label>
+                                                <div class="invalid-feedback">
+                                                    You must agree before submitting.
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mt-3">
-                                        <a href="" class="blue-btn button btn-sm">
+                                        <a @click="HandleSubmit" class="blue-btn button btn-sm">
                                             <div class="row justify-content-center align-items-center">
                                                 <span class="label-text mr-3">Sign this agreement</span>
                                                 <img src="../../../assets/images/Arrow 3.png" class="sign-image mt-1"
@@ -158,18 +165,21 @@
     </section>
 </template>
 
-<script>
+<script defacult>
+import jquery from 'jquery';
+
 
 export default {
     name: 'Accordion',
     data() {
         return {
-            name: 'Emily',
+            name: '',
+            validInfo: true,
             pendingImage: require('../../../assets/images/pending.png'),
             rejectedImage: require('../../../assets/images/rejected.png'),
             days: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
             months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-            years: [1990, 2020, 2021, 2022, 2023, 2024],
+            years: Array.from({ length: 75 }, (v, k) => k + 1950),
             items: [
                 {
                     title: 'Fill in your payment information',
@@ -196,15 +206,128 @@ export default {
                     status: '',
                     detail: ''
                 }
-            ]
+            ],
+            date: {
+                day: 0,
+                month: 0,
+                year: 0
+            },
+            personalInfo: {
+                firstName: "",
+                lastName: "",
+                birth: "",
+                country: "",
+                filledInfo: false,
+                check: false
+            }
         }
     },
     mounted() {
-        document.getElementById('modal').click();
-        jQuery('#exampleModal').modal({
-            backdrop: 'static',
-            keyboard: false
-        })
+        jQuery('#exampleModal').on('click', '.modal-backdrop', function (e) {
+            e.preventDefault();
+        });
+
+        jQuery(document).on('keydown', function (e) {
+            if (e.key === "Escape") {
+                e.preventDefault();
+            }
+        });
+
+        if (!this.$store.$auth.$state.user.filledInfo) {
+            // if (!this.$store.state.userInfo.filledInfo) {
+            document.getElementById('modal').click();
+        }
+    },
+    methods: {
+        async HandleSubmit() {
+
+            this.HandleValidate()
+
+            if (!this.validInfo) return
+
+            else {
+                this.personalInfo.birth = this.date.day + "/" + this.date.month + "/" + this.date.year
+                this.personalInfo.filledInfo = true
+
+                const res = await this.$axios.$post("/api/auth/personal", {
+                    info: this.personalInfo
+                });
+
+                const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
+
+                document.getElementById('closeModal').click();
+                this.$store.commit('setUserInfo', userdata)
+                this.$router.push('personal-details')
+            }
+
+        },
+
+        HandleValidate() {
+
+            if (this.personalInfo.firstName == "") {
+                jQuery("input[name='FirstName']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("input[name='FirstName']").removeClass('err')
+                this.validInfo = true
+            }
+            if (this.personalInfo.lastName == "") {
+                jQuery("input[name='LastName']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("input[name='LastName']").removeClass('err')
+                this.validInfo = true
+            }
+
+            if (this.date.day == 0) {
+                jQuery("select[name='birthDate']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("select[name='birthDate']").removeClass('err')
+                this.validInfo = true
+            }
+
+            if (this.date.month == 0) {
+                jQuery("select[name='month']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("select[name='month']").removeClass('err')
+                this.validInfo = true
+            }
+
+            if (this.date.year == 0) {
+                jQuery("select[name='birthYear']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("select[name='birthYear']").removeClass('err')
+                this.validInfo = true
+            }
+
+            if (this.personalInfo.country == 0) {
+                jQuery("select[name='country']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("select[name='country']").removeClass('err')
+                this.validInfo = true
+            }
+
+            console.log("dt,",this.personalInfo.check)
+
+            if (!this.personalInfo.check) {
+                this.validInfo = false
+                // jQuery("label.form-check-label").css('color', 'red')
+            }
+            else {
+                // jQuery("label.form-check-label").css('color', 'black')
+                this.validInfo = true
+            }
+        }
     }
 }
 </script>
@@ -213,6 +336,9 @@ section {
     padding-bottom: 0%;
 }
 
+/* .close {
+    display: none;
+} */
 .accordion-active div.active-faq .container .row {
     background-color: #673CF6;
 }
@@ -227,7 +353,7 @@ section {
     word-wrap: break-word;
 }
 
-.Rejected-item { 
+.Rejected-item {
     background: #E35D5D;
     border-radius: 8px;
     color: white;
@@ -449,5 +575,9 @@ input.iban-input {
 
 .step-content {
     border: 1px #EDEFFD solid
+}
+
+.err {
+    border: 1px solid red !important;
 }
 </style>

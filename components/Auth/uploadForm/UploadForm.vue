@@ -55,9 +55,7 @@
                   </div>
                   <div class="">
                     <a class="blue-btn button btn-sm mt-3 mb-3 " data-dismiss="modal">
-                      <div class="row justify-content-center align-items-center">
                         <span class="label-text mr-3">Submit this photo</span>
-                      </div>
                     </a>
                   </div>
                 </div>
