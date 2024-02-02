@@ -118,8 +118,6 @@ export default {
     async register() {
       try {
 
-        
-        console.log(this.registerData.password, this.registerData.repeatpassword)
         if (this.registerData.email == "") {
           this.message = "Please input your valid email."
           this.valid = false
