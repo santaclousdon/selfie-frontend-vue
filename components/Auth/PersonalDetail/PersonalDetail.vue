@@ -33,7 +33,7 @@
                                             <select type="select" name="birth" class="form-control text mt-3"
                                                 placeholder="">
                                                 <option value="0">Select Day</option>
-                                                <option v-for="day in days" :value="day">{{ day }}</option>
+                                                <option v-for="day, index in days" :key="index" :value="day">{{ day }}</option>
                                             </select>
                                         </div>
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
@@ -41,7 +41,7 @@
                                             <select type="select" name="month" class="form-control text mt-3"
                                                 placeholder="">
                                                 <option value="0">Select Month</option>
-                                                <option v-for="month in months" :value="month">{{ month }}</option>
+                                                <option v-for="month, index in months" :key="index" :value="month">{{ month }}</option>
                                             </select>
                                         </div>
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
@@ -49,7 +49,7 @@
                                             <select type="select" name="month" class="form-control text mt-3"
                                                 placeholder="">
                                                 <option value="0">Select Year</option>
-                                                <option v-for="year in years" :value="year">{{ year }}</option>
+                                                <option v-for="year, index in years" :key="index" :value="year">{{ year }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -80,7 +80,7 @@
                                     <div class="mt-5">
                                         <a href="" class="blue-btn button btn-sm mt-3">
                                             <div class="row justify-content-center align-items-center">
-                                                <span class="label-text mr-3">Sign this agreement</span>
+                                                <span class="label-text mr-3">Save details</span>
                                                 <img src="../../../assets/images/Arrow 3.png" class="sign-image mt-1"
                                                     alt="">
                                             </div>

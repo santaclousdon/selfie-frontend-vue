@@ -149,7 +149,7 @@
                                     <div class="mt-3">
                                         <a @click="HandleSubmit" class="blue-btn button btn-sm">
                                             <div class="row justify-content-center align-items-center">
-                                                <span class="label-text mr-3">Sign this agreement</span>
+                                                <span class="label-text mr-3">Complete registration</span>
                                                 <img src="../../../assets/images/Arrow 3.png" class="sign-image mt-1"
                                                     alt="">
                                             </div>
