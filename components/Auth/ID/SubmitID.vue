@@ -34,7 +34,7 @@
                         </div>
                         <br>
                         <p class="mt-5 text-center" style="display: block; width: 100%;">Drag and Drop File or</p>
-                        <a href="" class="blue-btn button btn-sm mt-3">Browse</a>
+                        <a class="blue-btn button btn-sm mt-3">Browse</a>
                         <p class="mt-3 image-limit">Minimum 800 by 800 pixels</p>
                       </div>
                     </div>

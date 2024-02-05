@@ -20,43 +20,49 @@
                                     <div class="row mt-5">
                                         <div class="sign-content col-lg-6 col-md-6 col-sm-12">
                                             <label for="FirstName">First name(s)</label>
-                                            <input type="text" class="iban-input" name="FirstName">
+                                            <input type="text" class="iban-input" name="FirstName" @input="HandleValidate"
+                                                v-model="personalInfo.firstName">
                                         </div>
                                         <div class="sign-content col-lg-6 col-md-6 col-sm-12">
                                             <label for="LastName">Last name</label>
-                                            <input type="text" class="iban-input" name="LastName">
+                                            <input type="text" class="iban-input" name="LastName" @input="HandleValidate"
+                                                v-model="personalInfo.lastName">
                                         </div>
                                     </div>
                                     <div class="row mt-5">
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
-                                            <label for="birth">Date of birth</label>
-                                            <select type="select" name="birth" class="form-control text mt-3"
-                                                placeholder="">
+                                            <label for="birthDate">Date of birth</label>
+                                            <select type="select" name="birthDate" class="form-control text mt-3" placeholder=""
+                                                @change="HandleValidate" v-model="date.day">
                                                 <option value="0">Select Day</option>
-                                                <option v-for="day, index in days" :key="index" :value="day">{{ day }}</option>
+                                                <option v-for="day, index in days" :key="index" :value="day">{{ day }}
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                                             <label for="birth" style="visibility: hidden;">Date of birth</label>
                                             <select type="select" name="month" class="form-control text mt-3"
-                                                placeholder="">
+                                                @change="HandleValidate" placeholder="" v-model="date.month">
                                                 <option value="0">Select Month</option>
-                                                <option v-for="month, index in months" :key="index" :value="month">{{ month }}</option>
+                                                <option v-for="month, index in months" :key="index" :value="month">{{ month
+                                                }}</option>
                                             </select>
                                         </div>
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                                             <label for="birth" style="visibility: hidden;">Date of birth</label>
                                             <select type="select" name="month" class="form-control text mt-3"
-                                                placeholder="">
+                                                @change="HandleValidate" placeholder="" v-model="date.year">
                                                 <option value="0">Select Year</option>
-                                                <option v-for="year, index in years" :key="index" :value="year">{{ year }}</option>
+                                                <option v-for="year, index in years" :key="index" :value="year">{{ year }}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mt-5">
                                         <div class="sign-content col-lg-12 col-md-12 col-sm-12">
                                             <label for="country">Country of residence</label>
-                                            <select name="country" class="form-control text mt-3">
+                                            <select name="country" class="form-control text mt-3"
+                                                v-model="personalInfo.country">
                                                 <option value="0">Select your country of residence</option>
                                                 <option value="1">Netherlands</option>
                                                 <option value="2">United States</option>
@@ -69,7 +75,7 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
                                                     id="flexCheckIndeterminate">
-                                                <label class="form-check-label col-lg-12 col-md-12 "
+                                                <label class="form-check-label col-lg-12 col-md-12 " @click="HandleValidate"
                                                     for="flexCheckIndeterminate">
                                                     I hereby declare that I have filled in my personal information
                                                     truthfully.
@@ -78,12 +84,10 @@
                                         </div>
                                     </div>
                                     <div class="mt-5">
-                                        <a href="" class="blue-btn button btn-sm mt-3">
-                                            <div class="row justify-content-center align-items-center">
-                                                <span class="label-text mr-3">Save details</span>
-                                                <img src="../../../assets/images/Arrow 3.png" class="sign-image mt-1"
-                                                    alt="">
-                                            </div>
+                                        <a @click="HandleSubmit" class="blue-btn button btn-sm mt-3">
+                                            <span class="label-text ">Save details</span>
+                                            <img src="../../../assets/images/Arrow 3.png" class="sign-image ml-2 mb-2"
+                                                alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -101,31 +105,117 @@ export default {
     name: 'PersonalDetail',
     data() {
         return {
+            validInfo: true,
             days: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
             months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-            years: [1990, 2020, 2021, 2022, 2023, 2024],
-            items: [
-                {
-                    title: 'Grant of Rights',
-                    description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
-                },
-                {
-                    title: 'Confidentiality of Personal Details',
-                    description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
-                },
-                {
-                    title: 'Licensing to Third Parties',
-                    description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
-                },
-                {
-                    title: 'Agreement to Terms',
-                    description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
-                }
-            ],
-            currentDate: this.$moment().format('MMM DD, YYYY')
+            years: Array.from({ length: 75 }, (v, k) => k + 1950),
+            currentDate: this.$moment().format('MMM DD, YYYY'),
+            date: {
+                day: 0,
+                month: 0,
+                year: 0
+            },
+            personalInfo: {
+                firstName: "",
+                lastName: "",
+                birth: "",
+                country: "",
+                filledInfo: false,
+                check: false
+            }
         }
     },
-    mounted() { }
+    mounted() { },
+    methods: {
+        async HandleSubmit() {
+
+            this.HandleValidate()
+
+            if (!this.validInfo) return
+
+            else {
+                this.personalInfo.birth = this.date.day + "/" + this.date.month + "/" + this.date.year
+                this.personalInfo.filledInfo = true
+
+                const res = await this.$axios.$post("/api/auth/personal", {
+                    info: this.personalInfo
+                });
+
+                const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
+
+                document.getElementById('closeModal').click();
+                this.$store.commit('setUserInfo', userdata)
+                this.$router.push('personal-details')
+            }
+
+        },
+        HandleValidate() {
+
+            if (this.personalInfo.firstName == "") {
+                jQuery("input[name='FirstName']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("input[name='FirstName']").removeClass('err')
+                this.validInfo = true
+            }
+            if (this.personalInfo.lastName == "") {
+                jQuery("input[name='LastName']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("input[name='LastName']").removeClass('err')
+                this.validInfo = true
+            }
+
+            if (this.date.day == 0) {
+                jQuery("select[name='birthDate']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("select[name='birthDate']").removeClass('err')
+                this.validInfo = true
+            }
+
+            if (this.date.month == 0) {
+                jQuery("select[name='month']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("select[name='month']").removeClass('err')
+                this.validInfo = true
+            }
+
+            if (this.date.year == 0) {
+                jQuery("select[name='birthYear']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("select[name='birthYear']").removeClass('err')
+                this.validInfo = true
+            }
+
+            if (this.personalInfo.country == 0) {
+                jQuery("select[name='country']").addClass('err')
+                this.validInfo = false
+            }
+            else {
+                jQuery("select[name='country']").removeClass('err')
+                this.validInfo = true
+            }
+
+            console.log("dt,", this.personalInfo.check)
+
+            if (!this.personalInfo.check) {
+                this.validInfo = false
+                // jQuery("label.form-check-label").css('color', 'red')
+            }
+            else {
+                // jQuery("label.form-check-label").css('color', 'black')
+                this.validInfo = true
+            }
+        }
+    }
 }
 </script>
 <style scoped >
@@ -328,5 +418,8 @@ input[type='checkbox'].form-check-input {
     border: #DFDFDF solid 1px !important;
     border-radius: 8px !important;
     width: 20px;
+}
+.err {
+    border: 1px solid red !important;
 }
 </style>
