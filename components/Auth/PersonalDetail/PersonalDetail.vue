@@ -32,8 +32,8 @@
                                     <div class="row mt-5">
                                         <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                                             <label for="birthDate">Date of birth</label>
-                                            <select type="select" name="birthDate" class="form-control text mt-3" placeholder=""
-                                                @change="HandleValidate" v-model="date.day">
+                                            <select type="select" name="birthDate" class="form-control text mt-3"
+                                                placeholder="" @change="HandleValidate" v-model="date.day">
                                                 <option value="0">Select Day</option>
                                                 <option v-for="day, index in days" :key="index" :value="day">{{ day }}
                                                 </option>
@@ -74,7 +74,7 @@
                                         <div class="sign-content col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckIndeterminate">
+                                                    id="flexCheckIndeterminate" v-model="personalInfo.check">
                                                 <label class="form-check-label col-lg-12 col-md-12 " @click="HandleValidate"
                                                     for="flexCheckIndeterminate">
                                                     I hereby declare that I have filled in my personal information
@@ -100,6 +100,8 @@
     </section>
 </template>
 <script>
+
+import swal from 'sweetalert2';
 
 export default {
     name: 'PersonalDetail',
@@ -141,13 +143,13 @@ export default {
                     info: this.personalInfo
                 });
 
+                swal.fire("Success!", "Your infomation updated successfully.", "success");
+
                 const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
 
-                document.getElementById('closeModal').click();
                 this.$store.commit('setUserInfo', userdata)
                 this.$router.push('personal-details')
             }
-
         },
         HandleValidate() {
 
@@ -203,8 +205,6 @@ export default {
                 jQuery("select[name='country']").removeClass('err')
                 this.validInfo = true
             }
-
-            console.log("dt,", this.personalInfo.check)
 
             if (!this.personalInfo.check) {
                 this.validInfo = false
@@ -419,6 +419,7 @@ input[type='checkbox'].form-check-input {
     border-radius: 8px !important;
     width: 20px;
 }
+
 .err {
     border: 1px solid red !important;
 }

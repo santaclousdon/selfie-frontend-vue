@@ -252,6 +252,8 @@ export default {
                 const res = await this.$axios.$post("/api/auth/personal", {
                     info: this.personalInfo
                 });
+                
+                swal.fire("Success!", "Your infomation updated successfully.", "success");
 
                 const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
 
