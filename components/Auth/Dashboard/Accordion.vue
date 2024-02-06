@@ -253,8 +253,6 @@ export default {
                     info: this.personalInfo
                 });
                 
-                swal.fire("Success!", "Your infomation updated successfully.", "success");
-
                 const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
 
                 document.getElementById('closeModal').click();

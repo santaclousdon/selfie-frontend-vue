@@ -118,8 +118,8 @@ export default {
                 year: 0
             },
             personalInfo: {
-                firstName: "",
-                lastName: "",
+                firstName: this.$store.$auth.$state.user.firstname,
+                lastName: this.$store.$auth.$state.user.lastname,
                 birth: "",
                 country: "",
                 filledInfo: false,

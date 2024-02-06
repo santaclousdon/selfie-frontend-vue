@@ -17,6 +17,7 @@
                       <div class="col-sm-12 alert alert-danger" role="alert">
                         <span class="mr-3"><img src="../../../assets/images/warningIcon.png" alt=""></span>
                         Your IBAN must be 20 to 34 characters.
+                        <span class="text-right alert-close"> <i class="fa fa-times"></i> </span>
                       </div>
                     </div>
                   </div>
@@ -27,19 +28,34 @@
                   <div class="row">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="PaymentMethod">Payment method</label>
-                      <select type="select" name="PaymentMethod" class="form-control text mt-3" placeholder="">
+                      <select type="select" name="PaymentMethod" v-model="paymentMethod" @change="HandleMethodSet"
+                        class="form-control text mt-3" placeholder="">
                         <option value="0">Select a payment method</option>
-                        <option value="1">PayPal</option>
-                        <option value="2">PayPal</option>
-                        <option value="3">PayPal</option>
+                        <option value="1">Sefa</option>
+                        <option value="2">Payoneer</option>
+                        <option value="3">Tether</option>
                       </select>
                     </div>
-                    <div class="sign-content">
+                    <div v-if="paymentMethod == 3" class="sign-content">
+                      <label for="currency">Network</label>
+                      <!-- <span name="currency" class="form-control text currencyData"> BEP20 </span> -->
+                      <select name="currency" class="form-control text currencyData mt-3">
+                        <option value="0"> TRC20 </option>
+                        <option value="1"> ERC20 </option>
+                        <option value="1"> BEP2 </option>
+                        <option value="1"> BEP20 </option>
+                      </select>
+                    </div>
+                    <div v-else class="sign-content">
                       <label for="currency">Currency</label>
-                      <span name="currency" class="form-control text currencyData"> EUR € </span>
+                      <!-- <span name="currency" class="form-control text currencyData"> EUR € </span> -->
+                      <select name="currency" class="form-control text currencyData mt-3">
+                        <option value="0"> EUR € </option>
+                        <option value="1"> USD $ </option>
+                      </select>
                     </div>
                   </div>
-                  <div class="row mt-5">
+                  <div v-if="paymentMethod <= 1" class="row mt-5">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="iban">IBAN</label>
                       <input type="text" class="iban-input" name="iban">
@@ -53,6 +69,45 @@
                         <option value="3">The Ukriane</option>
                       </select>
                     </div>
+                    <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                        <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
+                          I confirm that my bank account information is accurate, and I acknowledge that any errors due to
+                          my mistake may result in payments being permanently lost.
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div v-if="paymentMethod == 2" class="row mt-5">
+                    <div class="sign-content col-lg-8 col-md-8 col-sm-12">
+                      <label for="iban">Payoneer Address</label>
+                      <input type="text" class="iban-input" name="iban">
+                    </div>
+                    <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                        <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
+                          I confirm that my bank account information is accurate, and I acknowledge that any errors due to
+                          my mistake may result in payments being permanently lost.
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div v-if="paymentMethod == 3" class="row mt-5">
+                    <div class="sign-content col-lg-8 col-md-8 col-sm-12">
+                      <label for="iban">Crypto Wallet Address</label>
+                      <input type="text" class="iban-input" name="iban">
+                    </div>
+                    <!-- <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                      <label for="PaymentMethod">Country of your bank</label>
+                      <select type="select" name="PaymentMethod" class="form-control text mt-3" placeholder="">
+                        <option value="0">The Netherlands</option>
+                        <option value="1">The United States</option>
+                        <option value="2">The Tailland</option>
+                        <option value="3">The Ukriane</option>
+                      </select>
+                    </div> -->
                     <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
@@ -82,25 +137,13 @@ export default {
   name: 'PaymentInfo',
   data() {
     return {
-      items: [
-        {
-          title: 'Grant of Rights',
-          description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
-        },
-        {
-          title: 'Confidentiality of Personal Details',
-          description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
-        },
-        {
-          title: 'Licensing to Third Parties',
-          description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
-        },
-        {
-          title: 'Agreement to Terms',
-          description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
-        }
-      ],
+      paymentMethod: 0,
       currentDate: this.$moment().format('MMM DD, YYYY')
+    }
+  },
+  methods: {
+    HandleMethodSet() {
+      console.log(this.paymentMethod)
     }
   },
   mounted() { }
@@ -231,7 +274,7 @@ ul li:before {
   font-family: Montserrat;
   font-weight: 500;
   word-wrap: break-word;
-  display: block;
+  display: none;
 }
 
 .sign-content {
@@ -296,9 +339,14 @@ input.iban-input {
   margin-top: 15px;
   cursor: pointer;
 }
+
+.alert-close {
+  float: right;
+  cursor: pointer;
+}
 input[type='checkbox'].form-check-input {
-  border: #DFDFDF solid 1px!important;
-  border-radius: 8px!important;
+  border: #DFDFDF solid 1px !important;
+  border-radius: 8px !important;
   width: 20px;
 }
 </style>
