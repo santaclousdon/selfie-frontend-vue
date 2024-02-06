@@ -31,7 +31,7 @@
                       <select type="select" name="PaymentMethod" v-model="paymentMethod" @change="HandleMethodSet"
                         class="form-control text mt-3" placeholder="">
                         <option value="0">Select a payment method</option>
-                        <option value="1">Sefa</option>
+                        <option value="1">SEFA</option>
                         <option value="2">Payoneer</option>
                         <option value="3">Tether</option>
                       </select>
@@ -41,8 +41,6 @@
                       <!-- <span name="currency" class="form-control text currencyData"> BEP20 </span> -->
                       <select name="currency" class="form-control text currencyData mt-3">
                         <option value="0"> TRC20 </option>
-                        <option value="1"> ERC20 </option>
-                        <option value="1"> BEP2 </option>
                         <option value="1"> BEP20 </option>
                       </select>
                     </div>
@@ -58,7 +56,7 @@
                   <div v-if="paymentMethod <= 1" class="row mt-5">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="iban">IBAN</label>
-                      <input type="text" class="iban-input" name="iban">
+                      <input type="text" class="iban-number iban-input" name="iban">
                     </div>
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="PaymentMethod">Country of your bank</label>
@@ -81,8 +79,8 @@
                   </div>
                   <div v-if="paymentMethod == 2" class="row mt-5">
                     <div class="sign-content col-lg-8 col-md-8 col-sm-12">
-                      <label for="iban">Payoneer Address</label>
-                      <input type="text" class="iban-input" name="iban">
+                      <label for="payoneerAddress">Payoneer Address</label>
+                      <input type="text" id="payoneer-address" class="iban-input" name="iban">
                     </div>
                     <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
                       <div class="form-check">
@@ -97,7 +95,7 @@
                   <div v-if="paymentMethod == 3" class="row mt-5">
                     <div class="sign-content col-lg-8 col-md-8 col-sm-12">
                       <label for="iban">Crypto Wallet Address</label>
-                      <input type="text" class="iban-input" name="iban">
+                      <input type="text" class="wallet-address iban-input" name="iban">
                     </div>
                     <!-- <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="PaymentMethod">Country of your bank</label>
