@@ -28,39 +28,47 @@
                   <div class="row">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="PaymentMethod">Payment method</label>
-                      <select type="select" name="PaymentMethod" v-model="paymentMethod" @change="HandleMethodSet"
-                        class="form-control text mt-3" placeholder="">
-                        <option value="0">Select a payment method</option>
-                        <option value="1">SEFA</option>
+                      <select type="select" name="PaymentMethod" v-model="paymentMethod" @change="HandleValidate"
+                        class="form-control text mt-3">
+                        <option v-for="(method, index) in methods" :key="index" :value="index + 1">{{ method }}</option>
+                        <!-- <option value="1">SEFA</option>
                         <option value="2">Payoneer</option>
-                        <option value="3">Tether</option>
+                        <option value="3">Tether</option> -->
                       </select>
                     </div>
                     <div v-if="paymentMethod == 3" class="sign-content">
                       <label for="currency">Network</label>
                       <!-- <span name="currency" class="form-control text currencyData"> BEP20 </span> -->
-                      <select name="currency" class="form-control text currencyData mt-3">
-                        <option value="0"> TRC20 </option>
-                        <option value="1"> BEP20 </option>
+                      <select name="currency" @change="HandleValidate" v-model="currencyData"
+                        class="form-control text currencyData mt-3">
+                        <option v-for="(currency, index) in currencies[1]" :key="index" :value="index">{{ currency }}
+                        </option>
+                        <!-- <option value="0"> TRC20 </option>
+                        <option value="1"> BEP20 </option> -->
                       </select>
                     </div>
                     <div v-else class="sign-content">
                       <label for="currency">Currency</label>
                       <!-- <span name="currency" class="form-control text currencyData"> EUR € </span> -->
-                      <select name="currency" class="form-control text currencyData mt-3">
-                        <option value="0"> EUR € </option>
-                        <option value="1"> USD $ </option>
+                      <select name="currency" @change="HandleValidate" v-model="currencyData"
+                        class="form-control text currencyData mt-3">
+                        <option v-for="(currency, index) in currencies[0]" :key="index" :value="index">{{ currency }}
+                        </option>
+                        <!-- <option value="0"> EUR € </option>
+                        <option value="1"> USD $ </option> -->
                       </select>
                     </div>
                   </div>
                   <div v-if="paymentMethod <= 1" class="row mt-5">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
-                      <label for="iban">IBAN</label>
-                      <input type="text" class="iban-number iban-input" name="iban">
+                      <label for="paymentaddress">IBAN</label>
+                      <input type="text" @input="HandleValidate" v-model="paymentInfo.paymentAddress"
+                        class="iban-number iban-input" name="paymentaddress">
                     </div>
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
-                      <label for="PaymentMethod">Country of your bank</label>
-                      <select type="select" name="PaymentMethod" class="form-control text mt-3" placeholder="">
+                      <label for="PaymentCountry">Country of your bank</label>
+                      <select type="select" @change="HandleValidate" name="PaymentCountry" v-model="paymentInfo.country"
+                        class="form-control text mt-3">
                         <option value="0">The Netherlands</option>
                         <option value="1">The United States</option>
                         <option value="2">The Tailland</option>
@@ -69,7 +77,8 @@
                     </div>
                     <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                        <input class="form-check-input" @input="HandleValidate" v-model="paymentInfo.checked"
+                          type="checkbox" value="" id="flexCheckIndeterminate">
                         <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
                           I confirm that my bank account information is accurate, and I acknowledge that any errors due to
                           my mistake may result in payments being permanently lost.
@@ -79,12 +88,14 @@
                   </div>
                   <div v-if="paymentMethod == 2" class="row mt-5">
                     <div class="sign-content col-lg-8 col-md-8 col-sm-12">
-                      <label for="payoneerAddress">Payoneer Address</label>
-                      <input type="text" id="payoneer-address" class="iban-input" name="iban">
+                      <label for="paymentaddress2">Payoneer Address</label>
+                      <input type="text" @input="HandleValidate" id="payoneer-address" class="iban-input"
+                        name="paymentaddress2">
                     </div>
                     <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                        <input class="form-check-input" @input="HandleValidate" type="checkbox" value=""
+                          id="flexCheckIndeterminate">
                         <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
                           I confirm that my bank account information is accurate, and I acknowledge that any errors due to
                           my mistake may result in payments being permanently lost.
@@ -94,8 +105,8 @@
                   </div>
                   <div v-if="paymentMethod == 3" class="row mt-5">
                     <div class="sign-content col-lg-8 col-md-8 col-sm-12">
-                      <label for="iban">Crypto Wallet Address</label>
-                      <input type="text" class="wallet-address iban-input" name="iban">
+                      <label for="paymentaddress1">Crypto Wallet Address</label>
+                      <input type="text" @input="HandleValidate" class="wallet-address iban-input" name="paymentaddress1">
                     </div>
                     <!-- <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="PaymentMethod">Country of your bank</label>
@@ -108,7 +119,8 @@
                     </div> -->
                     <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                        <input class="form-check-input" @input="HandleValidate" type="checkbox" value=""
+                          id="flexCheckIndeterminate">
                         <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
                           I confirm that my bank account information is accurate, and I acknowledge that any errors due to
                           my mistake may result in payments being permanently lost.
@@ -117,7 +129,7 @@
                     </div>
                   </div>
                   <div class="mt-5">
-                    <a href="" class="blue-btn button btn-sm">Save details
+                    <a @click="HandleSubmit" class="blue-btn button btn-sm">Save details
                     </a>
                   </div>
                 </div>
@@ -129,19 +141,119 @@
     </div>
   </section>
 </template>
+
 <script>
+
+import swal from 'sweetalert2';
 
 export default {
   name: 'PaymentInfo',
   data() {
     return {
       paymentMethod: 0,
-      currentDate: this.$moment().format('MMM DD, YYYY')
+      currencyData: -1,
+      methods: ["SEFA", "Payoneer", "Tether"],
+      currencies: [["EUR €", "USD $"], ["ERC20", "BEP20"]],
+      currentDate: this.$moment().format('MMM DD, YYYY'),
+      validInfo: true,
+      paymentInfo: {
+        paymentMethodName: "SEFA",
+        currency: "",
+        paymentAddress: "",
+        country: "",
+        checked: false
+      },
+
     }
   },
   methods: {
     HandleMethodSet() {
-      console.log(this.paymentMethod)
+      console.log(this.paymentMethod, this.paymentInfo.paymentMethodName)
+    },
+
+    async HandleSubmit() {
+
+
+      this.HandleValidate()
+
+      if (!this.validInfo) return
+
+      else {
+        // this.paymentInfo.birth = this.date.day + "/" + this.date.month + "/" + this.date.year
+        // this.paymentInfo.filledInfo = true
+
+        const paymentData = { ...this.paymentInfo, user: this.$store.$auth.$state.user }
+
+        const res = await this.$axios.$post("/api/auth/paymentInfo", {
+          info: paymentData
+        });
+
+        console.log(res)
+
+        swal.fire("Success!", res.message, "success");
+
+        const userdata = {...this.$store.$auth.$state.user, paymentStatus: res.detail.status}
+
+        this.$store.commit('setUserInfo', userdata)
+
+      }
+    },
+
+    HandleValidate() {
+
+      if (this.paymentMethod < 1) {
+        jQuery("select[name='PaymentMethod']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        this.paymentInfo.paymentMethodName = this.methods[this.paymentMethod - 1]
+        jQuery("select[name='PaymentMethod']").removeClass('err')
+        this.validInfo = false
+      }
+
+      if (this.currencyData < 0) {
+        jQuery("select[name='currency']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("select[name='currency']").removeClass('err')
+        this.paymentInfo.currency = this.paymentMethod < 1 ? this.currencies[0][this.currencyData] : this.currencies[1][this.currencyData]
+        this.validInfo = true
+      }
+
+      // console.log(jQuery("input[name='paymentaddress']").val(), jQuery("input[name='paymentaddress1']").val(), jQuery("input[name='paymentaddress2']").val())
+      this.paymentInfo.paymentAddress = jQuery("input[name='paymentaddress']").val() || jQuery("input[name='paymentaddress1']").val() || jQuery("input[name='paymentaddress2']").val()
+
+      if (!this.paymentInfo.paymentAddress || this.paymentInfo.paymentAddress == '') {
+        jQuery("input[name='paymentaddress']").addClass('err')
+        jQuery("input[name='paymentaddress1']").addClass('err')
+        jQuery("input[name='paymentaddress2']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("input[name='paymentaddress']").removeClass('err')
+        jQuery("input[name='paymentaddress1']").removeClass('err')
+        jQuery("input[name='paymentaddress2']").removeClass('err')
+        this.validInfo = true
+      }
+
+      if (this.paymentInfo.country == "") {
+        jQuery("select[name='PaymentCountry']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("select[name='PaymentCountry']").removeClass('err')
+        this.validInfo = true
+      }
+
+      if (!this.paymentInfo.checked) {
+        this.validInfo = false
+        // jQuery("label.form-check-label").css('color', 'red')
+      }
+      else {
+        // jQuery("label.form-check-label").css('color', 'black')
+        this.validInfo = true
+      }
     }
   },
   mounted() { }
@@ -342,6 +454,11 @@ input.iban-input {
   float: right;
   cursor: pointer;
 }
+
+.err {
+  border: 1px solid red !important;
+}
+
 input[type='checkbox'].form-check-input {
   border: #DFDFDF solid 1px !important;
   border-radius: 8px !important;

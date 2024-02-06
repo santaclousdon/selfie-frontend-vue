@@ -73,7 +73,7 @@
                                     <div class="row mt-5">
                                         <div class="sign-content col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
+                                                <input class="form-check-input" @input="HandleValidate" type="checkbox" value=""
                                                     id="flexCheckIndeterminate" v-model="personalInfo.check">
                                                 <label class="form-check-label col-lg-12 col-md-12 " @click="HandleValidate"
                                                     for="flexCheckIndeterminate">
