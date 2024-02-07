@@ -161,13 +161,11 @@ export default {
   },
   mounted() {
     jQuery('.browser-btn').click((event) => {
-      console.log(event.target)
       jQuery('.file-input-form').click()
     })
   },
   methods: {
     onChange(event) {
-      console.log(this.items[event.target.value].cost.toFixed(2))
       this.selectedRate = this.items[event.target.value].cost
     }
   }

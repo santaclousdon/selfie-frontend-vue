@@ -75,32 +75,12 @@
                         <option value="3">The Ukriane</option>
                       </select>
                     </div>
-                    <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
-                      <div class="form-check">
-                        <input class="form-check-input" @input="HandleValidate" v-model="paymentInfo.checked"
-                          type="checkbox" value="" id="flexCheckIndeterminate">
-                        <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
-                          I confirm that my bank account information is accurate, and I acknowledge that any errors due to
-                          my mistake may result in payments being permanently lost.
-                        </label>
-                      </div>
-                    </div>
                   </div>
                   <div v-if="paymentMethod == 2" class="row mt-5">
                     <div class="sign-content col-lg-8 col-md-8 col-sm-12">
                       <label for="paymentaddress2">Payoneer Address</label>
                       <input type="text" @input="HandleValidate" id="payoneer-address" class="iban-input"
                         name="paymentaddress2">
-                    </div>
-                    <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
-                      <div class="form-check">
-                        <input class="form-check-input" @input="HandleValidate" type="checkbox" value=""
-                          id="flexCheckIndeterminate">
-                        <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
-                          I confirm that my bank account information is accurate, and I acknowledge that any errors due to
-                          my mistake may result in payments being permanently lost.
-                        </label>
-                      </div>
                     </div>
                   </div>
                   <div v-if="paymentMethod == 3" class="row mt-5">
@@ -117,7 +97,7 @@
                         <option value="3">The Ukriane</option>
                       </select>
                     </div> -->
-                    <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
+                    <!-- <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
                       <div class="form-check">
                         <input class="form-check-input" @input="HandleValidate" type="checkbox" value=""
                           id="flexCheckIndeterminate">
@@ -126,6 +106,16 @@
                           my mistake may result in payments being permanently lost.
                         </label>
                       </div>
+                    </div> -->
+                  </div>
+                  <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
+                    <div class="form-check">
+                      <input class="form-check-input" @input="HandleValidate" v-model="paymentInfo.checked"
+                        type="checkbox" value="" id="flexCheckIndeterminate">
+                      <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
+                        I confirm that my bank account information is accurate, and I acknowledge that any errors due to
+                        my mistake may result in payments being permanently lost.
+                      </label>
                     </div>
                   </div>
                   <div class="mt-5">
@@ -150,7 +140,7 @@ export default {
   name: 'PaymentInfo',
   data() {
     return {
-      paymentMethod: 0,
+      paymentMethod: 1,
       currencyData: -1,
       methods: ["SEFA", "Payoneer", "Tether"],
       currencies: [["EUR €", "USD $"], ["ERC20", "BEP20"]],
@@ -168,7 +158,6 @@ export default {
   },
   methods: {
     HandleMethodSet() {
-      console.log(this.paymentMethod, this.paymentInfo.paymentMethodName)
     },
 
     async HandleSubmit() {
@@ -182,17 +171,17 @@ export default {
         // this.paymentInfo.birth = this.date.day + "/" + this.date.month + "/" + this.date.year
         // this.paymentInfo.filledInfo = true
 
+        console.log("saving...")
+
         const paymentData = { ...this.paymentInfo, user: this.$store.$auth.$state.user }
 
         const res = await this.$axios.$post("/api/auth/paymentInfo", {
           info: paymentData
         });
 
-        console.log(res)
-
         swal.fire("Success!", res.message, "success");
 
-        const userdata = {...this.$store.$auth.$state.user, paymentStatus: res.detail.status}
+        const userdata = { ...this.$store.$auth.$state.user, paymentStatus: res.detail.status }
 
         this.$store.commit('setUserInfo', userdata)
 
@@ -237,13 +226,13 @@ export default {
         this.validInfo = true
       }
 
-      if (this.paymentInfo.country == "") {
+      if (this.paymentInfo.country == "" && this.paymentMethod == 1) {
         jQuery("select[name='PaymentCountry']").addClass('err')
         this.validInfo = false
       }
       else {
-        jQuery("select[name='PaymentCountry']").removeClass('err')
         this.validInfo = true
+        jQuery("select[name='PaymentCountry']").removeClass('err')
       }
 
       if (!this.paymentInfo.checked) {
@@ -254,6 +243,7 @@ export default {
         // jQuery("label.form-check-label").css('color', 'black')
         this.validInfo = true
       }
+
     }
   },
   mounted() { }

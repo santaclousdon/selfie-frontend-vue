@@ -253,7 +253,8 @@ export default {
                     info: this.personalInfo
                 });
                 
-                const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
+                // const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
+                const userdata = { ...this.$store.$auth.$state.user, ...this.personalInfo }
 
                 document.getElementById('closeModal').click();
                 this.$store.commit('setUserInfo', userdata)
@@ -316,8 +317,6 @@ export default {
                 jQuery("select[name='country']").removeClass('err')
                 this.validInfo = true
             }
-
-            console.log("dt,",this.personalInfo.check)
 
             if (!this.personalInfo.check) {
                 this.validInfo = false

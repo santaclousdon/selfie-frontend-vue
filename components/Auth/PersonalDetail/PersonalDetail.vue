@@ -145,7 +145,7 @@ export default {
 
                 swal.fire("Success!", "Your infomation updated successfully.", "success");
 
-                const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
+                const userdata = { ...this.$store.$auth.$state.user, ...this.personalInfo }
 
                 this.$store.commit('setUserInfo', userdata)
                 this.$router.push('personal-details')
