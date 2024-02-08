@@ -143,7 +143,7 @@ export default {
                     info: this.personalInfo
                 });
 
-                swal.fire("Success!", "Your infomation updated successfully.", "success");
+                swal.fire("Well done!", "Your infomation updated successfully.", "success");
 
                 const userdata = { ...this.$store.$auth.$state.user, ...this.personalInfo }
 

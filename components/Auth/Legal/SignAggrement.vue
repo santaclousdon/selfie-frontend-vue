@@ -67,7 +67,7 @@ export default {
         this.HandleValidate()
 
         if (!this.validInfo) {
-          swal.fire('ERROR!', this.message, 'warning');
+          swal.fire('Oops!', this.message, 'warning');
           return;
         }
 
@@ -84,7 +84,7 @@ export default {
         // const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
         const userdata = { email: res.email, password: res.password }
 
-        swal.fire("SUCCESS!", "Your password has been successfully reset!", "success")
+        swal.fire("Oops!", "Your password has been successfully reset!", "success")
 
         // this.$store.commit('resetUserInfo', userdata)
 

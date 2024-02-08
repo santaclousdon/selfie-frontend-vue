@@ -179,7 +179,7 @@ export default {
           info: paymentData
         });
 
-        swal.fire("Success!", res.message, "success");
+        swal.fire("Well done!", res.message, "success");
 
         const userdata = { ...this.$store.$auth.$state.user, paymentStatus: res.detail.status }
 

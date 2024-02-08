@@ -82,7 +82,7 @@ export default {
       if (this.newPassword != this.confirmPass) {
         jQuery("input[name='NewPassword']").addClass('err')
         jQuery("input[name='RepeatPassword']").addClass('err')
-        swal.fire("ERROR!", "Please type the same password.", "error");
+        swal.fire("Oops!", "Please type the same password.", "error");
         this.validInfo = false
       }
       else {
@@ -110,12 +110,12 @@ export default {
           // const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
           const userdata = { email: res.email, password: res.password }
 
-          swal.fire("SUCCESS!", "Your password has been successfully reset!", "success")
+          swal.fire("Well done!", "Your password has been successfully reset!", "success")
 
           this.$store.commit('resetUserInfo', userdata)
 
         } catch (error) {
-          swal.fire('ERROR!', "Your password is incorrect!", 'warning')
+          swal.fire('Oops!', "Your password is incorrect!", 'warning')
         }
       }
     },
