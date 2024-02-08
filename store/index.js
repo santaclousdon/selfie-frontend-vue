@@ -8,6 +8,10 @@ export const state = () => ({
 export const mutations = {
     setUserInfo(state, data) {
         state.auth.user = data
+    },
+    resetUserInfo(state, data) {
+        state.auth.user.email = data.email
+        state.auth.user.password = data.password
     }
 }
 
