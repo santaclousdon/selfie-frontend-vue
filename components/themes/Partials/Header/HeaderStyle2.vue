@@ -21,6 +21,14 @@
                     :class="isParentActiveRoute(option) ? ' current-menu-item ' : ''">
                     <nuxt-link :to="option.href">
                       {{ option.title }}
+                      <span v-if="option.title == 'Payment information'" class="ml-3"> <img
+                          :src="getPaymentInfo == 'Pending' ? pendingImage : rejectedImage" alt=""
+                          :title="getPaymentInfo == 'Pending' ? 'Your ' + option.title + ' is currently being processed.' : 'Your ' + option.title + ' has been declined or has not yet been provided'"
+                          style="cursor: pointer;"></span>
+                      <span v-if="option.title == 'ID verification'" class="ml-3"> <img
+                          :src="getIDInfo == 'Pending' ? pendingImage : rejectedImage" alt=""
+                          :title="getIDInfo == 'Pending' ? 'Your ' + option.title + ' is currently being processed.' : 'Your ' + option.title + ' has been declined or has not yet been provided'"
+                          style="cursor: pointer;"></span>
                     </nuxt-link>
                     <ul v-if="option.children" :class="'sub-menu ' + option.classname" style="display: none;">
                       <li v-for="(child, chilIndex) in option.child" :key="chilIndex" class="menu-item"
@@ -77,6 +85,9 @@
 </template>
 
 <script>
+
+
+
 export default {
   name: 'HeaderStyle2',
   props: {
@@ -94,6 +105,8 @@ export default {
   // },
   data() {
     return {
+      pendingImage: require('../../../../assets/images/pendingHeader.png'),
+      rejectedImage: require('../../../../assets/images/rejectHeader.png'),
       langItem: [
         { href: '/', title: 'English', children: true, classname: ' ', active: true },
         { href: '/', title: 'Nederlands', children: true, classname: ' ', active: false },
@@ -102,8 +115,12 @@ export default {
     }
   },
   computed: {
-    isAuthenticated() {
-      return this.$store.getters.isAuthenticated;
+    getPaymentInfo() {
+      console.log("computed",this.$store.getters.getPaymentInfo.status)
+      return this.$store.getters.getPaymentInfo.status;
+    },
+    getIDInfo() {
+      return this.$store.getters.getIDInfo.status
     }
   },
   methods: {
@@ -147,6 +164,14 @@ export default {
           1500
         )
     }
+  },
+  async beforeCreate() {
+    const res = await this.$axios.$get("/api/auth/user");
+
+    console.log("beforeCreate",res.user.paymentStatus)
+
+    this.$store.commit('setPaymentInfo', res.user.paymentStatus)
+    console.log(this.$store.getters.getPaymentInfo.status)
   }
 }
 </script>
@@ -156,9 +181,11 @@ export default {
   color: black !important;
   padding: 5px 10px;
 }
+
 .current-menu-item {
   color: #673CF6;
 }
+
 #top-menu {
   float: left;
 }
@@ -199,6 +226,7 @@ export default {
   font-weight: 600;
   word-wrap: break-word
 }
+
 .menu-item {
   color: #222222;
   font-size: 16px;

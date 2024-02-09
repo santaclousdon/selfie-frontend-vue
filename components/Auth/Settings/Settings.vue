@@ -82,7 +82,7 @@ export default {
       if (this.newPassword != this.confirmPass) {
         jQuery("input[name='NewPassword']").addClass('err')
         jQuery("input[name='RepeatPassword']").addClass('err')
-        swal.fire("Oops!", "Please type the same password.", "error");
+        swal.fire("Oops...", "Please type the same password.", "error");
         this.validInfo = false
       }
       else {
@@ -115,7 +115,7 @@ export default {
           this.$store.commit('resetUserInfo', userdata)
 
         } catch (error) {
-          swal.fire('Oops!', "Your password is incorrect!", 'warning')
+          swal.fire('Oops...', "Your password is incorrect!", 'warning')
         }
       }
     },

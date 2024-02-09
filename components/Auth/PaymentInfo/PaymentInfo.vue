@@ -181,9 +181,9 @@ export default {
 
         swal.fire("Well done!", res.message, "success");
 
-        const userdata = { ...this.$store.$auth.$state.user, paymentStatus: res.detail.status }
+        this.$store.commit('setPaymentInfo', 'Pending')
 
-        this.$store.commit('setUserInfo', userdata)
+        console.log(this.$store.$auth.$state.user)
 
       }
     },

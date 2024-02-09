@@ -67,7 +67,7 @@ export default {
         this.HandleValidate()
 
         if (!this.validInfo) {
-          swal.fire('Oops!', this.message, 'warning');
+          swal.fire('Oops...', this.message, 'warning');
           return;
         }
 
@@ -84,12 +84,12 @@ export default {
         // const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
         const userdata = { email: res.email, password: res.password }
 
-        swal.fire("Oops!", "Your password has been successfully reset!", "success")
+        swal.fire("Well done!", "Your signature has been sent successfully!", "success")
 
         // this.$store.commit('resetUserInfo', userdata)
 
       } catch (error) {
-        swal.fire('Ooooooooooops!', "Something went Wront!!!.", 'warning')
+        swal.fire('Oops...', "Something went Wront!!!.", 'warning')
       }
     },
     HandleValidate() {
