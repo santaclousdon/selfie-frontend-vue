@@ -38,6 +38,7 @@
     "mongoose": "^5.10.0",
     "morgan": "^1.10.0",
     "nuxt": "^2.0.0",
+    "nuxt-clipboard": "^0.0.7",
     "nuxt-moment": "^1.0.5",
     "owl.carousel": "^2.3.4",
     "postcss-loader": "^3.0.0",

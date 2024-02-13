@@ -88,7 +88,18 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.loginData
         });
-        if (response.data.emailStatus) this.$router.push("/auth/dashboard");
+        if (response.data.emailStatus) {
+
+          // const referrals = await this.$axios.$post("/api/referrals", {
+          //   id: this.$store.$auth.$state.user._id
+          // });
+
+          // console.log("referrals", referrals)
+
+          this.$store.commit('setReferrals', response.data.referrals)
+
+          this.$router.push("/auth/dashboard");
+        }
         else {
           this.$auth.logout()
           window.location.replace('/confirm-mail')

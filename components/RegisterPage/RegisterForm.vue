@@ -107,12 +107,20 @@ export default {
         password: "",
         repeatpassword: ""
       },
+      referUser: "", // user's Object ID who referred this new user.
       message: "You have entered an incorrect email address or password.",
       alert: false,
       successalert: false,
       valid: false,
       check: false
     };
+  },
+  mounted() {
+    
+    if (this.$route.query.id) {
+      this.referUser = this.$route.query.id
+    }
+
   },
   methods: {
     async register() {
@@ -155,7 +163,8 @@ export default {
         const res = await this.$axios.$post("/api/auth/signin", {
           fullname: this.registerData.fullname,
           email: this.registerData.email,
-          password: this.registerData.password
+          password: this.registerData.password,
+          referUser: this.referUser
         });
 
         this.message = "Successfully registered new user."
@@ -165,7 +174,8 @@ export default {
         // this.router.push('/confirm-mail')
       } catch (err) {
         console.log(err);
-        this.message = "Error occupied during register. Please try again."
+         if (this.referUser = "") this.message = "Error occupied during register. Please try again."
+         else this.message = "Please use the correct URL or Mail"
         this.alert = true
         this.successalert = false
       }

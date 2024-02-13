@@ -68,8 +68,13 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'nuxt-moment',
+    'nuxt-clipboard',
     "@nuxtjs/auth-next"
   ],
+  
+  clipboard: {
+      autoSetContainer: true
+  },
 
   auth: {
     strategies: {

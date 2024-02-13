@@ -6,7 +6,8 @@ export const state = () => ({
     },
     IDInfo: {
         status: ' '
-    }
+    },
+    referrals: []
 })
 
 export const mutations = {
@@ -19,10 +20,15 @@ export const mutations = {
     },
     setPaymentInfo(state, data) {
         state.paymentInfo.status = data
+    },
+    setReferrals(state, data) {
+        console.log(data)
+        state.referrals = data
     }
 }
 
-export const actions = { }
+export const actions = {
+}
 
 export const getters = {
     isAuthenticated(state) {
@@ -36,5 +42,8 @@ export const getters = {
     },
     getIDInfo(state) {
         return state.IDInfo;
+    },
+    getRefer(state) {
+        return state.referrals
     }
 };
