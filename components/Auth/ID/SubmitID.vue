@@ -61,24 +61,6 @@ export default {
   name: 'SubmitID',
   data() {
     return {
-      items: [
-        {
-          title: 'Grant of Rights',
-          description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
-        },
-        {
-          title: 'Confidentiality of Personal Details',
-          description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
-        },
-        {
-          title: 'Licensing to Third Parties',
-          description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
-        },
-        {
-          title: 'Agreement to Terms',
-          description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
-        }
-      ],
       currentDate: this.$moment().format('MMM DD, YYYY')
     }
   },

@@ -131,8 +131,7 @@
                                     <div class="row mt-3">
                                         <div class="sign-content col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox"
-                                                     id="flexCheckIndeterminate"
+                                                <input class="form-check-input" type="checkbox" id="flexCheckIndeterminate"
                                                     v-model="personalInfo.check">
                                                 <label class="form-check-label col-lg-12 col-md-12" @click="HandleValidate"
                                                     for="flexCheckIndeterminate">
@@ -168,7 +167,6 @@
 <script defacult>
 import jquery from 'jquery';
 
-
 export default {
     name: 'Accordion',
     data() {
@@ -189,7 +187,7 @@ export default {
                 {
                     title: 'Upload your identification',
                     status: 'Rejected',
-                    detail: 'Must be government issued ID'
+                    detail: ''
                 },
                 {
                     title: 'Sign our legal agreement',
@@ -237,6 +235,20 @@ export default {
             // if (!this.$store.state.userInfo.filledInfo) {
             document.getElementById('modal').click();
         }
+
+        const user = this.getUserInfo;
+        console.log("user", user)
+        this.items[0].status = user.paymentStatus;
+        this.items[1].status = user.IDStatus;
+        this.items[1].detail = user.IDStatus == "Empty" ? "Still not uploaded." : "Must be government issued ID";
+        this.items[2].status = user.legalSigned;
+        this.items[4].status = ""
+
+    },
+    computed: {
+        getUserInfo() {
+            return this.$store.getters.getUserInfo;
+        }
     },
     methods: {
         async HandleSubmit() {
@@ -252,7 +264,7 @@ export default {
                 const res = await this.$axios.$post("/api/auth/personal", {
                     info: this.personalInfo
                 });
-                
+
                 // const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
                 const userdata = { ...this.$store.$auth.$state.user, ...this.personalInfo }
 

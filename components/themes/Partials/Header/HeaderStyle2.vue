@@ -45,8 +45,11 @@
             <div class="sub-main">
               <nav aria-label="breadcrumb" style="display: flex; align-items: center;">
                 <div class="user-avatar button">
-                  <a href="">
-                    <img src="../../../../assets/images/avatar.png" alt=""></a>
+                  <input type="file" @change="onFileChange" class="avatar-image" style="display: none" />
+                  <!-- <a @click="onSelectFile" class="upload-button"> -->
+                    <img @click="onSelectFile" class="upload-button" v-if="selectedFile == ''" src="~/assets/images/avatar.png" alt="">
+                    <img @click="onSelectFile" class="upload-button" v-else id="imageUpload" width="50" src="" alt="">
+                  <!-- </a> -->
                 </div>
                 <div class="user-detail align-items-center p-3">
                   <p>Emily Jackson <br> <span class="text-funds">€12.50</span> </p>
@@ -54,7 +57,7 @@
                 <div class="lang-btn button">
                   <ul id="top-menu" class="navbar-nav ml-auto">
                     <li class="nav-item menu-item" style="margin-right: 0;">
-                      <img src="../../../../assets/images/image_8.png" alt="">
+                      <img src="~/assets/images/image_8.png" alt="">
                       <ul :class="'sub-menu'" style="display: none;">
                         <li class="menu-title"></li>
                         <li class="menu-title">Choose language:</li>
@@ -71,7 +74,7 @@
                 </div>
                 <div class="user-avatar button mr-3 ml-3" @click="logout">
                   <a>
-                    <img src="../../../../assets/images/logout.png" alt="">
+                    <img src="~/assets/images/logout.png" alt="">
                   </a>
                 </div>
               </nav>
@@ -85,8 +88,7 @@
 </template>
 
 <script>
-
-
+import jquery from 'jquery';
 
 export default {
   name: 'HeaderStyle2',
@@ -107,6 +109,7 @@ export default {
     return {
       pendingImage: require('../../../../assets/images/pendingHeader.png'),
       rejectedImage: require('../../../../assets/images/rejectHeader.png'),
+      selectedFile: "",
       langItem: [
         { href: '/', title: 'English', children: true, classname: ' ', active: true },
         { href: '/', title: 'Nederlands', children: true, classname: ' ', active: false },
@@ -116,7 +119,7 @@ export default {
   },
   computed: {
     getPaymentInfo() {
-      console.log("computed",this.$store.getters.getPaymentInfo.status)
+      console.log("computed", this.$store.getters.getPaymentInfo.status)
       return this.$store.getters.getPaymentInfo.status;
     },
     getIDInfo() {
@@ -147,6 +150,51 @@ export default {
         return false
       }
     },
+    onSelectFile() {
+      jquery('.avatar-image').click()
+    },
+    onFileChange(evt) {
+      const vm = this;
+      const selectedFile = evt.target.files[0]; // accessing file
+      this.selectedFile = selectedFile;
+      var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+      // FileReader support
+
+      if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = () => {
+          document.getElementById('imageUpload').src = fr.result
+          console.log("file", this.selectedFile)
+          this.onUploadFile()
+        }
+        
+        fr.readAsDataURL(files[0]);
+      }
+
+      // Not supported
+      else {
+        // fallback -- perhaps submit the input to an iframe and temporarily store
+        // them on the server until the user's session ends.
+      }
+      
+    },
+    onUploadFile() {
+      const formData = new FormData();
+      formData.append("file", this.selectedFile);  // appending file
+      formData.append("user", this.$store.$auth.$state.user._id)
+
+      // sending file to the backend
+      this.$axios
+        .$post("/api/auth/upload", formData)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
     // onActivate(target) {
     //   console.log(
     //     'Received event: "bv::scrollspy::activate" for target ',
@@ -168,7 +216,7 @@ export default {
   async beforeCreate() {
     const res = await this.$axios.$get("/api/auth/user");
 
-    console.log("beforeCreate",res.user.paymentStatus)
+    console.log("beforeCreate", res.user.paymentStatus)
 
     this.$store.commit('setPaymentInfo', res.user.paymentStatus)
     console.log(this.$store.getters.getPaymentInfo.status)
@@ -233,5 +281,8 @@ export default {
   font-family: Montserrat;
   font-weight: 500;
   word-wrap: break-word
+}
+#imageUpload {
+  border-radius: 50%;
 }
 </style>
