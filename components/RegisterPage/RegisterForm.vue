@@ -72,7 +72,7 @@
                 <input type="password" name="password-repeat" class="form-control text"
                   :value="registerData.repeatpassword" @input="HandleRepeatPass" placeholder="repeat password">
               </div>
-              <div class="form-check" >
+              <div class="form-check">
                 <input class="form-check-input" type="checkbox" @click="HandleCheck" id="flexCheckIndeterminate">
                 <label class="form-check-labelcol-lg-11 col-md-11 " for="flexCheckIndeterminate">
                   I hereby confirm I have fully read and agree
@@ -108,7 +108,7 @@ export default {
         repeatpassword: ""
       },
       referUser: "", // user's Object ID who referred this new user.
-      message: "You have entered an incorrect email address or password.",
+      message: "",
       alert: false,
       successalert: false,
       valid: false,
@@ -116,7 +116,7 @@ export default {
     };
   },
   mounted() {
-    
+
     if (this.$route.query.id) {
       this.referUser = this.$route.query.id
     }
@@ -170,12 +170,42 @@ export default {
         this.message = "Successfully registered new user."
         this.alert = false
         this.successalert = true
-        window.location.replace('/confirm-mail')
+
+
+        let response = await this.$auth.loginWith("local", {
+          data: this.registerData
+        });
+
+        if (response.data.emailStatus) {
+
+          // const referrals = await this.$axios.$post("/api/referrals", {
+          //   id: this.$store.$auth.$state.user._id
+          // });
+
+          // console.log("referrals", referrals)
+
+          this.$store.commit('setReferrals', response.data.referrals)
+
+          this.$router.push("/auth/dashboard");
+        }
+        else {
+          this.$auth.logout()
+
+          const result = await this.$axios.$post("/api/auth/sendVerifyMail", {
+            email: this.registerData.email,
+            token: response.data.token,
+            password: this.registerData.password
+          });
+
+          window.location.replace('/confirm-mail')
+        }
+
         // this.router.push('/confirm-mail')
+
       } catch (err) {
         console.log(err);
-         if (this.referUser = "") this.message = "Error occupied during register. Please try again."
-         else this.message = "Please use the correct URL or Mail"
+        if (this.referUser = "") this.message = "Error occupied during register. Please try again."
+        else this.message = "Please use the correct URL or Mail"
         this.alert = true
         this.successalert = false
       }

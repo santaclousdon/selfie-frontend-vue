@@ -166,7 +166,7 @@ export default {
         var fr = new FileReader();
         fr.onload = () => {
           document.getElementById('imageUpload').src = fr.result
-          console.log("file", this.selectedFile)
+          
           this.onUploadFile()
         }
         

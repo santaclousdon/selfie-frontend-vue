@@ -88,6 +88,7 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.loginData
         });
+
         if (response.data.emailStatus) {
 
           // const referrals = await this.$axios.$post("/api/referrals", {
@@ -102,6 +103,14 @@ export default {
         }
         else {
           this.$auth.logout()
+
+          console.log("logonData", this.loginData)
+          
+          const result = await this.$axios.$post("/api/auth/sendVerifyMail", {
+            email: this.loginData.email,
+            token: response.data.token,
+            password: this.loginData.password
+          });
           window.location.replace('/confirm-mail')
         }
       } catch (err) {
