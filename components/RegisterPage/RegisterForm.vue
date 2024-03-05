@@ -2,9 +2,13 @@
   <section class="">
     <div class="container login-section justify-content-center">
       <div class="col-sm-6 alert alert-danger" role="alert" v-if="alert">
-        <span class="mr-3"><img src="../../assets/images/warningIcon.png" alt=""></span>
-        {{ message }}
-        <span class="text-right alert-close" @click="closeAlert"> <i class="fa fa-times"></i> </span>
+        <div class="row aligin-items-center">
+          <div class="col-md-11 col-lg-11 col-sm-11"><img src="../../assets/images/warningIcon.png" alt="">
+            {{ message }}
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-1 text-right"><span class="text-right alert-close" @click="closeAlert"> <i
+                class="fa fa-times"></i> </span></div>
+        </div>
       </div>
       <div class="col-sm-6 alert alert-success" role="alert" v-if="successalert">
         <span class="mr-3"><img src="../../assets/images/pending.png" alt=""></span>
@@ -72,11 +76,11 @@
                 <input type="password" name="password-repeat" class="form-control text"
                   :value="registerData.repeatpassword" @input="HandleRepeatPass" placeholder="repeat password">
               </div>
-              <div class="form-check">
+              <div class="pl-3">
                 <input class="form-check-input" type="checkbox" @click="HandleCheck" id="flexCheckIndeterminate">
                 <label class="form-check-labelcol-lg-11 col-md-11 " for="flexCheckIndeterminate">
                   I hereby confirm I have fully read and agree
-                  with the <a href="">terms & conditions</a> .
+                  with the <a href="/terms">terms & conditions</a> .
                 </label>
               </div>
               <div>
