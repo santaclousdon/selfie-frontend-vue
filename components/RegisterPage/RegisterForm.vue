@@ -207,7 +207,6 @@ export default {
         // this.router.push('/confirm-mail')
 
       } catch (err) {
-        console.log(err);
         if (this.referUser = "") this.message = "Error occupied during register. Please try again."
         else this.message = "Please use the correct URL or Mail"
         this.alert = true
