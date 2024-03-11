@@ -52,7 +52,7 @@
                   <!-- </a> -->
                 </div>
                 <div class="user-detail align-items-center p-3">
-                  <p>Emily Jackson <br> <span class="text-funds">€12.50</span> </p>
+                  <p>{{ userInfo.firstname ? userInfo.firstname + " " + userInfo.lastname : userInfo.userID }} <br> <span class="text-funds">€{{ (userInfo.balance) }}</span> </p>
                 </div>
                 <div class="lang-btn button">
                   <ul id="top-menu" class="navbar-nav ml-auto">
@@ -110,6 +110,7 @@ export default {
       pendingImage: require('../../../../assets/images/pendingHeader.png'),
       rejectedImage: require('../../../../assets/images/rejectHeader.png'),
       selectedFile: "",
+      userInfo: {},
       langItem: [
         { href: '/', title: 'English', children: true, classname: ' ', active: true },
         { href: '/', title: 'Nederlands', children: true, classname: ' ', active: false },
@@ -216,7 +217,8 @@ export default {
   async beforeCreate() {
     const res = await this.$axios.$get("/api/auth/user");
 
-    console.log("beforeCreate", res.user.paymentStatus)
+    this.userInfo = res.user
+    this.userInfo.balance = res.user.balance.toFixed(2)
 
     this.$store.commit('setPaymentInfo', res.user.paymentStatus)
     console.log(this.$store.getters.getPaymentInfo.status)
