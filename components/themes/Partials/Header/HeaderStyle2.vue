@@ -218,7 +218,7 @@ export default {
     const res = await this.$axios.$get("/api/auth/user");
 
     this.userInfo = res.user
-    this.userInfo.balance = res.user.balance.toFixed(2)
+    this.userInfo.balance = res.user?.balance?.toFixed(2)
 
     this.$store.commit('setPaymentInfo', res.user.paymentStatus)
     console.log(this.$store.getters.getPaymentInfo.status)

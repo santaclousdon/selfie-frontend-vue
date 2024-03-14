@@ -118,6 +118,7 @@ export default {
                 year: 0
             },
             personalInfo: {
+                email: this.$store.$auth.$state.user.email,
                 firstName: this.$store.$auth.$state.user.firstname,
                 lastName: this.$store.$auth.$state.user.lastname,
                 birth: "",

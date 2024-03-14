@@ -211,6 +211,7 @@ export default {
                 year: 0
             },
             personalInfo: {
+                email: "",
                 firstName: "",
                 lastName: "",
                 birth: "",
@@ -260,6 +261,7 @@ export default {
             else {
                 this.personalInfo.birth = this.date.day + "/" + this.date.month + "/" + this.date.year
                 this.personalInfo.filledInfo = true
+                this.personalInfo.email = this.$store.$auth.$state.user.email
 
                 const res = await this.$axios.$post("/api/auth/personal", {
                     info: this.personalInfo
