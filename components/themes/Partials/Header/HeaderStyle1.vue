@@ -17,17 +17,17 @@
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
               <div class="menu-main-menu-container">
                 <ul id="top-menu" class="navbar-nav ml-auto">
-                  <li v-if="isAuthenticated" class="nav-item menu-item current-menu-item">
-                  <nuxt-link to="/" >Dashboard</nuxt-link> </li>
-                  <li v-for="(option, index) in navItemList" :key="index" class="nav-item menu-item"
-                    :class="isParentActiveRoute(option) ? ' current-menu-item ' : ''">
-                    <nuxt-link :to="option.href">
+                  <li v-if="isAuthenticated" class="nav-item menu-item" >
+                    <nuxt-link to ="/">Dashboard</nuxt-link> </li>
+                  <li v-for="( option, index ) in  navItemList " :key=" index " class="nav-item menu-item"
+                    :class=" isParentActiveRoute(option) ? ' current-menu-item ' : '' ">
+                    <nuxt-link :to=" option.href ">
                       {{ option.title }}
                     </nuxt-link>
-                    <ul v-if="option.children" :class="'sub-menu ' + option.classname" style="display: none;">
-                      <li v-for="(child, chilIndex) in option.child" :key="chilIndex" class="menu-item"
-                        :class="{ 'current-menu-item': isRouteActive(child.href) }">
-                        <nuxt-link :to="child.href">
+                    <ul v-if=" option.children " :class=" 'sub-menu ' + option.classname " style="display: none;">
+                      <li v-for="( child, chilIndex ) in  option.child " :key=" chilIndex " class="menu-item"
+                        :class=" { 'current-menu-item': isRouteActive(child.href) } ">
+                        <nuxt-link :to=" child.href ">
                           <span>{{ child.title }}</span>
                         </nuxt-link>
                       </li>
@@ -36,7 +36,7 @@
                 </ul>
               </div>
             </div>
-            <div v-if="!isAuthenticated" class="sub-main">
+            <div v-if=" !isAuthenticated " class="sub-main">
               <nav aria-label="breadcrumb">
                 <div class="light-btn button">
                   <nuxt-link to="/login-page">Log in</nuxt-link>
@@ -48,13 +48,13 @@
                   <ul id="top-menu" class="navbar-nav ml-auto">
                     <li class="nav-item menu-item" style="margin-right: 0;">
                       <img src="../../../../assets/images/image_8.png" alt="">
-                      <ul :class="'sub-menu'" style="display: none;">
+                      <ul :class=" 'sub-menu' " style="display: none;">
                         <li class="menu-title"></li>
                         <li class="menu-title">Choose language:</li>
                         <hr>
-                        <li v-for="(child, chilIndex) in langItem" :key="chilIndex" class="menu-item"
-                          :class="{ 'current-menu-item': isRouteActive(child.href) }">
-                          <nuxt-link :to="child.href">
+                        <li v-for="( child, chilIndex ) in  langItem " :key=" chilIndex " class="menu-item"
+                          :class=" { 'current-menu-item': isRouteActive(child.href) } ">
+                          <nuxt-link :to=" child.href ">
                             <span>{{ child.title }}</span>
                           </nuxt-link>
                         </li>
@@ -77,13 +77,13 @@
                   <ul id="top-menu" class="navbar-nav ml-auto">
                     <li class="nav-item menu-item" style="margin-right: 0;">
                       <img src="../../../../assets/images/image_8.png" alt="">
-                      <ul :class="'sub-menu'" style="display: none;">
+                      <ul :class=" 'sub-menu' " style="display: none;">
                         <li class="menu-title"></li>
                         <li class="menu-title">Choose language:</li>
                         <hr>
-                        <li v-for="(child, chilIndex) in langItem" :key="chilIndex" class="menu-item"
-                          :class="{ 'current-menu-item': isRouteActive(child.href) }">
-                          <nuxt-link :to="child.href">
+                        <li v-for="( child, chilIndex ) in  langItem " :key=" chilIndex " class="menu-item"
+                          :class=" { 'current-menu-item': isRouteActive(child.href) } ">
+                          <nuxt-link :to=" child.href ">
                             <span>{{ child.title }}</span>
                           </nuxt-link>
                         </li>
@@ -91,7 +91,7 @@
                     </li>
                   </ul>
                 </div>
-                <div class="user-avatar button mr-3 ml-3" @click="logout">
+                <div class="user-avatar button mr-3 ml-3" @click=" logout ">
                   <a>
                     <img src="../../../../assets/images/logout.png" alt="">
                   </a>
@@ -177,9 +177,6 @@ export default {
           1500
         )
     }
-  },
-  mounted() {
-    console.log(this.$route)
   }
 }
 </script>
@@ -188,6 +185,7 @@ export default {
 .current-menu-item {
   color: #673CF6;
 }
+
 .menu-title {
   color: black !important;
   padding: 5px 10px;

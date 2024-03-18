@@ -9,10 +9,10 @@
                 <div class="container">
                   <div class="row align-items-center">
                     <div class="faq-title">
-                      <div class="col-sm-12 alert alert-danger" role="alert">
+                      <!-- <div class="col-sm-12 alert alert-danger" role="alert">
                         <span class="mr-3"><img src="../../../assets/images/warningIcon.png" alt=""></span>
                         You have entered an incorrect email address.
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -22,7 +22,7 @@
                   <div class="row">
                     <div class="sign-content">
                       <label for="FullName">Your full name (Contributor)</label>
-                      <input type="text" name="FullName" class="form-control text " placeholder="">
+                      <input type="text" name="FullName" class="form-control text " placeholder="" v-model="legalName">
                     </div>
                     <div class="sign-content">
                       <label for="currentDate">Date</label>
@@ -30,7 +30,7 @@
                     </div>
                   </div>
                   <div class="">
-                    <a href="" class="blue-btn button btn-sm mt-3">
+                    <a @click="HandleSubmit" class="blue-btn button btn-sm mt-3">
                       <div class="row justify-content-center align-items-center">
                         <span class="label-text mr-3">Sign this agreement</span>
                         <img src="../../../assets/images/legal-sign.png" class="sign-image" alt="">
@@ -48,29 +48,72 @@
 </template>
 <script>
 
+import swal from 'sweetalert2';
+
 export default {
   name: 'SignAggrement',
   data() {
     return {
-      items: [
-        {
-          title: 'Grant of Rights',
-          description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
-        },
-        {
-          title: 'Confidentiality of Personal Details',
-          description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
-        },
-        {
-          title: 'Licensing to Third Parties',
-          description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
-        },
-        {
-          title: 'Agreement to Terms',
-          description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
-        }
-      ],
+      legalName: "",
+      validInfo: false,
+      message: "",
       currentDate: this.$moment().format('MMM DD, YYYY')
+    }
+  },
+  methods: {
+    async HandleSubmit() {
+      try {
+
+        this.HandleValidate()
+
+        if (!this.validInfo) {
+          swal.fire('Oops...', this.message, 'warning');
+          return;
+        }
+
+        const legalInfo = {
+          name: this.legalName,
+          date: this.currentDate,
+          email: this.$store.$auth.$state.user.email
+        }
+
+        const res = await this.$axios.$post("/api/auth/legalSign", {
+          info: legalInfo
+        });
+
+        // const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
+        const userdata = { email: res.email, password: res.password }
+
+        swal.fire("Well done!", "Your signature has been sent successfully!", "success")
+
+        // this.$store.commit('resetUserInfo', userdata)
+
+      } catch (error) {
+        swal.fire('Oops...', "Something went Wront!!!.", 'warning')
+      }
+    },
+    HandleValidate() {
+      if (this.legalName == "") {
+        this.validInfo = false;
+        this.message = "Please enter your full name.";
+        return;
+      }
+
+      const user = this.$store.$auth.$state.user
+
+      let reg = user.firstname + " " + user.lastname
+
+      console.log(reg, this.legalName)
+
+      let vaild = reg.match(this.legalName);
+
+      console.log(vaild)
+      if (!vaild) {
+        this.validInfo = false;
+        this.message = "Please sign with the correct name.";
+      }
+      else this.validInfo = true
+
     }
   },
   mounted() { }
@@ -233,6 +276,7 @@ label {
   line-height: 30px;
   word-wrap: break-word
 }
+
 .sign-image {
   width: 18px;
   height: 18px;

@@ -1,9 +1,34 @@
+import { axios } from "~/nuxt.config"
+
 export const state = () => ({
+    paymentInfo: {
+        status: ''
+    },
+    IDInfo: {
+        status: ' '
+    },
+    referrals: []
 })
 
-export const mutations = {}
+export const mutations = {
+    setUserInfo(state, data) {
+        state.auth.user = data
+    },
+    resetUserInfo(state, data) {
+        state.auth.user.email = data.email
+        state.auth.user.password = data.password
+    },
+    setPaymentInfo(state, data) {
+        state.paymentInfo.status = data
+    },
+    setReferrals(state, data) {
+        console.log(data)
+        state.referrals = data
+    }
+}
 
-export const actions = {}
+export const actions = {
+}
 
 export const getters = {
     isAuthenticated(state) {
@@ -11,5 +36,14 @@ export const getters = {
     },
     getUserInfo(state) {
         return state.auth.user;
+    },
+    getPaymentInfo(state) {
+        return state.paymentInfo;
+    },
+    getIDInfo(state) {
+        return state.IDInfo;
+    },
+    getRefer(state) {
+        return state.referrals
     }
 };

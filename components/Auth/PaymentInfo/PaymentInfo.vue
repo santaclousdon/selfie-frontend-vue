@@ -17,6 +17,7 @@
                       <div class="col-sm-12 alert alert-danger" role="alert">
                         <span class="mr-3"><img src="../../../assets/images/warningIcon.png" alt=""></span>
                         Your IBAN must be 20 to 34 characters.
+                        <span class="text-right alert-close"> <i class="fa fa-times"></i> </span>
                       </div>
                     </div>
                   </div>
@@ -27,24 +28,67 @@
                   <div class="row">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="PaymentMethod">Payment method</label>
-                      <select type="select" name="PaymentMethod" class="form-control text mt-3" placeholder="">
-                        <option value="0">Select a payment method</option>
-                        <option value="1">PayPal</option>
-                        <option value="2">PayPal</option>
-                        <option value="3">PayPal</option>
+                      <select type="select" name="PaymentMethod" v-model="paymentMethod" @change="HandleValidate"
+                        class="form-control text mt-3">
+                        <option v-for="(method, index) in methods" :key="index" :value="index + 1">{{ method }}</option>
+                        <!-- <option value="1">SEFA</option>
+                        <option value="2">Payoneer</option>
+                        <option value="3">Tether</option> -->
                       </select>
                     </div>
-                    <div class="sign-content">
+                    <div v-if="paymentMethod == 3" class="sign-content">
+                      <label for="currency">Network</label>
+                      <!-- <span name="currency" class="form-control text currencyData"> BEP20 </span> -->
+                      <select name="currency" @change="HandleValidate" v-model="currencyData"
+                        class="form-control text currencyData mt-3">
+                        <option v-for="(currency, index) in currencies[1]" :key="index" :value="index">{{ currency }}
+                        </option>
+                        <!-- <option value="0"> TRC20 </option>
+                        <option value="1"> BEP20 </option> -->
+                      </select>
+                    </div>
+                    <div v-else class="sign-content">
                       <label for="currency">Currency</label>
-                      <span name="currency" class="form-control text currencyData"> EUR € </span>
+                      <!-- <span name="currency" class="form-control text currencyData"> EUR € </span> -->
+                      <select name="currency" @change="HandleValidate" v-model="currencyData"
+                        class="form-control text currencyData mt-3">
+                        <option v-for="(currency, index) in currencies[0]" :key="index" :value="index">{{ currency }}
+                        </option>
+                        <!-- <option value="0"> EUR € </option>
+                        <option value="1"> USD $ </option> -->
+                      </select>
                     </div>
                   </div>
-                  <div class="row mt-5">
+                  <div v-if="paymentMethod <= 1" class="row mt-5">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
-                      <label for="iban">IBAN</label>
-                      <input type="text" class="iban-input" name="iban">
+                      <label for="paymentaddress">IBAN</label>
+                      <input type="text" @input="HandleValidate" v-model="paymentInfo.paymentAddress"
+                        class="iban-number iban-input" name="paymentaddress">
                     </div>
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
+                      <label for="PaymentCountry">Country of your bank</label>
+                      <select type="select" @change="HandleValidate" name="PaymentCountry" v-model="paymentInfo.country"
+                        class="form-control text mt-3">
+                        <option value="0">The Netherlands</option>
+                        <option value="1">The United States</option>
+                        <option value="2">The Tailland</option>
+                        <option value="3">The Ukriane</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div v-if="paymentMethod == 2" class="row mt-5">
+                    <div class="sign-content col-lg-8 col-md-8 col-sm-12">
+                      <label for="paymentaddress2">Payoneer Address</label>
+                      <input type="text" @input="HandleValidate" id="payoneer-address" class="iban-input"
+                        name="paymentaddress2">
+                    </div>
+                  </div>
+                  <div v-if="paymentMethod == 3" class="row mt-5">
+                    <div class="sign-content col-lg-8 col-md-8 col-sm-12">
+                      <label for="paymentaddress1">Crypto Wallet Address</label>
+                      <input type="text" @input="HandleValidate" class="wallet-address iban-input" name="paymentaddress1">
+                    </div>
+                    <!-- <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="PaymentMethod">Country of your bank</label>
                       <select type="select" name="PaymentMethod" class="form-control text mt-3" placeholder="">
                         <option value="0">The Netherlands</option>
@@ -52,19 +96,30 @@
                         <option value="2">The Tailland</option>
                         <option value="3">The Ukriane</option>
                       </select>
-                    </div>
-                    <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
+                    </div> -->
+                    <!-- <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                        <input class="form-check-input" @input="HandleValidate" type="checkbox" value=""
+                          id="flexCheckIndeterminate">
                         <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
                           I confirm that my bank account information is accurate, and I acknowledge that any errors due to
                           my mistake may result in payments being permanently lost.
                         </label>
                       </div>
+                    </div> -->
+                  </div>
+                  <div class="sign-content col-lg-12 col-md-12 col-sm-12 mt-5">
+                    <div class="form-check">
+                      <input class="form-check-input" @input="HandleValidate" v-model="paymentInfo.checked"
+                        type="checkbox" value="" id="flexCheckIndeterminate">
+                      <label class="form-check-label col-lg-12 col-md-12 " for="flexCheckIndeterminate">
+                        I confirm that my bank account information is accurate, and I acknowledge that any errors due to
+                        my mistake may result in payments being permanently lost.
+                      </label>
                     </div>
                   </div>
                   <div class="mt-5">
-                    <a href="" class="blue-btn button btn-sm">Save details
+                    <a @click="HandleSubmit" class="blue-btn button btn-sm">Save details
                     </a>
                   </div>
                 </div>
@@ -76,31 +131,119 @@
     </div>
   </section>
 </template>
+
 <script>
+
+import swal from 'sweetalert2';
 
 export default {
   name: 'PaymentInfo',
   data() {
     return {
-      items: [
-        {
-          title: 'Grant of Rights',
-          description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
-        },
-        {
-          title: 'Confidentiality of Personal Details',
-          description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
-        },
-        {
-          title: 'Licensing to Third Parties',
-          description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
-        },
-        {
-          title: 'Agreement to Terms',
-          description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
-        }
-      ],
-      currentDate: this.$moment().format('MMM DD, YYYY')
+      paymentMethod: 1,
+      currencyData: -1,
+      methods: ["SEFA", "Payoneer", "Tether"],
+      currencies: [["EUR €", "USD $"], ["ERC20", "BEP20"]],
+      currentDate: this.$moment().format('MMM DD, YYYY'),
+      validInfo: true,
+      paymentInfo: {
+        paymentMethodName: "SEFA",
+        currency: "",
+        paymentAddress: "",
+        country: "",
+        checked: false
+      },
+
+    }
+  },
+  methods: {
+    HandleMethodSet() {
+    },
+
+    async HandleSubmit() {
+
+
+      this.HandleValidate()
+
+      if (!this.validInfo) return
+
+      else {
+        // this.paymentInfo.birth = this.date.day + "/" + this.date.month + "/" + this.date.year
+        // this.paymentInfo.filledInfo = true
+
+        console.log("saving...")
+
+        const paymentData = { ...this.paymentInfo, user: this.$store.$auth.$state.user }
+
+        const res = await this.$axios.$post("/api/auth/paymentInfo", {
+          info: paymentData
+        });
+
+        swal.fire("Well done!", res.message, "success");
+
+        this.$store.commit('setPaymentInfo', 'Pending')
+
+        console.log(this.$store.$auth.$state.user)
+
+      }
+    },
+
+    HandleValidate() {
+
+      if (this.paymentMethod < 1) {
+        jQuery("select[name='PaymentMethod']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        this.paymentInfo.paymentMethodName = this.methods[this.paymentMethod - 1]
+        jQuery("select[name='PaymentMethod']").removeClass('err')
+        this.validInfo = false
+      }
+
+      if (this.currencyData < 0) {
+        jQuery("select[name='currency']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("select[name='currency']").removeClass('err')
+        this.paymentInfo.currency = this.paymentMethod < 1 ? this.currencies[0][this.currencyData] : this.currencies[1][this.currencyData]
+        this.validInfo = true
+      }
+
+      // console.log(jQuery("input[name='paymentaddress']").val(), jQuery("input[name='paymentaddress1']").val(), jQuery("input[name='paymentaddress2']").val())
+      this.paymentInfo.paymentAddress = jQuery("input[name='paymentaddress']").val() || jQuery("input[name='paymentaddress1']").val() || jQuery("input[name='paymentaddress2']").val()
+
+      if (!this.paymentInfo.paymentAddress || this.paymentInfo.paymentAddress == '') {
+        jQuery("input[name='paymentaddress']").addClass('err')
+        jQuery("input[name='paymentaddress1']").addClass('err')
+        jQuery("input[name='paymentaddress2']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("input[name='paymentaddress']").removeClass('err')
+        jQuery("input[name='paymentaddress1']").removeClass('err')
+        jQuery("input[name='paymentaddress2']").removeClass('err')
+        this.validInfo = true
+      }
+
+      if (this.paymentInfo.country == "" && this.paymentMethod == 1) {
+        jQuery("select[name='PaymentCountry']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        this.validInfo = true
+        jQuery("select[name='PaymentCountry']").removeClass('err')
+      }
+
+      if (!this.paymentInfo.checked) {
+        this.validInfo = false
+        // jQuery("label.form-check-label").css('color', 'red')
+      }
+      else {
+        // jQuery("label.form-check-label").css('color', 'black')
+        this.validInfo = true
+      }
+
     }
   },
   mounted() { }
@@ -231,7 +374,7 @@ ul li:before {
   font-family: Montserrat;
   font-weight: 500;
   word-wrap: break-word;
-  display: block;
+  display: none;
 }
 
 .sign-content {
@@ -296,9 +439,19 @@ input.iban-input {
   margin-top: 15px;
   cursor: pointer;
 }
+
+.alert-close {
+  float: right;
+  cursor: pointer;
+}
+
+.err {
+  border: 1px solid red !important;
+}
+
 input[type='checkbox'].form-check-input {
-  border: #DFDFDF solid 1px!important;
-  border-radius: 8px!important;
+  border: #DFDFDF solid 1px !important;
+  border-radius: 8px !important;
   width: 20px;
 }
 </style>

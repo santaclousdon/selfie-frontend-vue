@@ -17,12 +17,13 @@
                       My referrals
                     </h2>
                   </div>
-                  <div class="row mt-3" v-for="(item, index) in items" :key="index">
-                    <div class="col-lg-4 col-md-4 col-sm-4 text-left active-table-text">User # {{ item.user }}</div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 text-left active-table-text">{{ item.date }}</div>
-                    <div class="col-lg-4 mb-3 col-md-4 col-sm-4 text-left active-table-text"> <img
-                        :src="item.status == 'Pending' ? pendingImage : paidImage" alt="" class="mr-3"> {{ item.status }} </div>
-                    <img v-if="index < items.length-1" src="../../../assets/images/Line 1.png" width="100%" alt="">
+                  <div class="row mt-3" v-for="(item, index) in referrals" :key="index">
+                    <div class="col-lg-4 col-md-4 col-sm-4 text-left active-table-text">{{ item.user }}</div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 text-center active-table-text">{{ item.date }}</div>
+                    <div class="col-lg-4 mb-3 col-md-4 col-sm-4 text-center active-table-text"> <img
+                        :src="item.status == 'Pending' ? pendingImage : paidImage" alt="" class="mr-3"> {{ item.status }}
+                    </div>
+                    <img v-if="index < items.length - 1" src="../../../assets/images/Line 1.png" width="100%" alt="">
                   </div>
                 </div>
               </div>
@@ -35,8 +36,8 @@
                 <p>Want to earn more? Start referring friends using your personal link and earn €5.00 for every
                   friend who successfully uploads 4 photos or more. Use the link provided below.</p>
                 <div class="copy-group col-lg-12 col-md-12 col-sm-12 p-0">
-                  <input type="text" value="https://selfie.cash/emily1" placeholder="Your path" class="copy-link">
-                  <span class="fa fa-clipboard text-dark" title="Copy to Clipboard"></span>
+                  <input type="text" :value="referUrl" placeholder="Your path" class="copy-link">
+                  <span class="fa fa-clipboard text-dark" title="Copy to Clipboard" @click="HandleCopyURL"></span>
                 </div>
               </div>
             </div>
@@ -47,6 +48,8 @@
   </section>
 </template>
 <script>
+import { axios } from '~/nuxt.config';
+
 
 export default {
   name: 'Accordion',
@@ -54,21 +57,40 @@ export default {
     return {
       pendingImage: require('../../../assets/images/pendingStatus.png'),
       paidImage: require('../../../assets/images/paidStatus.png'),
-      items: [
-        {
-          user: '454',
-          date: '1 March, 2024',
-          status: 'Pending'
-        },
-        {
-          user: '398',
-          date: '14 February, 2024',
-          status: 'Approved'
-        }
-      ]
+      referUrl: "",
+      items: []
     }
   },
-  mounted() { }
+  methods: {
+    async HandleCopyURL() {
+      await this.$copyText(this.referUrl);
+    }
+  },
+  computed: {
+    referrals() {
+      console.log(this.$store.getters.getRefer)
+
+      const referrals = this.$store.getters.getRefer;
+
+      var items = []
+
+      for (let i=0;i< referrals.length;i++) {
+        items.push({
+          user: referrals[i].email.split('@')[0],
+          date: this.$moment(referrals[i].createdAt).format('MMM DD, YYYY') ,
+          status: referrals[i].status
+        })
+      }
+      
+      console.log(items)
+      
+      return items;
+    }
+  },
+  mounted() {
+    this.referUrl = window.location.origin + '/register-page?id=' + this.$store.$auth.$state.user._id
+    // this.$store.commit('getReferrals')
+  }
 }
 </script>
 <style scoped >

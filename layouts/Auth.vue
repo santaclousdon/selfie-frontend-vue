@@ -6,15 +6,15 @@
       <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-12 pt-5">
           <div class="row mt-5 pt-3 align-items-center justify-content-center text-center ">
-            <p class="text-aside-detail"> Out standing balance <br> <span class="text-funds mt-1">€12.50</span> <br>
-            <button class="button blue-btn mt-3 w-100" > Pay me now</button></p>
+            <p class="text-aside-detail"> Out standing balance <br> <span class="text-funds mt-1">€{{ getUserInfo.balance }}</span> <br>
+              <button class="button blue-btn mt-3 w-100"> Pay me now</button>
+            </p>
           </div>
           <div class="row">
             <ul class="nav nav-pills mt-3" role="tablist">
               <li v-for="(tab, index) in tabs" :key="index" class="nav-item col-lg-12">
                 <span class="line" />
-                <nuxt-link class="nav-link" :class="tab.active ? ' active ' : ''" :to="tab.href"
-                  aria-selected="false">
+                <nuxt-link class="nav-link" :class="tab.active ? ' active ' : ''" :to="tab.href" aria-selected="false">
                   <img :src="tab.image" alt="tab-image" class="img">
                   <span class="tab-title ml-3">{{ tab.title }}</span>
                   <span v-if="tab.bage > 0" class="bage ml-5">{{ tab.bage }}</span>
@@ -37,10 +37,12 @@
     <ScrollTop />
   </div>
 </template>
+
 <script>
-import { menu, services, pages, landing1About, ourCases, blog } from '../config/constant.js'
 import logoImg from '../assets/images/logo.png'
 import Footer from '../components/Auth/Footer/Footer'
+
+import { mapGetters } from "vuex";
 
 export default {
   name: 'Auth',
@@ -49,6 +51,10 @@ export default {
     return {
       styleLogo: false,
       logo: logoImg,
+      // pendingImag: require('../../../assets/images/pendingHeader.png'),
+      // rejectedImage: require('../../../assets/images/pendingHeader.png'),
+      // pendingImage: require('../../../assets/images/pending.png'),
+      // rejectedImage: require('../../../assets/images/rejected.png'),
       navItems: [
         {
           href: '/auth/dashboard',
@@ -104,17 +110,24 @@ export default {
   mounted() {
     const jquery = window.$
     const path = window.location.pathname
-    
+
     this.tabs.map(tab => {
       if (tab.href == path) tab.active = true
     })
 
-    jQuery('.nav-link').click( (event ) => {
-      this.tabs.map( tab => {
+    jQuery('.nav-link').click((event) => {
+      this.tabs.map(tab => {
         tab.active = false
       })
-      event.target.classList.add('active')      
+      event.target.classList.add('active')
     })
+  },
+  computed: {
+    getUserInfo() {
+      var userinfo = this.$store.getters.getUserInfo;
+      
+      return userinfo
+    }
   }
 } 
 </script>
@@ -147,6 +160,7 @@ export default {
   border: 1px #EDEFFD solid;
   padding: 2px 6px;
 }
+
 .nav-link:hover {
   background-color: #EDEFFD;
 }

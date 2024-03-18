@@ -15,7 +15,7 @@
                   <div class="row mt-3">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="EmailAddress">Email Address</label>
-                      <input type="text" class="iban-input" name="EmailAddress">
+                      <input type="text" class="iban-input" name="EmailAddress" v-model="email" @input="HandleValidate">
                     </div>
                     <!-- <div class="sign-content">
                       <label for="currency">Currency</label>
@@ -25,7 +25,8 @@
                   <div class="row mt-3">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="CurrentPassword">Current password</label>
-                      <input type="password" class="iban-input" name="CurrentPassword">
+                      <input type="password" class="iban-input" name="CurrentPassword" v-model="password"
+                        @input="HandleValidate">
                     </div>
                     <!-- <div class="sign-content">
                       <label for="currency">Currency</label>
@@ -35,15 +36,17 @@
                   <div class="row mt-3">
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="NewPassword">New password</label>
-                      <input type="password" class="iban-input" name="NewPassword">
+                      <input type="password" class="iban-input" name="NewPassword" v-model="newPassword"
+                        @input="HandleValidate">
                     </div>
                     <div class="sign-content col-lg-4 col-md-4 col-sm-12">
                       <label for="RepeatPassword">Repeat new password</label>
-                      <input type="password" class="iban-input" name="RepeatPassword">
+                      <input type="password" class="iban-input" name="RepeatPassword" v-model="confirmPass"
+                        @input="HandleValidate">
                     </div>
                   </div>
                   <div class="mt-3">
-                    <a href="" class="blue-btn button btn-sm">Save
+                    <a @click="HandleSubmit" class="blue-btn button btn-sm">Save
                     </a>
                   </div>
                 </div>
@@ -57,29 +60,102 @@
 </template>
 <script>
 
+import swal from 'sweetalert2';
+
 export default {
   name: 'Settings',
   data() {
     return {
-      items: [
-        {
-          title: 'Grant of Rights',
-          description: 'The Contributor hereby agrees to sell and provide their selfie photographs ("Photos") to the Company. The Contributor grants the Company the full rights to use these Photos on various (adult) entertainment websites to engage with their audience.'
-        },
-        {
-          title: 'Confidentiality of Personal Details',
-          description: 'The Contributor\'s personal details shall remain confidential and will not be shared publicly by the Company under any circumstances.'
-        },
-        {
-          title: 'Licensing to Third Parties',
-          description: 'The Company reserves the right to license the Photos to third parties for an undisclosed period of time. This licensing pertains only to the Photos and does not include any personal details of the Contributor.'
-        },
-        {
-          title: 'Agreement to Terms',
-          description: 'By signing this Agreement, the Contributor confirms that they fully understand and agree to the terms set forth herein.'
-        }
-      ],
+      email: "",
+      password: "",
+      newPassword: "",
+      confirmPass: "",
+      validInfo: true,
       currentDate: this.$moment().format('MMM DD, YYYY')
+    }
+  },
+  methods: {
+    async HandleSubmit() {
+
+      this.HandleValidate()
+
+      if (this.newPassword != this.confirmPass) {
+        jQuery("input[name='NewPassword']").addClass('err')
+        jQuery("input[name='RepeatPassword']").addClass('err')
+        swal.fire("Oops...", "Please type the same password.", "error");
+        this.validInfo = false
+      }
+      else {
+        jQuery("input[name='NewPassword']").removeClass('err')
+        jQuery("input[name='RepeatPassword']").removeClass('err')
+        this.validInfo = true
+      }
+
+      if (!this.validInfo) return
+
+      else {
+
+        const settingInfo = {
+          oldEmail: this.$store.$auth.$state.user.email,
+          email: this.email,
+          password: this.password,
+          newPassword: this.newPassword
+        }
+        try {
+
+          const res = await this.$axios.$post("/api/auth/resetPass", {
+            info: settingInfo
+          });
+
+          // const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
+          const userdata = { email: res.email, password: res.password }
+
+          swal.fire("Well done!", "Your password has been successfully reset!", "success")
+
+          this.$store.commit('resetUserInfo', userdata)
+
+        } catch (error) {
+          swal.fire('Oops...', "Your password is incorrect!", 'warning')
+        }
+      }
+    },
+    HandleValidate() {
+
+      if (this.email == "") {
+        jQuery("input[name='EmailAddress']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("input[name='EmailAddress']").removeClass('err')
+        this.validInfo = true
+      }
+
+      if (this.password == "") {
+        jQuery("input[name='CurrentPassword']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("input[name='CurrentPassword']").removeClass('err')
+        this.validInfo = true
+      }
+
+      if (this.newPassword == "") {
+        jQuery("input[name='NewPassword']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("input[name='NewPassword']").removeClass('err')
+        this.validInfo = true
+      }
+
+      if (this.confirmPass == "") {
+        jQuery("input[name='RepeatPassword']").addClass('err')
+        this.validInfo = false
+      }
+      else {
+        jQuery("input[name='RepeatPassword']").removeClass('err')
+        this.validInfo = true
+      }
     }
   },
   mounted() { }
@@ -275,9 +351,14 @@ input.iban-input {
   margin-top: 15px;
   cursor: pointer;
 }
+
 input[type='checkbox'].form-check-input {
-  border: #DFDFDF solid 1px!important;
-  border-radius: 8px!important;
+  border: #DFDFDF solid 1px !important;
+  border-radius: 8px !important;
   width: 20px;
+}
+
+.err {
+  border: 1px solid red !important;
 }
 </style>

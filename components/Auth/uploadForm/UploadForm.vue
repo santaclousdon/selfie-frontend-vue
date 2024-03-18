@@ -31,7 +31,7 @@
                         <br>
                         <p class="mt-5 text-center" style="display: block; width: 100%; margin-bottom: 15px;">Drag
                           and Drop File or</p>
-                        <a class="blue-btn button btn-sm browser-btn">Browse</a>
+                        <button class="blue-btn button btn-sm browser-btn">Browse</button>
                         <p class="mt-3 image-limit">Minimum 800 by 800 pixels</p>
                       </div>
                     </div>
@@ -55,9 +55,7 @@
                   </div>
                   <div class="">
                     <a class="blue-btn button btn-sm mt-3 mb-3 " data-dismiss="modal">
-                      <div class="row justify-content-center align-items-center">
                         <span class="label-text mr-3">Submit this photo</span>
-                      </div>
                     </a>
                   </div>
                 </div>
@@ -163,13 +161,11 @@ export default {
   },
   mounted() {
     jQuery('.browser-btn').click((event) => {
-      console.log(event.target)
       jQuery('.file-input-form').click()
     })
   },
   methods: {
     onChange(event) {
-      console.log(this.items[event.target.value].cost.toFixed(2))
       this.selectedRate = this.items[event.target.value].cost
     }
   }
