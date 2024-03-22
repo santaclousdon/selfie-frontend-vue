@@ -86,7 +86,7 @@
               <div>
                 <div class="row align-items-center justify-content-center mr-0 create-btn">
                   <div class="col-lg-12 col-md-12 col-sm-12 text-right">
-                    <button id="submitLogin" name="submit" type="submit" value="Send"
+                    <button id="submitLogin" name="submit" type="submit"
                       class="button blue-btn btn-sm d-block w-55">
                       Create an account <span> <img src="../../assets/images/Arrow 3.png" alt=""> </span>
                     </button>
@@ -128,9 +128,10 @@ export default {
   },
   methods: {
     async register() {
-      try {
 
+      try {
         if (this.registerData.email == "") {
+        console.log('register')
           this.message = "Please input your valid email."
           this.valid = false
           this.alert = true
@@ -163,6 +164,8 @@ export default {
         else this.valid = true
 
         if (!this.valid) return
+
+        console.log(this.valid)
 
         const res = await this.$axios.$post("/api/auth/signin", {
           fullname: this.registerData.fullname,
@@ -207,6 +210,7 @@ export default {
         // this.router.push('/confirm-mail')
 
       } catch (err) {
+        console.log(err)
         if (this.referUser = "") this.message = "Error occupied during register. Please try again."
         else this.message = "Please use the correct URL or Mail"
         this.alert = true
