@@ -56,19 +56,19 @@
                         notice, and our moderators reserve the right to categorize uploaded pictures based on our
                         interpretation.</p>
                       <p>
-                        <span class="mr-3"> <img src="../../assets/images/arrowRightBlue.png" alt=""> </span>
+                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
                         Minimum of 2 clothed half-body pictures (face and upper body)</p>
                       <p>
-                        <span class="mr-3"> <img src="../../assets/images/arrowRightBlue.png" alt=""> </span>
+                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
                         Clear and high quality pictures</p>
                       <p>
-                        <span class="mr-3"> <img src="../../assets/images/arrowRightBlue.png" alt=""> </span>
+                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
                         All pictures must be in-doors</p>
                       <p>
-                        <span class="mr-3"> <img src="../../assets/images/arrowRightBlue.png" alt=""> </span>
+                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
                         No references to specific countries in the background, including power sockets.</p>
                       <p>
-                        <span class="mr-3"> <img src="../../assets/images/arrowRightBlue.png" alt=""> </span>
+                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
                         Maximum 8 photos per person/account</p>
                     </div>
                   </div>
@@ -83,10 +83,13 @@
 </template>
 <script>
 
+import arrowImage from '../../assets/images/arrowRightBlue.png';
+
 export default {
   name: 'Accordion',
   data() {
     return {
+      arrowImg: arrowImage,
       items: [
         {
           title: 'What are the minimal requirements?',
