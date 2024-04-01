@@ -184,17 +184,22 @@
                         class="row align-items-center justify-content-between p-3"
                       >
                         <span
-                          v-if="image.status == 'Pending'"
+                          v-if="image.status == 'pending'"
                           class="pending image-status"
                           >Pending</span
                         >
                         <span
-                          v-if="image.status == 'Approved'"
+                          v-if="image.status == 'approved'"
                           class="approved image-status"
                           >Approved</span
                         >
                         <span
-                          v-if="image.status == 'Pending'"
+                          v-if="image.status == 'rejected'"
+                          class="rejected image-status"
+                          >Rejected</span
+                        >
+                        <span
+                          v-if="image.status == 'pending'"
                           class="pending image-action"
                           ><img src="../../../assets/images/recycle.png" alt=""
                         /></span>
@@ -288,7 +293,7 @@ export default {
         if(i === 0 || i === 1) {
           this.images_first[i].url = res.allSelfies[i] === undefined ? "" : res.allSelfies[i].url;
           this.images_first[i].status = res.allSelfies[i] === undefined ? "" : res.allSelfies[i].status;
-        } else { 
+        } else {
           this.images_all[i - 2].url = res.allSelfies[i] === undefined ? "" : res.allSelfies[i].url;
           this.images_all[i - 2].status = res.allSelfies[i] === undefined ? "" : res.allSelfies[i].status;
         }
@@ -417,6 +422,13 @@ p {
 
 .approved {
   background: #d3edb1;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.rejected {
+  background: #d14949;
   border-radius: 6px;
   padding: 5px 10px;
   cursor: pointer;
