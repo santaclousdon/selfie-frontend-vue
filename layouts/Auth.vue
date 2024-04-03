@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-12 pt-5">
           <div class="row mt-5 pt-3 align-items-center justify-content-center text-center ">
-            <p class="text-aside-detail"> Out standing balance <br> <span class="text-funds mt-1">€{{ getUserInfo.balance }}</span> <br>
+            <p class="text-aside-detail"> Out standing balance <br> <span class="text-funds mt-1">€{{ getUserInfo.balance == undefined ? "0.00..." : getUserInfo.balance }}</span> <br>
               <button class="button blue-btn mt-3 w-100"> Pay me now</button>
             </p>
           </div>

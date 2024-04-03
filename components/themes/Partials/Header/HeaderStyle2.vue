@@ -146,7 +146,7 @@
                         : userInfo.userID
                     }}
                     <br />
-                    <span class="text-funds">€{{ userInfo.balance }}</span>
+                    <span class="text-funds">€{{ userInfo.balance == undefined ? "0.00.." : userInfo.balance }}</span>
                   </p>
                 </div>
                 <div class="lang-btn button">
@@ -339,6 +339,7 @@ export default {
     const res = await this.$axios.$get("/api/auth/user");
 
     this.userInfo = res.user;
+    // console.log("..................", this.userInfo.balance)
     this.userInfo.balance = res.user?.balance?.toFixed(2);
     if (this.userInfo.avatar !== "") this.selectedFile = this.userInfo.avatar;
 
