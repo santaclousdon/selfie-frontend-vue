@@ -1,6 +1,6 @@
 
 module.exports = {
-  // mode: 'universal',
+  spa: 'universal',
   /*
   ** Headers of the page
   */
