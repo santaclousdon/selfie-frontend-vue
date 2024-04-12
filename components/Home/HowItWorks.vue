@@ -1,8 +1,7 @@
 <template>
   <section>
-    <div class="container">
       <div class="row justify-content-between">
-        <div class="col-sm-12 col-lg-3 col-md-3 right wow fadeInUp" style="background-color: #F5F6FD;">
+        <div class="col-sm-12 col-lg-3 col-md-3 right" style="background-color: #F5F6FD;">
           <div class="consult-services xamin-circle  text-left" data-wow-delay="0.6s">
             <div class="circle-effect mt-3">
               <img :src="require('../../assets/images/how/how1.png')" alt="create">
@@ -17,7 +16,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-lg-3 right col-md-3 mt-4 mt-md-0 wow fadeInUp" style="background-color: #F5F6FD;">
+        <div class="col-sm-12 col-lg-3 right col-md-3 mt-4 mt-md-0 fadeInUp" style="background-color: #F5F6FD;">
           <div class="consult-services xamin-circle  text-left" style="background-color: #F5F6FD;"
             data-wow-delay="1s">
             <div class="circle-effect mt-3">
@@ -34,7 +33,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-lg-3 col-md-3 mt-4 mt-md-0 wow fadeInUp" style="background-color: #F5F6FD;">
+        <div class="col-sm-12 col-lg-3 col-md-3 mt-4 mt-md-0 fadeInUp" style="background-color: #F5F6FD;">
           <div class="consult-services xamin-circle text-left" style="background-color: #F5F6FD;" data-wow-delay="1.4s">
             <div class="circle-effect mt-3">
               <img :src="require('../../assets/images/how/how3.png')" alt="getPaid">
@@ -51,7 +50,6 @@
           </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 <script>

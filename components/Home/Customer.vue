@@ -1,25 +1,36 @@
 <template>
-  <section class="xamin-blue-bg"  id="howitworks">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9  wow fadeInUp  animated">
-          <div class="title-box wow fadeInUp text-white text-left">
-            <span class="sub-title">Get Paid for Your Selfies</span>
-            <h2 class="sub-title1">How does it work?</h2>
-          </div>
-          <div class="detail wow fadeInUp text-white text-left">
-            <p>Selfie.cash is an online platform that enables women to sell their selfies for cash. <br /> The process is
-              straightforward: begin by creating a free account, fill in your personal details, and get verified.</p>
-            <p>Next, upload your selfies and await approval. Once approved, your payment will be processed instantly
-              through your preferred payment method.</p>
-            <p>We offer various rates for different types of selfies, ranging from 1 euro to as much as 8 euros per photo!
-              For more information on how much you can earn by selling your selfies, check out our rates.</p>
-          </div>
-          <div class="row learn-more">
-            <div class="col-lg-10 col-md-12 col-sm-12">
-              <a href="">Check our rates <span class="blue-btn ml-2"><img src="../../assets/images/Arrow_3.png" width="15"
-                    alt="->"></span> </a>
-            </div>
+  <section class="xamin-blue-bg" id="howitworks">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="title-box text-white text-left">
+          <span class="sub-title">Get Paid for Your Selfies</span>
+          <h2 class="sub-title1">How does it work?</h2>
+        </div>
+        <div class="detail text-white text-left">
+          <p>
+            Selfie.cash is an online platform that enables women to sell their selfies for
+            cash. <br />
+            The process is straightforward: begin by creating a free account, fill in your
+            personal details, and get verified.
+          </p>
+          <p>
+            Next, upload your selfies and await approval. Once approved, your payment will
+            be processed instantly through your preferred payment method.
+          </p>
+          <p>
+            We offer various rates for different types of selfies, ranging from 1 euro to
+            as much as 8 euros per photo! For more information on how much you can earn by
+            selling your selfies, check out our rates.
+          </p>
+        </div>
+        <div class="row learn-more">
+          <div class="col-lg-10 col-md-12 col-sm-12">
+            <a href=""
+              >Check our rates
+              <span class="blue-btn ml-2"
+                ><img src="../../assets/images/Arrow_3.png" width="15" alt="->"
+              /></span>
+            </a>
           </div>
         </div>
       </div>
@@ -29,8 +40,8 @@
 
 <script>
 export default {
-  name: 'Customer'
-}
+  name: "Customer",
+};
 </script>
 
 <style scoped>
@@ -39,7 +50,7 @@ export default {
   font-size: 50px;
   font-family: Darker Grotesque normal;
   font-weight: 400;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 .detail {
@@ -48,7 +59,7 @@ export default {
   font-family: Montserrat;
   font-weight: 400;
   line-height: 30px;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 .learn-more a {
@@ -56,10 +67,10 @@ export default {
   font-size: 18px;
   font-family: Montserrat;
   font-weight: 600;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 .learn-more span.blue-btn {
-  background-color: #FFCE4F;
+  background-color: #ffce4f;
   border-radius: 100px;
   color: white;
   padding: 2px 5px;
@@ -70,6 +81,6 @@ h2.sub-title1 {
   font-size: 50px;
   font-family: Darker Grotesque;
   font-weight: 800;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 </style>

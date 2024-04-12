@@ -130,8 +130,8 @@ export default {
     async register() {
 
       try {
+        
         if (this.registerData.email == "") {
-        console.log('register')
           this.message = "Please input your valid email."
           this.valid = false
           this.alert = true
@@ -164,8 +164,6 @@ export default {
         else this.valid = true
 
         if (!this.valid) return
-
-        console.log(this.valid)
 
         const res = await this.$axios.$post("/api/auth/signin", {
           fullname: this.registerData.fullname,
