@@ -75,46 +75,77 @@ module.exports = {
   clipboard: {
       autoSetContainer: true
   },
-
   auth: {
     strategies: {
       local: {
         // scheme: "refresh",
         token: {
-          property: "access_token",
+          property: "token",
           global: true,
-          // required: true,
-          maxAge: 1800,
-          // type: "Bearer"
+          required: true,
+          type: "Bearer"
         },
         user: {
           property: "user",
           autoFetch: true
         },
-        refreshToken: {  // it sends request automatically when the access token expires, and its expire time has set on the Back-end and does not need to we set it here, because is useless
-          property: "refresh_token",
-          data: "refresh_token",
-          maxAge: 60 * 60 * 24 * 30
-        },
-        user: {
-          property: 'user',
-         // autoFetch: true
-        },
+        // refreshToken: {  // it sends request automatically when the access token expires, and its expire time has set on the Back-end and does not need to we set it here, because is useless
+        //   property: "refresh_token",
+        //   data: "refresh_token",
+        //   maxAge: 60 * 60 * 24 * 30
+        // },
         endpoints: {
-          login: { url: '/api/auth/login', method: 'post' },
-          refresh: { url: '/api/auth/refresh', method: 'post' },
-          user: { url: '/api/auth/user', method: 'get' },
-          logout: { url: '/api/auth/logout', method: 'post' }
+          login: { url: "/api/auth/login", method: "post" },
+          // refresh: { url: "/api/auth/user", method: "get" },
+          logout: false, //  we don't have an endpoint for our logout in our API and we just remove the token from localstorage
+          user: { url: "/api/auth/user", method: "get" }
         }
       }
     }
   },
+
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       // scheme: "refresh",
+  //       token: {
+  //         property: "access_token",
+  //         global: true,
+  //         // required: true,
+  //         maxAge: 1800,
+  //         type: "Bearer"
+  //       },
+  //       user: {
+  //         property: "user",
+  //         autoFetch: true
+  //       },
+  //       refreshToken: {  // it sends request automatically when the access token expires, and its expire time has set on the Back-end and does not need to we set it here, because is useless
+  //         property: "refresh_token",
+  //         data: "refresh_token",
+  //         maxAge: 60 * 60 * 24 * 30
+  //       },
+  //       user: {
+  //         property: 'user',
+  //        autoFetch: true
+  //       },
+  //       endpoints: {
+  //         login: { url: '/api/auth/login', method: 'post' },
+  //         // refresh: { url: '/api/auth/refresh', method: 'post' },
+  //         user: { url: '/api/auth/user', method: 'get' },
+  //         logout: { url: '/api/auth/logout', method: 'post' }
+  //       }
+  //     }
+  //   }
+  // },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
+  // axios: {
+  //   baseURL: "https://selfie.cash"
+  // },
   axios: {
-    baseURL: "https://admin.selfie.cash"
+    baseURL: "http://localhost:5000"
   },
   /*
   ** Build configuration
