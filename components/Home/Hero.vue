@@ -1,7 +1,7 @@
 <template>
   <section id="hero">
     <div class="row">
-      <div class="col-sm-7">
+      <div class="col-sm-6">
         <div class="title-box text-black text-left">
           <!-- <span class="sub-title">Get Paid for Your Selfies</span> -->
           <h2 class="sub-title1">Snap, Sell, Earn: <br />Cash in on Your Selfies</h2>
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-5">
+      <div class="col-sm-6">
         <div class="hero-image">
           <img src="revslider/assets/hero/illustration.png" alt="" />
         </div>
@@ -96,7 +96,7 @@ h2.sub-title1 {
 }
 .link-button {
   color: white !important;
-  padding: 15px 20%;
+  padding: 15px 35px;
   width: 100%;
   border-radius: 8px;
   background-color: #673cf6;
