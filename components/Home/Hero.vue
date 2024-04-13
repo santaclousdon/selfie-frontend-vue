@@ -55,6 +55,7 @@ export default {
 <style scoped>
 #hero {
   padding-top: 150px;
+  padding-bottom: 50px;
 }
 .sub-title {
   color: #222222;

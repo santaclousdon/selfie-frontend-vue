@@ -121,6 +121,6 @@ p.second-line {
 }
 
 section {
-  padding: 0px 0px 100px 0px;
+  padding: 0px 0px 50px 0px;
 }
 </style>

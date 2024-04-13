@@ -1,5 +1,5 @@
 <template>
-  <section class="xamin-gray-bg">
+  <section id="whypay" class="xamin-gray-bg">
     <div class="row">
       <div class="col-lg-5 col-md-5"></div>
       <div class="col-lg-7 col-md-7 col-sm-7">
@@ -36,6 +36,10 @@ export default {
 </script>
 
 <style scoped>
+section#whypay {
+  padding-bottom: 50px!important;
+  padding-top: 50px;
+}
 .sub-title {
   color: #222222;
   font-size: 50px;
