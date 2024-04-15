@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="footer-logo-mobile">
     <div class="footer-logo"><img :src="sectionImage" style="margin-top: 5px;" width="213" alt="#"></div>
     <div class="menu-footer-menu-container">
       <ul class="menu">

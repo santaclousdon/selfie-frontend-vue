@@ -1,7 +1,7 @@
 <template>
   <section class="xamin-blue-bg"  id="howitworks">
     <div class="container">
-      <div class="row">
+      <div class="row container-paid-mobile">
         <div class="col-sm-9  wow fadeInUp  animated">
           <div class="title-box wow fadeInUp text-white text-left">
             <span class="sub-title">Get Paid for Your Selfies</span>

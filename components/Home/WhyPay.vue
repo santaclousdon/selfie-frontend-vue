@@ -1,7 +1,7 @@
 <template>
   <section class="xamin-gray-bg">
     <div class="container">
-      <div class="row">
+      <div class="row container-why-mobile">
         <div class="col-lg-5 col-md-5"></div>
         <div class="col-lg-7 col-md-7 col-sm-7 wow fadeInUp  animated">
           <div class="title-box wow fadeInUp text-black text-left">

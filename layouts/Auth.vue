@@ -3,8 +3,8 @@
     <Loader />
     <HeaderStyle2 :logo-img="logo" :nav-item-list="navItems" class-name="style-one" :styled-logo="styleLogo" />
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12 pt-5">
+      <div class="row ">
+        <div class="col-lg-2 col-md-2 col-sm-12 pt-5 standing-balance">
           <div class="row mt-5 pt-3 align-items-center justify-content-center text-center ">
             <p class="text-aside-detail"> Out standing balance <br> <span class="text-funds mt-1">€{{ getUserInfo.balance == undefined ? "0.00..." : getUserInfo.balance }}</span> <br>
               <button class="button blue-btn mt-3 w-100"> Pay me now</button>
@@ -13,7 +13,7 @@
           <div class="row">
             <ul class="nav nav-pills mt-3" role="tablist">
               <li v-for="(tab, index) in tabs" :key="index" class="nav-item col-lg-12">
-                <span class="line" />
+                <span class="line"></span>
                 <nuxt-link class="nav-link" :class="tab.active ? ' active ' : ''" :to="tab.href" aria-selected="false">
                   <img :src="tab.image" alt="tab-image" class="img">
                   <span class="tab-title ml-3">{{ tab.title }}</span>
@@ -24,12 +24,24 @@
             </ul>
           </div>
         </div>
+        <div class="standing-balance-mobile">
+          <div class="standing-balance-list" role="tablist">
+            <div v-for="(tab, index) in tabs" :key="index" class="standing-balance-item">
+              <nuxt-link class="standing-balance-link" :to="tab.href" aria-selected="false">
+                <div class="text-center">
+                  <img :src="tab.image" alt="tab-image">
+                </div>
+                <span>{{ tab.mtitle }}</span>
+              </nuxt-link>
+            </div>
+          </div>
+        </div>
         <div class="col-lg-10 col-md-10 col-sm-12">
           <nuxt />
         </div>
       </div>
-      <div class="row footer justify-content-center">
-        <div class="col-lg-10 col-md-10 col-sm-12">
+      <div class="row footer justify-content-center container-mobile">
+        <div class="col-lg-10 col-md-10 col-sm-12 container-mobile">
           <Footer />
         </div>
       </div>
@@ -72,6 +84,7 @@ export default {
         {
           href: '/auth/my-photos',
           title: 'My photos',
+          mtitle: "Photos",
           active: false,
           image: require('../assets/images/aside/myphoto.png'),
           bage: 5
@@ -79,6 +92,7 @@ export default {
         {
           href: '/auth/legal',
           title: 'Legal',
+          mtitle: "Legal",
           active: false,
           image: require('../assets/images/aside/legal.png'),
           bage: 0
@@ -86,6 +100,7 @@ export default {
         {
           href: '/auth/my-referrals',
           title: 'My referrals',
+          mtitle: "Referrals",
           active: false,
           image: require('../assets/images/aside/myreferrals.png'),
           bage: 0
@@ -93,6 +108,7 @@ export default {
         {
           href: '/auth/payment-history',
           title: 'Payment history',
+          mtitle: "History",
           active: false,
           image: require('../assets/images/aside/paymenthistory.png'),
           bage: 0
@@ -100,6 +116,7 @@ export default {
         {
           href: '/auth/settings',
           title: 'Settings',
+          mtitle: "Settings",
           active: false,
           image: require('../assets/images/aside/settings.png'),
           bage: 0

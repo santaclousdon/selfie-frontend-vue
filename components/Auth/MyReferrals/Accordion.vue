@@ -8,7 +8,7 @@
               <h2> <img src="../../../assets/images/aside/myreferrals.png" class="mr-5" alt=""> My referrals</h2>
             </div>
           </div>
-          <div class="row justify-content-between p-3">
+          <div class="row justify-content-between p-3 container-refer-mobile">
             <div class="col-lg-6 col-md-6 col-sm-12 pr-3">
               <div class="row activity-form">
                 <div class="container">
@@ -28,8 +28,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 pl-5">
-              <div class="row refer-form">
+            <div class="col-lg-6 col-md-6 col-sm-12 pl-5 container-refer">
+              <div class="row refer-form container-refer-mobile">
                 <h2 class="text-left mb-4 sub-title">
                   Refer and earn
                 </h2>

@@ -1,9 +1,9 @@
 <template>
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="row align-items-center">
+            <div class="row container-mobile">
+                <div class="col-sm-12 container-row-mobile">
+                    <div class="row align-items-center container-row-mobile-row">
                         <div class="col-lg-12 col-md-12 col-sm-12 content-title">
                             <h2>Hello, {{ name }}</h2>
                             <p>Finish the tasks listed below and begin earning from your selfies.</p>
@@ -13,10 +13,13 @@
                         <div class="iq-accordion-block step-content">
                             <div class="active-faq clearfix">
                                 <div class="container">
-                                    <div class="row align-items-center">
+                                    <div class="row align-items-center container-step-mobile">
                                         <div class="faq-title">
                                             <a href="javascript:void(0)" class="accordion-title"><span
                                                     class="text-white title"> You’ve got 5 tasks today </span>
+                                            </a>
+                                            <a href="javascript:void(0)" class="accordion-title-mobile"><span
+                                                    class="text-white title"> Your tasks </span>
                                             </a>
                                         </div>
                                     </div>
@@ -32,7 +35,7 @@
                                                 :class="item.status == 'Pending' ? 'pendingImage' : 'rejectedImage'"> <img
                                                     :src="item.status == 'Pending' ? pendingImage : rejectedImage" alt="">
                                             </span>
-                                            {{ item.title }}
+                                            <span>{{ item.title }}</span>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-none step-detail text-center">{{ item.detail }}
                                         </div>
@@ -49,16 +52,16 @@
         </div>
         <button type="button" class="btn btn-primary" id="modal" data-toggle="modal" data-target="#exampleModal"
             data-whatever="@mdo" data-backdrop="static" data-keyboard="false">Open modal for @mdo</button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade modal-mobile" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog  modal-dialog-centered" role="document">
+            <div class="modal-dialog  modal-dialog-centered modal-dialog-mobile" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
                         <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close"><i
                                 class="fa fa-times fa-1x"></i></button>
-                        <div class="row align-items-center">
-                            <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-                                <h2> <img src="../../../assets/images/personaldetail.png" width="20" class="mr-5" alt="">
+                        <div class="row align-items-center container-fill-mobile">
+                            <div class="col-lg-12 col-md-12 col-sm-12 content-title personal-title-mobile">
+                                <h2> <img src="../../../assets/images/personaldetail.png" width="20" class="mr-5 personal-image-mobile" alt="">
                                     Fill in your personal information.</h2>
                                 <p class="mt-3">Prior using this platform, we require some personal information
                                     from you. Rest
@@ -146,7 +149,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-3">
-                                        <a @click="HandleSubmit" class="blue-btn button btn-sm">
+                                        <a @click="HandleSubmit" class="blue-btn button btn-sm container-complete-mobile">
                                             <div class="row justify-content-center align-items-center">
                                                 <span class="label-text mr-3">Complete registration</span>
                                                 <img src="../../../assets/images/Arrow 3.png" class="sign-image mt-1"
@@ -191,7 +194,7 @@ export default {
                 },
                 {
                     title: 'Sign our legal agreement',
-                    status: '',
+                    status: 'Pending',
                     detail: ''
                 },
                 {
@@ -242,8 +245,9 @@ export default {
         this.items[0].status = user.paymentStatus;
         this.items[1].status = user.IDStatus;
         this.items[1].detail = user.IDStatus == "Empty" ? "Still not uploaded." : "Must be government issued ID";
-        this.items[2].status = user.legalSigned;
-        this.items[4].status = ""
+        this.items[2].status = "";
+        this.items[4].status = "";
+        this.name = user.firstname;
 
     },
     computed: {
@@ -269,7 +273,6 @@ export default {
 
                 // const userdata = { ...this.personalInfo, email: this.$store.$auth.$state.user.email, password: this.$store.$auth.$state.user.password }
                 const userdata = { ...this.$store.$auth.$state.user, ...this.personalInfo }
-
                 document.getElementById('closeModal').click();
                 this.$store.commit('setUserInfo', userdata)
                 this.$router.push('personal-details')
@@ -495,6 +498,19 @@ div.active-faq .container .row {
 }
 
 .accordion-title span {
+    color: white;
+    font-size: 29px;
+    font-family: Darker Grotesque normal;
+    font-weight: 600;
+    word-wrap: break-word;
+    padding-left: 30px;
+}
+
+.accordion-title-mobile {
+    display: none;
+}
+
+.accordion-title-mobile span {
     color: white;
     font-size: 29px;
     font-family: Darker Grotesque normal;
