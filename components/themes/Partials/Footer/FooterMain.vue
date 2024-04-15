@@ -1,8 +1,6 @@
 <template>
-  <footer id="contact" :class="footerClass">
-    <div class="container">
+  <footer id="footer" :class="footerClass">
       <slot name="footerContent"></slot>
-    </div>
   </footer>
 </template>
 <script>

@@ -2,3 +2,8 @@
 .far, .fab, .fas{
     font-weight: 900 !important;
 }
+
+section, footer {
+    padding-left: 10%!important;
+    padding-right: 10%!important;
+}

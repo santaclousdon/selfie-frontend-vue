@@ -29,8 +29,8 @@
 
 <script>
 export default {
-  name: 'Customer'
-}
+  name: "Customer",
+};
 </script>
 
 <style scoped>
@@ -39,7 +39,7 @@ export default {
   font-size: 50px;
   font-family: Darker Grotesque normal;
   font-weight: 400;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 .detail {
@@ -48,7 +48,7 @@ export default {
   font-family: Montserrat;
   font-weight: 400;
   line-height: 30px;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 .learn-more a {
@@ -56,10 +56,10 @@ export default {
   font-size: 18px;
   font-family: Montserrat;
   font-weight: 600;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 .learn-more span.blue-btn {
-  background-color: #FFCE4F;
+  background-color: #ffce4f;
   border-radius: 100px;
   color: white;
   padding: 2px 5px;
@@ -70,6 +70,6 @@ h2.sub-title1 {
   font-size: 50px;
   font-family: Darker Grotesque;
   font-weight: 800;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 </style>

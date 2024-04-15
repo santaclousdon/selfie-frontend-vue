@@ -284,7 +284,6 @@ export default {
         if(index === i) {
           this.modalData = {...this.preModalData[i], index: index};
           EventBus.$emit('modalData', this.modalData);
-          console.log("hello", this.modalData);
         }
       }
     },
@@ -300,9 +299,8 @@ export default {
           this.images_all[i - 2].status = res.allSelfies[i] === undefined ? "" : res.allSelfies[i].status;
         }
       }
-      console.log("respondddddd", res.allSelfies);
+      
       this.preModalData = res.allSelfies;
-      console.log("modal data", this.preModalData);
     },
     startPolling() {
       // Poll every 5 seconds, adjust the interval as needed

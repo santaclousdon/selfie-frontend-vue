@@ -56,19 +56,20 @@
                         notice, and our moderators reserve the right to categorize uploaded pictures based on our
                         interpretation.</p>
                       <p>
-                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
+                        <span class="mr-3"> <img src='../../assets/images/arrowRightBlue.png' alt=""> </span>
                         Minimum of 2 clothed half-body pictures (face and upper body)</p>
                       <p>
-                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
+                        <span class="mr-3"> <img src='../../assets/images/arrowRightBlue.png' alt=""> </span>
                         Clear and high quality pictures</p>
                       <p>
-                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
+                        <span class="mr-3"> <img src='../../assets/images/arrowRightBlue.png' alt=""> </span>
                         All pictures must be in-doors</p>
                       <p>
-                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
+                        <span class="mr-3"> <img src='../../assets/images/arrowRightBlue.png' alt=""> </span>
                         No references to specific countries in the background, including power sockets.</p>
                       <p>
-                        <span class="mr-3"> <img :src="arrowImg" alt=""> </span>
+                        <!-- <span class="mr-3"> <img :src="arrowImg" alt=""> </span> -->
+                        <span class="mr-3"> <img src='../../assets/images/arrowRightBlue.png' alt=""> </span>
                         Maximum 8 photos per person/account</p>
                     </div>
                   </div>
