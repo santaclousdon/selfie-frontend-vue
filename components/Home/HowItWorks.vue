@@ -1,7 +1,8 @@
 <template>
   <section>
-      <div class="row justify-content-between">
-        <div class="col-sm-12 col-lg-3 col-md-3 right" style="background-color: #F5F6FD;">
+    <div class="container">
+      <div class="row justify-content-between container-create-mobile">
+        <div class="col-sm-12 col-lg-3 col-md-3 right wow fadeInUp" style="background-color: #F5F6FD;">
           <div class="consult-services xamin-circle  text-left" data-wow-delay="0.6s">
             <div class="circle-effect mt-3">
               <img :src="require('../../assets/images/how/how1.png')" alt="create">
@@ -50,6 +51,7 @@
           </div>
         </div>
       </div>
+    </div>
   </section>
 </template>
 <script>

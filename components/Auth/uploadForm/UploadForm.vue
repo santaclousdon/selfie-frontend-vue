@@ -1,14 +1,14 @@
 <template>
   <section>
     <div
-      class="modal fade"
+      class="modal fade modal-mobile"
       id="exampleModal"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-mobile" role="document">
         <div class="modal-content">
           <div class="modal-body">
             <button
@@ -19,7 +19,7 @@
             >
               <i class="fa fa-times fa-1x"></i>
             </button>
-            <div class="row align-items-center">
+            <div class="row align-items-center content-body">
               <div class="col-lg-12 col-md-12 col-sm-12 content-title">
                 <h2>Submit a photo for approval.</h2>
                 <p class="mt-3">
@@ -53,12 +53,12 @@
                         }"
                         @click="chooseImage"
                       >
-                        <div class="align-items-center justify-content-center">
-                          <img src="`url(${imageData})`" alt="" />
+                        <div class="align-items-center justify-content-center" :style="{'height': '80px'}">
+                          <img :src="imageData ? `` : `/_nuxt/assets/images/upload.png`" alt="" />
                         </div>
                         <br />
                         <p
-                          class="mt-5 text-center"
+                          class="mt-5 text-center drag-drop"
                           style="
                             display: block;
                             width: 100%;

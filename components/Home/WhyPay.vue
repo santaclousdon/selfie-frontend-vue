@@ -1,27 +1,22 @@
 <template>
   <section class="xamin-gray-bg">
-    <div class="row">
-      <div class="col-lg-5 col-md-5"></div>
-      <div class="col-lg-7 col-md-7 col-sm-7">
-        <div class="title-box text-black text-left">
-          <h2 class="sub-title1">Why do we pay?</h2>
-        </div>
-        <div class="detail text-black text-left">
-          <p>
-            Our platform collaborates with a variety of mainstream and adult entertainment
-            applications worldwide. These applications may use your selfies to engage
-            their audience.
-          </p>
-          <p>Rest assured, we will never publish your name or any personal details.</p>
-        </div>
-        <div class="row learn-more">
-          <div class="col-lg-10 col-md-12 col-sm-12">
-            <a href=""
-              >Read our terms
-              <span class="blue-btn ml-2"
-                ><img src="../../assets/images/Arrow 3.png" width="15" alt="->"
-              /></span>
-            </a>
+    <div class="container">
+      <div class="row container-why-mobile">
+        <div class="col-lg-5 col-md-5"></div>
+        <div class="col-lg-7 col-md-7 col-sm-7 wow fadeInUp  animated">
+          <div class="title-box wow fadeInUp text-black text-left">
+            <h2 class="sub-title1">Why do we pay?</h2>
+          </div>
+          <div class="detail wow fadeInUp text-black text-left">
+            <p>Our platform collaborates with a variety of mainstream and adult entertainment applications worldwide.
+              These applications may use your selfies to engage their audience.</p>
+            <p>Rest assured, we will never publish your name or any personal details.</p>
+          </div>
+          <div class="row learn-more">
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <a href="">Read our terms <span class="blue-btn ml-2"><img src="../../assets/images/Arrow 3.png" width="15"
+                    alt="->"></span> </a>
+            </div>
           </div>
         </div>
       </div>
