@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 section#whypay {
-  padding-bottom: 50px!important;
+  padding-bottom: 50px !important;
   padding-top: 50px;
 }
 .sub-title {

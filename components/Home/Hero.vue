@@ -6,36 +6,10 @@
           <!-- <span class="sub-title">Get Paid for Your Selfies</span> -->
           <h2 class="sub-title1">Snap, Sell, Earn: <br />Cash in on Your Selfies</h2>
         </div>
-        <div class="detail text-black text-left">
-          <p>
-            Discover how your everyday selfies can quickly turn into cash. <br />
-            Snap, upload, and get paid instantly!
-          </p>
+        <div class="snap-text-medium">
+          Discover how your everyday selfies can quickly turn into cash.
         </div>
-        <div class="row learn-more">
-          <div
-            class="col-lg-5 col-md-5 col-sm-12 mt-3 justify-content-center align-items-center"
-          >
-            <nuxt-link to="/register-page" class="link-button">
-              Get started now
-            </nuxt-link>
-          </div>
-          <div
-            class="col-lg-7 col-md-7 col-sm-12 justify-content-center align-items-center"
-          >
-            <div class="row mt-3 mb-3 justify-content-center align-items-center">
-              <span class="col-3">
-                <img src="revslider/assets/payment/payment1.png" alt="" />
-              </span>
-              <span class="col-3">
-                <img src="revslider/assets/payment/payment2.png" alt="" />
-              </span>
-              <span class="col-3">
-                <img src="revslider/assets/payment/payment3.png" alt="" />
-              </span>
-            </div>
-          </div>
-        </div>
+        <div class="snap-text-medium">Snap, upload, and get paid instantly!</div>
       </div>
       <div class="col-sm-6">
         <div class="hero-image">
