@@ -9,18 +9,14 @@
         <div class="snap-text-medium">
           Discover how your everyday selfies can quickly turn into cash.
         </div>
-        <div class="snap-text-medium">
-          Snap, upload, and get paid instantly!
-        </div>
+        <div class="snap-text-medium">Snap, upload, and get paid instantly!</div>
       </div>
       <div class="col-sm-6">
         <div class="hero-image">
           <img src="revslider/assets/hero/illustration.png" alt="" />
         </div>
       </div>
-
     </div>
-  </div>
   </section>
 </template>
 
