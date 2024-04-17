@@ -7,7 +7,7 @@
     >
       <div class="row">
         <div class="col-sm-12">
-          <nav class="navbar navbar-expand-lg navbar-light">
+          <nav class="navbar navbar-expand-lg navbar-light navbar-auth">
             <a class="navbar-brand" href="#">
               <img
                 :id="styledLogo ? 'logo_img' : ''"
@@ -24,88 +24,108 @@
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon">
+              <!-- <span class="navbar-toggler-icon">
                 <i class="fa fa-ellipsis-v" />
-              </span>
+              </span> -->
+              <img src="../../../../assets/images/mobile/toggle.png" alt="toggle btn" />
             </a>
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <div id="navbarSupportedContent" class="collapse navbar-collapse navbar-auth-mobile">
               <div class="menu-main-menu-container">
+                <div class="row mt-5 pt-3 align-items-center justify-content-center text-center navbar-collapse-mobile">
+                  <p class="text-aside-detail"> Out standing balance <br> <span class="text-funds mt-1">€{{ getUserInfo.balance == undefined ? "0.00..." : getUserInfo.balance }}</span> <br>
+                    <button class="button blue-btn mt-3 w-100"> Pay me now</button>
+                  </p>
+                </div>
                 <ul id="top-menu" class="navbar-nav ml-3 text-left">
-                  <li
-                    v-for="(option, index) in navItemList"
-                    :key="index"
-                    class="nav-item menu-item"
-                    :class="
-                      isParentActiveRoute(option) ? ' current-menu-item ' : ''
-                    "
-                  >
-                    <nuxt-link :to="option.href">
-                      {{ option.title }}
-                      <span
-                        v-if="option.title == 'Payment information'"
-                        class="ml-3"
-                      >
-                        <img
-                          :src="
-                            getPaymentInfo == 'Pending'
-                              ? pendingImage
-                              : rejectedImage
-                          "
-                          alt=""
-                          :title="
-                            getPaymentInfo == 'Pending'
-                              ? 'Your ' +
-                                option.title +
-                                ' is currently being processed.'
-                              : 'Your ' +
-                                option.title +
-                                ' has been declined or has not yet been provided'
-                          "
-                          style="cursor: pointer"
-                      /></span>
-                      <span
-                        v-if="option.title == 'ID verification'"
-                        class="ml-3"
-                      >
-                        <img
-                          :src="
-                            getIDInfo == 'Pending'
-                              ? pendingImage
-                              : rejectedImage
-                          "
-                          alt=""
-                          :title="
-                            getIDInfo == 'Pending'
-                              ? 'Your ' +
-                                option.title +
-                                ' is currently being processed.'
-                              : 'Your ' +
-                                option.title +
-                                ' has been declined or has not yet been provided'
-                          "
-                          style="cursor: pointer"
-                      /></span>
-                    </nuxt-link>
-                    <ul
-                      v-if="option.children"
-                      :class="'sub-menu ' + option.classname"
-                      style="display: none"
+                <li
+                  v-for="(option, index) in navItemList"
+                  :key="index"
+                  class="nav-item menu-item"
+                  :class="
+                    isParentActiveRoute(option) ? ' current-menu-item ' : ''
+                  "
+                >
+                  <nuxt-link :to="option.href">
+                    {{ option.title }}
+                    <span
+                      v-if="option.title == 'Payment information'"
+                      class="ml-3"
                     >
-                      <li
-                        v-for="(child, chilIndex) in option.child"
-                        :key="chilIndex"
-                        class="menu-item"
-                        :class="{
-                          'current-menu-item': isRouteActive(child.href),
-                        }"
-                      >
-                        <nuxt-link :to="child.href">
-                          <span>{{ child.title }}</span>
-                        </nuxt-link>
-                      </li>
-                    </ul>
-                  </li>
+                      <img
+                        :src="
+                          getPaymentInfo == 'Pending'
+                            ? pendingImage
+                            : rejectedImage
+                        "
+                        alt=""
+                        :title="
+                          getPaymentInfo == 'Pending'
+                            ? 'Your ' +
+                              option.title +
+                              ' is currently being processed.'
+                            : 'Your ' +
+                              option.title +
+                              ' has been declined or has not yet been provided'
+                        "
+                        style="cursor: pointer"
+                    /></span>
+                    <span
+                      v-if="option.title == 'ID verification'"
+                      class="ml-3"
+                    >
+                      <img
+                        :src="
+                          getIDInfo == 'Pending'
+                            ? pendingImage
+                            : rejectedImage
+                        "
+                        alt=""
+                        :title="
+                          getIDInfo == 'Pending'
+                            ? 'Your ' +
+                              option.title +
+                              ' is currently being processed.'
+                            : 'Your ' +
+                              option.title +
+                              ' has been declined or has not yet been provided'
+                        "
+                        style="cursor: pointer"
+                    /></span>
+                  </nuxt-link>
+                  <ul
+                    v-if="option.children"
+                    :class="'sub-menu ' + option.classname"
+                    style="display: none"
+                  >
+                    <li
+                      v-for="(child, chilIndex) in option.child"
+                      :key="chilIndex"
+                      class="menu-item"
+                      :class="{
+                        'current-menu-item': isRouteActive(child.href),
+                      }"
+                    >
+                      <nuxt-link :to="child.href">
+                        <span>{{ child.title }}</span>
+                      </nuxt-link>
+                    </li>
+                  </ul>
+                </li>
                 </ul>
+                <div class="menu-language-container">
+                  <div class="menu-language-title">
+                    <img src="../../../../assets/images/mobile/language.png" alt="language" />
+                    <span>Change language</span>
+                  </div>
+                  <div class="menu-language-select">
+                    <img src="../../../../assets/images/mobile/arrow-down.png" alt="arrow-down" />
+                    <select>
+                      <option value="English">English</option>
+                      <option value="Nederlands">Nederlands</option>
+                      <option value="Россия">BMW</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="sub-main">
@@ -245,6 +265,11 @@ export default {
     getIDInfo() {
       return this.$store.getters.getIDInfo.status;
     },
+    getUserInfo() {
+      var userinfo = this.$store.getters.getUserInfo;
+      
+      return userinfo
+    }
   },
   methods: {
     async logout() {
@@ -409,5 +434,10 @@ export default {
 }
 #imageUpload {
   border-radius: 50%;
+}
+
+.navbar-auth {
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 </style>

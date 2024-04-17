@@ -1,6 +1,6 @@
 <template>
   <section class="xamin-blue-bg" id="howitworks">
-    <div class="row">
+    <div class="row container-paid-mobile">
       <div class="col-sm-9">
         <div class="title-box text-white text-left">
           <span class="sub-title">Get Paid for Your Selfies</span>
