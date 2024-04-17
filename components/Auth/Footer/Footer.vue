@@ -1,7 +1,7 @@
 <template>
     <FooterMain class="footer-one iq-bg-light iq-over-light-90">
       <div slot="footerContent" class="footer-top">
-        <div class="row ">
+        <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-6">
             <FooterLogo :section-image="navLogo" :content1="footerHome1" :content2="footerHome2" :content3="footerHome3"
               :line="lineImage"
@@ -16,9 +16,6 @@
             <div class="row mt-5" >
               <FooterCopyright class="footer-one iq-bg-light iq-over-light-90" />
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-0 mt-4">
-              <FooterAddress :address-content="footerText" address-title="Contact us" class="iq-contact" />
-          </div>
           </div>
         </div>
       </div>

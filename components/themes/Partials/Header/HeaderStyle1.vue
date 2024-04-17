@@ -10,42 +10,30 @@
             </a>
             <a class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <!-- <span class="navbar-toggler-icon">
+              <span class="navbar-toggler-icon">
                 <i class="fa fa-ellipsis-v" />
-              </span> -->
-              <img src="../../../../assets/images/mobile/toggle.png" alt="toggle btn" />
+              </span>
             </a>
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
               <div class="menu-main-menu-container">
-                <div class="menu-main-container">
-                  <div class="menu-button-container">
-                    <div class="menu-button-login">
-                      <a href="/login-page">Log in</a>
-                    </div>
-                    <div class="menu-button-signup">
-                      <a href="/register-page">Get started</a>
-                    </div>
-                  </div>
-                  <div class="menu-list-container">
-                    <div class="menu-list-item">How does it work?</div>
-                    <div class="menu-list-item">Our rates</div>
-                    <div class="menu-list-item">Photo requirements</div>
-                  </div>
-                </div>
-                <div class="menu-language-container">
-                  <div class="menu-language-title">
-                    <img src="../../../../assets/images/mobile/language.png" alt="language" />
-                    <span>Change language</span>
-                  </div>
-                  <div class="menu-language-select">
-                    <img src="../../../../assets/images/mobile/arrow-down.png" alt="arrow-down" />
-                    <select>
-                      <option value="English">English</option>
-                      <option value="Nederlands">Nederlands</option>
-                      <option value="Россия">BMW</option>
-                    </select>
-                  </div>
-                </div>
+                <ul id="top-menu" class="navbar-nav ml-auto">
+                  <li v-if="isAuthenticated" class="nav-item menu-item" >
+                    <nuxt-link to ="/">Dashboard</nuxt-link> </li>
+                  <li v-for="( option, index ) in  navItemList " :key=" index " class="nav-item menu-item"
+                    :class=" isParentActiveRoute(option) ? ' current-menu-item ' : '' ">
+                    <nuxt-link :to=" option.href ">
+                      {{ option.title }}
+                    </nuxt-link>
+                    <ul v-if=" option.children " :class=" 'sub-menu ' + option.classname " style="display: none;">
+                      <li v-for="( child, chilIndex ) in  option.child " :key=" chilIndex " class="menu-item"
+                        :class=" { 'current-menu-item': isRouteActive(child.href) } ">
+                        <nuxt-link :to=" child.href ">
+                          <span>{{ child.title }}</span>
+                        </nuxt-link>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
             </div>
             <div v-if=" !isAuthenticated " class="sub-main">

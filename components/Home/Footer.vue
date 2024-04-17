@@ -15,15 +15,12 @@
             <div class="col-lg-4 col-md-4 col-sm-6 mt-4 mt-lg-0 mt-md-0">
               <FooterFollowUs :content="footerHome2" title="Follow us" />
             </div>
-            <div class="row mt-5" >
-              <FooterCopyright class="footer-one iq-bg-light iq-over-light-90" />
+            <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-0 mt-4">
+              <FooterAddress :address-content="footerText" address-title="Contact us" class="iq-contact" />
             </div>
           </div>
-          <!-- <div class="row mt-5" >
+          <div class="row mt-5" >
             <FooterCopyright class="footer-one iq-bg-light iq-over-light-90" />
-          </div> -->
-          <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-0 mt-4">
-            <FooterAddress :address-content="footerText" address-title="Contact us" class="iq-contact" />
           </div>
         </div>
       </div>

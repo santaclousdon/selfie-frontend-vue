@@ -1,6 +1,6 @@
 <template>
   <footer id="contact" :class="footerClass">
-    <div class="container-fluid container-mobile">
+    <div class="container-fluid">
       <slot name="footerContent"></slot>
     </div>
   </footer>

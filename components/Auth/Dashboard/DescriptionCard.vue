@@ -1,9 +1,9 @@
 <template>
     <section class="">
         <div class="container login-section justify-content-center">
-            <div class="row justify-content-between p-3 container-act-mobile">
-                <div class="col-lg-6 col-md-6 col-sm-12 pr-3 container-refer-mobile">
-                    <div class="row activity-form container-refer-mobile">
+            <div class="row justify-content-between p-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 pr-3">
+                    <div class="row activity-form">
                         <h2 class="text-left mb-4 sub-title">
                             Your activity
                         </h2>
@@ -19,8 +19,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 pl-5 container-refer">
-                    <div class="row refer-form container-refer-mobile">
+                <div class="col-lg-6 col-md-6 col-sm-12 pl-5">
+                    <div class="row refer-form">
                         <h2 class="text-left mb-4 sub-title">
                             Refer and earn
                         </h2>
