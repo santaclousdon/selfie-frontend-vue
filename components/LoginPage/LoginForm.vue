@@ -41,7 +41,7 @@
             <div class="active-faq clearfix">
               <div class="container">
                 <div class="row align-items-center">
-                  <div class="faq-title">
+                  <div class="signup-title">
                     <a href="javascript:void(0)" class="accordion-title"><span> Create an account
                       </span>
                     </a>
@@ -129,7 +129,7 @@ export default {
 .sub-title {
   color: #222222;
   font-size: 29px;
-  font-family: Darker Grotesque;
+  font-family: Darker Grotesque normal;
   font-weight: 700;
   word-wrap: break-word
 }

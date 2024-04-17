@@ -21,10 +21,13 @@ export default {
 }
 </script>
 <style scoped>
+.footer-logo {
+  padding-left: none !important;
+}
 .footer-title {
   color: #222222;
   font-size: 30px;
-  font-family: Darker Grotesque;
+  font-family: Darker Grotesque normal;
   font-weight: 800;
   word-wrap: break-word;
   margin-bottom: 50px;
