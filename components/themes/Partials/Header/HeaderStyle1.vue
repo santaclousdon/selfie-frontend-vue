@@ -50,10 +50,10 @@
             </div>
             <div v-if=" !isAuthenticated " class="sub-main">
               <nav aria-label="breadcrumb">
-                <div class="light-btn button">
+                <div class="light-btn button login-btn">
                   <nuxt-link to="/login-page">Log in</nuxt-link>
                 </div>
-                <div class="blue-btn button">
+                <div class="blue-btn button register-btn">
                   <nuxt-link to="/register-page">Get started</nuxt-link>
                 </div>
                 <div class="lang-btn button">
@@ -242,5 +242,8 @@ export default {
   font-family: Montserrat;
   font-weight: 500;
   word-wrap: break-word
+}
+.register-btn a, .login-btn a {
+  font-size: 18px!important;
 }
 </style>
