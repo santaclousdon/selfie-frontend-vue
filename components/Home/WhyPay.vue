@@ -1,6 +1,6 @@
 <template>
   <section id="whypay" class="xamin-gray-bg">
-    <div class="row">
+    <div class="row container-why-mobile">
       <div class="col-lg-5 col-md-5"></div>
       <div class="col-lg-7 col-md-7 col-sm-7">
         <div class="title-box text-black text-left">

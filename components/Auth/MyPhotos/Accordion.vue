@@ -3,12 +3,12 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-sm-12">
-          <div class="row align-items-center">
+          <div class="row align-items-center container-photo-mobile">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
               <h2>
                 <img
                   src="../../../assets/images/myphoto.png"
-                  class="mr-5"
+                  class="mr-5 container-pic-container"
                   alt=""
                 />
                 My photos
@@ -21,7 +21,7 @@
                 <div class="container">
                   <div class="row align-items-center">
                     <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"
+                      <a href="javascript:void(0)" class="accordion-title-other"
                         ><span> Upload your first two selfies </span>
                       </a>
                     </div>
@@ -30,7 +30,7 @@
               </div>
               <div class="accordion-details">
                 <div class="container">
-                  <div class="row mt-4">
+                  <div class="row mt-4 container-upload-mobile">
                     <div class="legal-warn">
                       <img
                         src="../../../assets/images/legal-warn.png"
@@ -39,18 +39,18 @@
                         alt=""
                       />
                     </div>
-                    <div class="col-lg-11 mb-4 mb-lg-0">
-                      <p>
+                    <div class="col-lg-11 mb-4 mb-lg-0 container-more-mobile">
+                      <p class="container-more-mobile">
                         To get paid, you need to upload at least two clothed
                         half-body (face and upper body).
                       </p>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row container-images">
                     <div
                       v-for="(firstimage, index1) in images_first"
                       :key="index1"
-                      class="col-lg-4 col-md-4 col-sm-12"
+                      class="col-lg-4 col-md-4 col-sm-12 container-image-mobile"
                       @click="modalSelect(index1)"
                     >
                       <div
@@ -83,6 +83,7 @@
                             class="align-items-center justify-content-center"
                           >
                             <img
+                              class="upload-image-mobile"
                               src="../../../assets/images/upload.png"
                               alt=""
                             />
@@ -112,7 +113,7 @@
                 <div class="container">
                   <div class="row align-items-center">
                     <div class="faq-title">
-                      <a href="javascript:void(0)" class="accordion-title"
+                      <a href="javascript:void(0)" class="accordion-title-other"
                         ><span> Upload more photos </span>
                       </a>
                     </div>
@@ -130,19 +131,19 @@
                         alt=""
                       />
                     </div>
-                    <div class="col-lg-11 mb-4 mb-lg-0">
-                      <p>
+                    <div class="col-lg-11 mb-4 mb-lg-0 container-more-mobile">
+                      <p class="container-more-mobile">
                         Upload up to six more selfies. Check our rates to see
                         your potential earnings.
                       </p>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row container-images">
                     <div
                       v-for="(image, index2) in images_all"
                       :key="index2"
                       style="width: 30%"
-                      class="col-lg-4 col-md-4 col-sm-12"
+                      class="col-lg-4 col-md-4 col-sm-12 container-image-mobile"
                       @click="modalSelect(index2 + 2)"
                     >
                       <div
@@ -173,6 +174,7 @@
                             class="align-items-center justify-content-center"
                           >
                             <img
+                              class="upload-image-mobile"
                               src="../../../assets/images/upload.png"
                               alt=""
                             />
@@ -282,6 +284,7 @@ export default {
         if(index === i) {
           this.modalData = {...this.preModalData[i], index: index};
           EventBus.$emit('modalData', this.modalData);
+          console.log("hello", this.modalData);
         }
       }
     },
@@ -297,8 +300,9 @@ export default {
           this.images_all[i - 2].status = res.allSelfies[i] === undefined ? "" : res.allSelfies[i].status;
         }
       }
-      
+      console.log("respondddddd", res.allSelfies);
       this.preModalData = res.allSelfies;
+      console.log("modal data", this.preModalData);
     },
     startPolling() {
       // Poll every 5 seconds, adjust the interval as needed
@@ -409,6 +413,8 @@ p {
   font-family: Montserrat;
   font-weight: 500;
   word-wrap: break-word;
+  width: calc(100% - 40px);
+  text-align: center;
 }
 
 .pending {
@@ -423,6 +429,7 @@ p {
   border-radius: 6px;
   padding: 5px 10px;
   cursor: pointer;
+  width: 100%;
 }
 
 .rejected {
@@ -430,5 +437,13 @@ p {
   border-radius: 6px;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+.accordion-title-other {
+  color: #222222;
+  font-size: 29px;
+  font-family: Darker Grotesque normal;
+  font-weight: 600;
+  word-wrap: break-word;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section id="hero">
-    <div class="row">
+    <div class="row snap-table">
       <div class="col-sm-6">
         <div class="title-box text-black text-left">
           <!-- <span class="sub-title">Get Paid for Your Selfies</span> -->
@@ -42,6 +42,29 @@
           <img src="revslider/assets/hero/illustration.png" alt="" />
         </div>
       </div>
+    </div>
+    <div class="snap-mobile">
+      <div class="snap-illustration">
+        <img src="../../assets/images/mobile/illustration.png" alt="illustration" />
+      </div>
+      <div class="snap-content">
+        <div class="snap-text-large">
+          Snap, Sell, Earn: Cash in on Your Selfies
+        </div>
+        <div class="snap-text-medium">
+          Discover how your everyday selfies can quickly turn into cash.
+        </div>
+        <div class="snap-text-medium">
+          Snap, upload, and get paid instantly!
+        </div>
+        <div class="snap-button"><a href="/register-page">Get Started now</a></div>
+        <div class="snap-pay">
+          <img src="../../assets/images/mobile/sepa.png" alt="sepa" />
+          <img src="../../assets/images/mobile/paypal.png" alt="paypal" />
+          <img src="../../assets/images/mobile/tether.png" alt="tether" />
+        </div>
+      </div>
+
     </div>
   </section>
 </template>
