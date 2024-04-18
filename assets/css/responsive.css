@@ -2783,6 +2783,10 @@
     display: flex !important;
   }
 
+  .navbar-auth-table {
+    display: none !important;
+  }
+
   .navbar-table {
     display: none !important;
   }

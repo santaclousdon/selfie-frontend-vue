@@ -128,6 +128,86 @@
                 </div>
               </div>
             </div>
+            <div id="navbarSupportedContent" class="collapse navbar-collapse navbar-auth-table">
+              <div class="menu-main-menu-container">
+                <ul id="top-menu" class="navbar-nav ml-3 text-left">
+                <li
+                  v-for="(option, index) in navItemList"
+                  :key="index"
+                  class="nav-item menu-item"
+                  :class="
+                    isParentActiveRoute(option) ? ' current-menu-item ' : ''
+                  "
+                >
+                  <nuxt-link :to="option.href">
+                    {{ option.title }}
+                    <span
+                      v-if="option.title == 'Payment information'"
+                      class="ml-3"
+                    >
+                      <img
+                        :src="
+                          getPaymentInfo == 'Pending'
+                            ? pendingImage
+                            : rejectedImage
+                        "
+                        alt=""
+                        :title="
+                          getPaymentInfo == 'Pending'
+                            ? 'Your ' +
+                              option.title +
+                              ' is currently being processed.'
+                            : 'Your ' +
+                              option.title +
+                              ' has been declined or has not yet been provided'
+                        "
+                        style="cursor: pointer"
+                    /></span>
+                    <span
+                      v-if="option.title == 'ID verification'"
+                      class="ml-3"
+                    >
+                      <img
+                        :src="
+                          getIDInfo == 'Pending'
+                            ? pendingImage
+                            : rejectedImage
+                        "
+                        alt=""
+                        :title="
+                          getIDInfo == 'Pending'
+                            ? 'Your ' +
+                              option.title +
+                              ' is currently being processed.'
+                            : 'Your ' +
+                              option.title +
+                              ' has been declined or has not yet been provided'
+                        "
+                        style="cursor: pointer"
+                    /></span>
+                  </nuxt-link>
+                  <ul
+                    v-if="option.children"
+                    :class="'sub-menu ' + option.classname"
+                    style="display: none"
+                  >
+                    <li
+                      v-for="(child, chilIndex) in option.child"
+                      :key="chilIndex"
+                      class="menu-item"
+                      :class="{
+                        'current-menu-item': isRouteActive(child.href),
+                      }"
+                    >
+                      <nuxt-link :to="child.href">
+                        <span>{{ child.title }}</span>
+                      </nuxt-link>
+                    </li>
+                  </ul>
+                </li>
+                </ul>
+              </div>
+            </div>
             <div class="sub-main">
               <nav
                 aria-label="breadcrumb"
@@ -439,5 +519,9 @@ export default {
 .navbar-auth {
   flex-flow: row nowrap;
   justify-content: space-between;
+}
+
+.navbar-auth-table .menu-main-menu-container {
+  padding-left: 76px;
 }
 </style>
