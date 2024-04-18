@@ -110,8 +110,8 @@ export default {
 .consult-services h5 {
   color: #222222;
   font-size: 29px;
-  font-family: Darker Grotesque;
-  font-weight: 700;
+  font-family: Darker Grotesque normal;
+  font-weight: bold;
   word-wrap: break-word;
   line-height: 20px;
 }
@@ -133,7 +133,7 @@ p.second-line {
 
 .learn-more a {
   color: black;
-  font-size: 16px;
+  font-size: 18px;
   font-family: Montserrat;
   font-weight: 600;
   word-wrap: break-word;

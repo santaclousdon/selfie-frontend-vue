@@ -39,7 +39,7 @@
       </div>
       <div class="col-sm-6">
         <div class="hero-image">
-          <img src="revslider/assets/hero/illustration.png" alt="" />
+          <img src="revslider/assets/hero/illustration.png" width="100%" alt="" />
         </div>
       </div>
     </div>
@@ -58,11 +58,11 @@
           Snap, upload, and get paid instantly!
         </div>
         <div class="snap-button"><a href="/register-page">Get Started now</a></div>
-        <div class="snap-pay">
+        <!-- <div class="snap-pay">
           <img src="../../assets/images/mobile/sepa.png" alt="sepa" />
           <img src="../../assets/images/mobile/paypal.png" alt="paypal" />
           <img src="../../assets/images/mobile/tether.png" alt="tether" />
-        </div>
+        </div> -->
       </div>
 
     </div>
@@ -113,7 +113,7 @@ export default {
 h2.sub-title1 {
   color: #222222;
   font-size: 50px;
-  font-family: Darker Grotesque;
+  font-family: Darker Grotesque normal;
   font-weight: 800;
   word-wrap: break-word;
   line-height: 50px;
@@ -124,7 +124,7 @@ h2.sub-title1 {
   width: 100%;
   border-radius: 8px;
   background-color: #673cf6;
-  font-family: Darker Grotesque;
+  font-family: Darker Grotesque normal;
   font-size: 24px;
   font-weight: SemiBold !important;
   cursor: pointer;
