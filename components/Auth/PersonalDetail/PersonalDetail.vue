@@ -1,5 +1,5 @@
 <template>
-    <section class="container payment-section">
+    <section class="payment-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
