@@ -28,7 +28,7 @@
                 </div>
               </div>
               <div class="accordion-details">
-                <div class="container">
+                <div class="container details">
                   <div class="row mt-4">
                     <div class="col-lg-12 mb-4 mb-lg-0">
                       <p>{{ item.description }}</p>
@@ -131,7 +131,7 @@ p {
 }
 
 .faq-title {
-  width: 80%;
+  width: 75%;
   display: inline-block;
   padding-left: 0;
 }
