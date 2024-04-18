@@ -155,6 +155,11 @@ input.text {
 
 #submitLogin {
   float: right;
+  color: white !important;
+  font-size: 18px !important;
+  font-family: Montserrat;
+  font-weight: 500;
+  word-wrap: break-word;
 }
 
 .login-section {

@@ -137,14 +137,14 @@
               </div>
               <div>
                 <div
-                  class="row align-items-center justify-content-center mr-0 create-btn"
+                  class="align-items-center justify-content-center create-btn"
                 >
                   <div class="col-lg-12 col-md-12 col-sm-12 text-right">
                     <button
                       id="submitLogin"
                       name="submit"
                       type="submit"
-                      class="button blue-btn btn-sm d-block w-55"
+                      class="button blue-btn btn-sm d-block"
                     >
                       Create an account
                       <span> <img src="../../assets/images/Arrow 3.png" alt="" /> </span>
@@ -301,6 +301,12 @@ input.text {
 
 #submitLogin {
   float: right;
+  color: white !important;
+  font-size: 18px !important;
+  font-family: Montserrat;
+  font-weight: 500;
+  word-wrap: break-word;
+  width: 100%;
 }
 
 .login-section {
@@ -383,7 +389,12 @@ input.form-check-input {
 }
 
 .create-btn {
-  margin: 3em 0 3em 3em;
+  margin: 0 0 0 0;
+  margin-top: 20px;
+}
+
+.create-btn div {
+  padding: 0;
 }
 
 .alert-close {
