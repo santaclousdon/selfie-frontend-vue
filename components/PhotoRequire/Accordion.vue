@@ -130,7 +130,7 @@ div.active-faq .container .row {
 .content-title h2 {
   color: #222222;
   font-size: 50px;
-  font-family: Darker Grotesque;
+  font-family: Darker Grotesque normal;
   font-weight: 800;
   word-wrap: break-word
 }

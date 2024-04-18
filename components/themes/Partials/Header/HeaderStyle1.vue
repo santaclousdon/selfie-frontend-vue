@@ -53,7 +53,7 @@
                 </div>
                 <div class="menu-language-container">
                   <div class="menu-language-title">
-                    <img src="../../../../assets/images/mobile/language.png" alt="language" />
+                    <img src="../../../../assets/images/mobile/language.png" width="24px" alt="language" />
                     <span>Change language</span>
                   </div>
                   <div class="menu-language-select">
@@ -61,7 +61,7 @@
                     <select>
                       <option value="English">English</option>
                       <option value="Nederlands">Nederlands</option>
-                      <option value="Россия">BMW</option>
+                      <option value="Россия">Россия</option>
                     </select>
                   </div>
                 </div>
@@ -257,12 +257,29 @@ export default {
 
 .menu-item {
   color: #222222;
-  font-size: 16px;
+  font-size: 18px;
   font-family: Montserrat;
   font-weight: 500;
   word-wrap: break-word
 }
-.register-btn a, .login-btn a {
-  font-size: 18px!important;
+header .navbar ul li.menu-item a, .login-btn a {
+  color: #222222 !important;
+  font-size: 18px !important;
+  font-family: Montserrat;
+  font-weight: 500;
+  word-wrap: break-word
+}
+.login-btn a:hover {
+  color: white !important;;
+}
+.register-btn a {
+  color: white;
+  font-size: 18px !important;
+  font-family: Montserrat;
+  font-weight: 500;
+  word-wrap: break-word
+}
+header .navbar-light .navbar-brand img.logo {
+  width: 213px !important;
 }
 </style>

@@ -49,7 +49,7 @@ export default {
   color: white;
   font-size: 50px;
   font-family: Darker Grotesque normal;
-  font-weight: 400;
+  font-weight: regular;
   word-wrap: break-word;
 }
 
@@ -79,8 +79,9 @@ export default {
 h2.sub-title1 {
   color: white;
   font-size: 50px;
-  font-family: Darker Grotesque;
-  font-weight: 800;
+  font-family: Darker Grotesque normal;
+  font-weight: bolder;
   word-wrap: break-word;
+  line-height: 40px;
 }
 </style>

@@ -142,15 +142,16 @@ module.exports = {
   //   }
   // },
   /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {
-    baseURL: "https://selfie.cash",
-  },
+
+  ** Axios module configuration
+  ** See https://axios.nuxtjs.org/options
+  */
   // axios: {
-  //   baseURL: "http://localhost:5000",
+  //   baseURL: "https://selfie.cash"
   // },
+  axios: {
+    baseURL: "http://localhost:5000",
+  },
   /*
    ** Build configuration
    */

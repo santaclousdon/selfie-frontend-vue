@@ -61,7 +61,7 @@ export default {
   components: { Footer },
   data() {
     return {
-      styleLogo: false,
+      styleLogo: true,
       logo: logoImg,
       userInfo: {},
       // pendingImag: require('../../../assets/images/pendingHeader.png'),
