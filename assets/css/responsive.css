@@ -1945,6 +1945,7 @@
   .signup-title {
     padding-left: 15px;
   }
+
   .custom-tab.verticaltab3 .nav.nav-pills[aria-orientation="vertical"] .nav-link img {
     float: left;
     margin-bottom: 30px;
@@ -2470,8 +2471,8 @@
     font-size: 20px;
   }
 
-  .iq-accordion.career-style .active-faq a.accordion-title {
-    display: none;
+  a.accordion-title {
+    /* display: none !important; */
   }
 
   .iq-accordion.career-style .accordion-title-mobile {
@@ -2510,9 +2511,10 @@
   .contact-nav {
     display: none;
   }
+
   .iq-accordion.career-style .active-faq a.accordion-title {
     display: inline-block;
-    padding: 0 0 0 20px;
+    /* padding: 0 0 0 20px; */
   }
 
   .container .content-title h2 {
@@ -2611,14 +2613,25 @@
     padding: 0 15px;
   }
 
+  .container-refer-mobile {
+    margin: 0;
+    /* padding: 14px 22px !important; */
+    padding: 10px 0 0 0 !important;
+  }
+
   .container-refer {
-    padding: 0 22px !important;
-    /* padding: 0 !important; */
+    /* padding: 0 22px !important; */
+    padding: 0 !important;
     margin-top: 20px;
   }
 
-  .container-refer-mobile {
-    margin: 0;
+  .payment-table {
+    overflow-x: scroll !important;
+    width: 100% !important;
+    padding: 0!important;
+  }
+
+  .container-refer .refer-form {
     padding: 14px 22px !important;
   }
 
@@ -2635,7 +2648,11 @@
   }
 
   .container-photo-mobile {
-    padding: 0 25px;
+    /* padding: 0 25px; */
+  }
+
+  .payment-history h2 {
+    font-size: 42px !important;
   }
 
   .content-title h2 {

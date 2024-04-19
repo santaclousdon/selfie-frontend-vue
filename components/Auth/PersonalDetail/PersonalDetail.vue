@@ -5,7 +5,7 @@
                 <div class="col-sm-12">
                     <div class="row align-items-center">
                         <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-                            <h2> <img src="../../../assets/images/personaldetail.png" width="20" class="mr-5" alt="">
+                            <h2> <img src="../../../assets/images/personaldetail.png" width="20" class="mr-2" alt="">
                                 Personal details.</h2>
                             <p class="mt-3">Prior using this platform, we require some personal information from you. Rest
                                 assured, this
@@ -423,5 +423,9 @@ input[type='checkbox'].form-check-input {
 
 .err {
     border: 1px solid red !important;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
 }
 </style>

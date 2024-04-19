@@ -4,12 +4,12 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="row align-items-center">
-            <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/payment_history.png" class="mr-5" alt=""> Payment history</h2>
+            <div class="col-lg-12 col-md-12 col-sm-12 content-title payment-history">
+              <h2> <img src="../../../assets/images/payment_history.png" class="mr-2" alt=""> Payment history</h2>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">
-            <div class="iq-accordion-block p-3">
+            <div class="iq-accordion-block p-3 payment-table">
               <div class="accordion-details">
                 <div class="container">
                   <div class="row mt-4 pl-3 pr-3">
@@ -128,5 +128,10 @@ td {
 thead {
   background: #F7F7F7;
   border-radius: 8px;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    width: 100%;
 }
 </style>

@@ -2,8 +2,8 @@
     <section class="">
         <div class="container login-section justify-content-center">
             <div class="row justify-content-between p-3 container-act-mobile">
-                <div class="col-lg-6 col-md-6 col-sm-12 pr-3 container-refer-mobile">
-                    <div class="row activity-form container-refer-mobile">
+                <div class="col-lg-6 col-md-6 col-sm-12 pr-3 container-refer1-mobile">
+                    <div class="row activity-form container-refer2-mobile">
                         <h2 class="text-left mb-4 sub-title">
                             Your activity
                         </h2>
@@ -198,6 +198,13 @@ section {
 }
 .copy-group .fa-clipboard:hover {
     background-color: #c8c9cc;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.container-refer2-mobile {
+    padding: 25px;
 }
 </style>
   

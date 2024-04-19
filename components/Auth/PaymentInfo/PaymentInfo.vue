@@ -5,7 +5,7 @@
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/paymentinfo.png" class="mr-5" alt=""> Payment information</h2>
+              <h2> <img src="../../../assets/images/paymentinfo.png" class="mr-2" alt=""> Payment information</h2>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">
@@ -119,7 +119,7 @@
                     </div>
                   </div>
                   <div class="mt-5">
-                    <a @click="HandleSubmit" class="blue-btn button btn-sm">Save details
+                    <a @click="HandleSubmit" class="blue-btn save-detail button btn-sm">Save details
                     </a>
                   </div>
                 </div>
@@ -453,5 +453,17 @@ input[type='checkbox'].form-check-input {
   border: #DFDFDF solid 1px !important;
   border-radius: 8px !important;
   width: 20px;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+.save-detail {
+  color: white;
+  font-size: 24px;
+  font-family: Darker Grotesque normal;
+  font-weight: 600;
+  word-wrap: break-word
 }
 </style>

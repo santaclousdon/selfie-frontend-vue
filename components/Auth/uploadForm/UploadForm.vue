@@ -501,4 +501,8 @@ section .container {
 .modal-body {
   padding: 10px 0px 0px 0px;
 }
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
 </style>

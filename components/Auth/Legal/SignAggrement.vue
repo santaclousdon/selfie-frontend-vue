@@ -282,4 +282,8 @@ label {
   height: 18px;
   margin-top: 5px;
 }
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
 </style>

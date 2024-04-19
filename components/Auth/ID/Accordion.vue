@@ -5,7 +5,7 @@
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/IDverify.png" class="mr-5" alt=""> ID verification</h2>
+              <h2> <img src="../../../assets/images/IDverify.png" class="mr-2" alt=""> ID verification</h2>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">
@@ -187,5 +187,9 @@ ul li:before {
   font-weight: 600;
   line-height: 30px;
   word-wrap: break-word;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
 }
 </style>

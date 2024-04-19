@@ -151,4 +151,8 @@ label {
   line-height: 30px;
   word-wrap: break-word
 }
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
 </style>

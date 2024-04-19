@@ -1,11 +1,11 @@
 <template>
-  <section class="payment-section">
-    <div class="container">
+  <section>
+    <div class="container mt-5">
       <div class="row">
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/setting_title.png" class="mr-5" alt=""> Settings</h2>
+              <h2> <img src="../../../assets/images/setting_title.png" class="mr-2" alt=""> Settings</h2>
             </div>
           </div>
           <div class="iq-accordion career-style mt-5">
@@ -46,7 +46,7 @@
                     </div>
                   </div>
                   <div class="mt-3">
-                    <a @click="HandleSubmit" class="blue-btn button btn-sm">Save
+                    <a @click="HandleSubmit" class="save-detail blue-btn button btn-sm">Save
                     </a>
                   </div>
                 </div>
@@ -162,10 +162,10 @@ export default {
 }
 </script>
 <style scoped >
-section {
-  padding: 0%;
+/* section {
+  padding: 100px 0%;
   float: left;
-}
+} */
 
 .accordion-active div.active-faq .container .row {
   background-color: white;
@@ -324,9 +324,9 @@ label {
   margin-top: 5px;
 }
 
-.payment-section {
+/* .payment-section {
   margin-top: 150px;
-}
+} */
 
 select {
   color: #222222;
@@ -360,5 +360,16 @@ input[type='checkbox'].form-check-input {
 
 .err {
   border: 1px solid red !important;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.save-detail {
+  color: white;
+  font-size: 24px;
+  font-family: Darker Grotesque normal;
+  font-weight: 600;
+  word-wrap: break-word
 }
 </style>
