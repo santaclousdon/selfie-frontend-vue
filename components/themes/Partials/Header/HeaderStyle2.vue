@@ -524,4 +524,7 @@ export default {
 .navbar-auth-table .menu-main-menu-container {
   padding-left: 76px;
 }
+.logo {
+  width: 213px !important;
+}
 </style>

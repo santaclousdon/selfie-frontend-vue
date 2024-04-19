@@ -4,10 +4,15 @@
       <h4 class="footer-title">{{ title }}</h4>
       <div class="menu-footer-menu-container">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Enter your email" aria-label="Enter your email"
-            aria-describedby="basic-addon2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your email"
+            aria-label="Enter your email"
+            aria-describedby="basic-addon2"
+          />
           <div class="blue-btn button">
-            <img src="../../../../assets/images/Arrow 3.png" width="20" alt="">
+            <img src="../../../../assets/images/Arrow 3.png" width="20" alt="" />
           </div>
         </div>
       </div>
@@ -16,9 +21,9 @@
 </template>
 <script>
 export default {
-  name: 'FooterLinks',
-  props: ['title', 'content']
-}
+  name: "FooterLinks",
+  props: ["title", "content"],
+};
 </script>
 <style scoped>
 .footer-logo {
@@ -39,7 +44,7 @@ export default {
 
 input {
   border-radius: 8px;
-  border: #DFDFDF 1px solid;
+  border: #dfdfdf 1px solid;
   margin-right: 5px;
 }
 input::placeholder {

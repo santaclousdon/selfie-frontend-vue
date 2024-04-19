@@ -5,7 +5,7 @@
         <div class="col-sm-12">
           <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 content-title">
-              <h2> <img src="../../../assets/images/aside/myreferrals.png" class="mr-5" alt=""> My referrals</h2>
+              <h2> <img src="../../../assets/images/aside/myreferrals.png" class="mr-2" alt=""> My referrals</h2>
             </div>
           </div>
           <div class="row justify-content-between p-3 container-refer-mobile">
@@ -266,5 +266,9 @@ h2.sub-title {
   font-family: Darker Grotesque normal;
   font-weight: 700;
   word-wrap: break-word;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
 }
 </style>

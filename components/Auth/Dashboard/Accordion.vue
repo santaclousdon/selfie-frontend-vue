@@ -452,7 +452,7 @@ div.active-faq .container .row {
 }
 
 .content-title {
-    padding: 40px 40px 0 40px;
+    /* padding: 40px 40px 0 40px; */
 }
 
 .content-title h2 {
@@ -596,5 +596,9 @@ input.iban-input {
 
 .err {
     border: 1px solid red !important;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
 }
 </style>

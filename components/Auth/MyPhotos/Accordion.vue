@@ -8,7 +8,7 @@
               <h2>
                 <img
                   src="../../../assets/images/myphoto.png"
-                  class="mr-5 container-pic-container"
+                  class="mr-2 container-pic-container"
                   alt=""
                 />
                 My photos
@@ -445,5 +445,9 @@ p {
   font-family: Darker Grotesque normal;
   font-weight: 600;
   word-wrap: break-word;
+}
+section, footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
 }
 </style>

@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-10 col-md-10 col-sm-12">
+        <div class="col-lg-9 col-md-9 col-sm-12">
           <nuxt />
         </div>
       </div>

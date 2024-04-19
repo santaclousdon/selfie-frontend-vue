@@ -141,9 +141,9 @@ h6 {
 }
 
 .container {
-  max-width: 1170px;
-  margin-top: 29px;
-  padding: 0 22px;
+  max-width: 100%;
+  /* margin-top: 29px;
+  padding: 0 22px; */
 }
 
 .iq-accordion {

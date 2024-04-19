@@ -101,4 +101,10 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+section, footer {
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+}
+</style>

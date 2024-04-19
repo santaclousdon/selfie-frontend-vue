@@ -101,7 +101,10 @@ section {
   height: 100%;
   background: white;
   border-radius: 8px;
-  border: 1px #EDEFFD solid
+  border: 1px #EDEFFD solid;
+}
+.iq-accordion {
+  padding: 0 10px 0 10px;
 }
 
 div.active-faq .container .row {
@@ -118,7 +121,7 @@ div.active-faq .container .row:hover {
   font-size: 50px;
   font-family: Darker Grotesque;
   font-weight: 800;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 p {
