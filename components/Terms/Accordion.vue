@@ -7,7 +7,7 @@
             <div class="col-lg-8 col-md-8 col-sm-12 content-title">
               <h2>Terms & Conditions</h2>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 contact-nav text-right">
+            <div class="col-lg-4 col-md-6 col-sm-12 contact-nav text-right">
               <a href="/privacy">Privacy policy<span class="blue-btn ml-3"><img src="../../assets/images/Arrow 3.png"
                     width="15" alt="->"></span> </a>
             </div>

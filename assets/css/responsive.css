@@ -2504,7 +2504,15 @@
   }
 
   .container .content-title {
-    padding: 0 !important;
+    padding-left: 25px;
+  }
+
+  .contact-nav {
+    display: none;
+  }
+  .iq-accordion.career-style .active-faq a.accordion-title {
+    display: inline-block;
+    padding: 0 0 0 20px;
   }
 
   .container .content-title h2 {
@@ -2534,6 +2542,10 @@
 
   .accordion-details .step-box {
     padding: 21px 23px 0 23px !important;
+  }
+
+  .accordion-details .details {
+    padding-left: 20px;
   }
 
   .container-row-mobile {
