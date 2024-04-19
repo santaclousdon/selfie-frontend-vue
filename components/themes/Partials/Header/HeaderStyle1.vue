@@ -46,9 +46,9 @@
                     </div>
                   </div>
                   <div class="menu-list-container">
-                    <div class="menu-list-item">How does it work?</div>
-                    <div class="menu-list-item">Our rates</div>
-                    <div class="menu-list-item">Photo requirements</div>
+                    <nuxt-link to="/home#howitworks" class="menu-list-item link-to">How does it work?</nuxt-link>
+                    <nuxt-link to="/our-rates" class="menu-list-item link-to">Our rates</nuxt-link>
+                    <nuxt-link to="/photo-require" class="menu-list-item link-to">Photo requirements</nuxt-link>
                   </div>
                 </div>
                 <div class="menu-language-container">
@@ -255,7 +255,7 @@ export default {
   word-wrap: break-word
 }
 
-.menu-item {
+.menu-item, .link-to {
   color: #222222;
   font-size: 18px;
   font-family: Montserrat;
